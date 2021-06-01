@@ -1,0 +1,65 @@
+Arguments: 
+  /Users/mcoevert/.nvm/versions/node/v14.16.1/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js install
+
+PATH: 
+  /Users/mcoevert/.gem/bin:/Users/mcoevert/.gem/ruby/2.7.0/bin:/usr/local/opt/ruby/bin:/Users/mcoevert/Downloads/google-cloud-sdk/bin:/Users/mcoevert/.nvm/versions/node/v14.16.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Users/mcoevert/.gem/bin:/Users/mcoevert/.gem/ruby/2.7.0/bin:/usr/local/opt/ruby/bin:/Users/mcoevert/Downloads/google-cloud-sdk/bin:/Users/mcoevert/.nvm/versions/node/v14.16.1/bin:/Users/mcoevert/Library/Android/sdk/tools:/Users/mcoevert/Library/Android/sdk/tools/bin/:/Users/mcoevert/Library/Android/sdk/platform-tools:/Applications/SonarScanner/bin:/Users/mcoevert/Documents/flutter/bin:/Users/mcoevert/Library/Android/sdk/tools:/Users/mcoevert/Library/Android/sdk/tools/bin/:/Users/mcoevert/Library/Android/sdk/platform-tools:/Applications/SonarScanner/bin:/Users/mcoevert/Documents/flutter/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.16.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/api-client-sdk: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:66988:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:140749:22)
+      at Request.emit (events.js:315:20)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141721:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:141643:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (internal/streams/readable.js:1327:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+
+npm manifest: 
+  {
+    "name": "typescript-axios",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+      "example": "example"
+    },
+    "scripts": {
+      "start": "ts-node-dev index.ts",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+ssh://github.com/BookMyDeskBV/bookmydesk-api-sdk-typescript-axios.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/BookMyDeskBV/bookmydesk-api-sdk-typescript-axios/issues"
+    },
+    "homepage": "https://github.com/BookMyDeskBV/bookmydesk-api-sdk-typescript-axios#readme",
+    "dependencies": {
+      "api-client-sdk": "git@github.com:BookMyDeskBV/bookmydesk-api-sdk-typescript-axios.git"
+    },
+    "devDependencies": {
+      "ts-node-dev": "^1.1.6",
+      "typescript": "^4.3.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
