@@ -163,19 +163,25 @@ export interface MeAdmin {
      * @type {string}
      * @memberof MeAdmin
      */
-    first_name: string;
+    firstName: string;
     /**
      * 
      * @type {string}
      * @memberof MeAdmin
      */
-    last_name: string;
+    lastName: string;
     /**
      * 
-     * @type {string}
+     * @type {Array<string>}
      * @memberof MeAdmin
      */
-    roles: string;
+    roles: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof MeAdmin
+     */
+    companyIds: Array<string>;
 }
 /**
  * 
