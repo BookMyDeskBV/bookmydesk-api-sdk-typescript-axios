@@ -476,25 +476,7 @@ export interface InlineResponse2001 {
      * @type {string}
      * @memberof InlineResponse2001
      */
-    access_token: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse2001
-     */
-    refresh_token: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse2001
-     */
-    username: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse2001
-     */
-    token_type: string;
+    id?: string;
 }
 /**
  * 
@@ -743,10 +725,10 @@ export interface InlineResponse20019Result {
 export interface InlineResponse2002 {
     /**
      * 
-     * @type {string}
+     * @type {InlineResponse2002Result}
      * @memberof InlineResponse2002
      */
-    id?: string;
+    result?: InlineResponse2002Result;
 }
 /**
  * 
@@ -1004,6 +986,68 @@ export interface InlineResponse20020ResultUser {
 /**
  * 
  * @export
+ * @interface InlineResponse2002Result
+ */
+export interface InlineResponse2002Result {
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse2002Result
+     */
+    total: number;
+    /**
+     * 
+     * @type {Array<InlineResponse2002ResultItems>}
+     * @memberof InlineResponse2002Result
+     */
+    items: Array<InlineResponse2002ResultItems>;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse2002ResultItems
+ */
+export interface InlineResponse2002ResultItems {
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse2002ResultItems
+     */
+    id: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse2002ResultItems
+     */
+    firstName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse2002ResultItems
+     */
+    infix: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse2002ResultItems
+     */
+    lastName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse2002ResultItems
+     */
+    email: string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof InlineResponse2002ResultItems
+     */
+    roles: Array<string>;
+}
+/**
+ * 
+ * @export
  * @interface InlineResponse2003
  */
 export interface InlineResponse2003 {
@@ -1022,59 +1066,10 @@ export interface InlineResponse2003 {
 export interface InlineResponse2003Result {
     /**
      * 
-     * @type {number}
+     * @type {InlineResponse2002ResultItems}
      * @memberof InlineResponse2003Result
      */
-    total: number;
-    /**
-     * 
-     * @type {Array<InlineResponse2003ResultItems>}
-     * @memberof InlineResponse2003Result
-     */
-    items: Array<InlineResponse2003ResultItems>;
-}
-/**
- * 
- * @export
- * @interface InlineResponse2003ResultItems
- */
-export interface InlineResponse2003ResultItems {
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse2003ResultItems
-     */
-    id: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse2003ResultItems
-     */
-    firstName: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse2003ResultItems
-     */
-    infix: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse2003ResultItems
-     */
-    lastName: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse2003ResultItems
-     */
-    email: string;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof InlineResponse2003ResultItems
-     */
-    roles: Array<string>;
+    user?: InlineResponse2002ResultItems;
 }
 /**
  * 
@@ -1084,23 +1079,10 @@ export interface InlineResponse2003ResultItems {
 export interface InlineResponse2004 {
     /**
      * 
-     * @type {InlineResponse2004Result}
+     * @type {OAuthPasswordGrantResponse}
      * @memberof InlineResponse2004
      */
-    result?: InlineResponse2004Result;
-}
-/**
- * 
- * @export
- * @interface InlineResponse2004Result
- */
-export interface InlineResponse2004Result {
-    /**
-     * 
-     * @type {InlineResponse2003ResultItems}
-     * @memberof InlineResponse2004Result
-     */
-    user?: InlineResponse2003ResultItems;
+    result?: OAuthPasswordGrantResponse;
 }
 /**
  * 
@@ -1648,6 +1630,37 @@ export interface MeUser {
      * @memberof MeUser
      */
     open_check_ins: Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface OAuthPasswordGrantResponse
+ */
+export interface OAuthPasswordGrantResponse {
+    /**
+     * 
+     * @type {string}
+     * @memberof OAuthPasswordGrantResponse
+     */
+    access_token: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OAuthPasswordGrantResponse
+     */
+    refresh_token: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OAuthPasswordGrantResponse
+     */
+    username: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof OAuthPasswordGrantResponse
+     */
+    token_type: string;
 }
 /**
  * 
@@ -3121,6 +3134,53 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * 
+         * @param {number} userId User ID
+         * @param {string} clientId Client ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        loginAsAdminUser: async (userId: number, clientId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('loginAsAdminUser', 'userId', userId)
+            // verify required parameter 'clientId' is not null or undefined
+            assertParamExists('loginAsAdminUser', 'clientId', clientId)
+            const localVarPath = `/v3/admin-user/login-as`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (userId !== undefined) {
+                localVarQueryParameter['userId'] = userId;
+            }
+
+            if (clientId !== undefined) {
+                localVarQueryParameter['clientId'] = clientId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Basic API metrics
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3612,7 +3672,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addAdminUser(inlineObject3: InlineObject3, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
+        async addAdminUser(inlineObject3: InlineObject3, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2003>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addAdminUser(inlineObject3, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -3732,7 +3792,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAdminUser(userId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
+        async getAdminUser(userId: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2003>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAdminUser(userId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -3865,7 +3925,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAdminUsers(companyId: string, take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2003>> {
+        async listAdminUsers(companyId: string, take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2002>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAdminUsers(companyId, take, skip, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -3944,6 +4004,17 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * 
+         * @param {number} userId User ID
+         * @param {string} clientId Client ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async loginAsAdminUser(userId: number, clientId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.loginAsAdminUser(userId, clientId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Basic API metrics
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -3964,7 +4035,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async oAuthPasswordGrant(clientId?: string, clientSecret?: string, refreshToken?: string, grantType?: string, username?: string, password?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+        async oAuthPasswordGrant(clientId?: string, clientSecret?: string, refreshToken?: string, grantType?: string, username?: string, password?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OAuthPasswordGrantResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.oAuthPasswordGrant(clientId, clientSecret, refreshToken, grantType, username, password, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -3976,7 +4047,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async postCompanyReservation(companyId: string, inlineObject1?: InlineObject1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2002>> {
+        async postCompanyReservation(companyId: string, inlineObject1?: InlineObject1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postCompanyReservation(companyId, inlineObject1, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -3998,7 +4069,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAdminUser(userId: number, inlineObject2: InlineObject2, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
+        async updateAdminUser(userId: number, inlineObject2: InlineObject2, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2003>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateAdminUser(userId, inlineObject2, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -4082,7 +4153,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addAdminUser(inlineObject3: InlineObject3, options?: any): AxiosPromise<InlineResponse2004> {
+        addAdminUser(inlineObject3: InlineObject3, options?: any): AxiosPromise<InlineResponse2003> {
             return localVarFp.addAdminUser(inlineObject3, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4190,7 +4261,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAdminUser(userId: number, options?: any): AxiosPromise<InlineResponse2004> {
+        getAdminUser(userId: number, options?: any): AxiosPromise<InlineResponse2003> {
             return localVarFp.getAdminUser(userId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4311,7 +4382,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAdminUsers(companyId: string, take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse2003> {
+        listAdminUsers(companyId: string, take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse2002> {
             return localVarFp.listAdminUsers(companyId, take, skip, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4383,6 +4454,16 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.listUsers(companyId, take, skip, options).then((request) => request(axios, basePath));
         },
         /**
+         * 
+         * @param {number} userId User ID
+         * @param {string} clientId Client ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        loginAsAdminUser(userId: number, clientId: string, options?: any): AxiosPromise<InlineResponse2004> {
+            return localVarFp.loginAsAdminUser(userId, clientId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Basic API metrics
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4402,7 +4483,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        oAuthPasswordGrant(clientId?: string, clientSecret?: string, refreshToken?: string, grantType?: string, username?: string, password?: string, options?: any): AxiosPromise<InlineResponse2001> {
+        oAuthPasswordGrant(clientId?: string, clientSecret?: string, refreshToken?: string, grantType?: string, username?: string, password?: string, options?: any): AxiosPromise<OAuthPasswordGrantResponse> {
             return localVarFp.oAuthPasswordGrant(clientId, clientSecret, refreshToken, grantType, username, password, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4413,7 +4494,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postCompanyReservation(companyId: string, inlineObject1?: InlineObject1, options?: any): AxiosPromise<InlineResponse2002> {
+        postCompanyReservation(companyId: string, inlineObject1?: InlineObject1, options?: any): AxiosPromise<InlineResponse2001> {
             return localVarFp.postCompanyReservation(companyId, inlineObject1, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4433,7 +4514,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAdminUser(userId: number, inlineObject2: InlineObject2, options?: any): AxiosPromise<InlineResponse2004> {
+        updateAdminUser(userId: number, inlineObject2: InlineObject2, options?: any): AxiosPromise<InlineResponse2003> {
             return localVarFp.updateAdminUser(userId, inlineObject2, options).then((request) => request(axios, basePath));
         },
         /**
@@ -4870,6 +4951,18 @@ export class DefaultApi extends BaseAPI {
      */
     public listUsers(companyId: string, take?: number, skip?: number, options?: any) {
         return DefaultApiFp(this.configuration).listUsers(companyId, take, skip, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {number} userId User ID
+     * @param {string} clientId Client ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public loginAsAdminUser(userId: number, clientId: string, options?: any) {
+        return DefaultApiFp(this.configuration).loginAsAdminUser(userId, clientId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
