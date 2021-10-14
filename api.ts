@@ -1696,10 +1696,10 @@ export interface InlineResponse20017Result {
     total: number;
     /**
      * 
-     * @type {Array<UserWithRelations>}
+     * @type {Array<UserWithRelations & Operations>}
      * @memberof InlineResponse20017Result
      */
-    items: Array<UserWithRelations>;
+    items: Array<UserWithRelations & Operations>;
 }
 /**
  * 
@@ -4438,10 +4438,10 @@ export interface Seat {
     isActive?: boolean;
     /**
      * 
-     * @type {Array<UserGroupLink>}
+     * @type {Array<SeatUserGroup>}
      * @memberof Seat
      */
-    userGroups?: Array<UserGroupLink>;
+    userGroups?: Array<SeatUserGroup>;
     /**
      * 
      * @type {Array<SeatSeatTag>}
@@ -4668,10 +4668,10 @@ export interface SeatUpdate {
     isActive?: boolean;
     /**
      * 
-     * @type {Array<UserGroupLink>}
+     * @type {Array<SeatUserGroup>}
      * @memberof SeatUpdate
      */
-    userGroups?: Array<UserGroupLink>;
+    userGroups?: Array<SeatUserGroup>;
     /**
      * 
      * @type {Array<SeatSeatTag>}
@@ -4693,16 +4693,60 @@ export interface SeatUpdateAllOf {
     seatType?: SeatType;
     /**
      * 
-     * @type {Array<UserGroupLink>}
+     * @type {Array<SeatUserGroup>}
      * @memberof SeatUpdateAllOf
      */
-    userGroups?: Array<UserGroupLink>;
+    userGroups?: Array<SeatUserGroup>;
     /**
      * 
      * @type {Array<SeatSeatTag>}
      * @memberof SeatUpdateAllOf
      */
     seatTags?: Array<SeatSeatTag>;
+}
+/**
+ * 
+ * @export
+ * @interface SeatUserGroup
+ */
+export interface SeatUserGroup {
+    /**
+     * 
+     * @type {string}
+     * @memberof SeatUserGroup
+     */
+    id: string;
+    /**
+     * 
+     * @type {Array<SeatUserGroupConditions>}
+     * @memberof SeatUserGroup
+     */
+    conditions?: Array<SeatUserGroupConditions>;
+}
+/**
+ * 
+ * @export
+ * @interface SeatUserGroupConditions
+ */
+export interface SeatUserGroupConditions {
+    /**
+     * Zero based weekday, Sunday - Saturday = 0 - 6
+     * @type {number}
+     * @memberof SeatUserGroupConditions
+     */
+    weekday: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeatUserGroupConditions
+     */
+    timeFrom: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeatUserGroupConditions
+     */
+    timeTo: string;
 }
 /**
  * 
@@ -4766,10 +4810,10 @@ export interface SeatWithRelations {
     isActive?: boolean;
     /**
      * 
-     * @type {Array<UserGroup>}
+     * @type {Array<SeatUserGroup>}
      * @memberof SeatWithRelations
      */
-    userGroups: Array<UserGroup>;
+    userGroups: Array<SeatUserGroup>;
     /**
      * 
      * @type {Array<SeatTag>}
@@ -4797,10 +4841,10 @@ export interface SeatWithRelationsAllOf {
     seatTags: Array<SeatTag>;
     /**
      * 
-     * @type {Array<UserGroup>}
+     * @type {Array<SeatUserGroup>}
      * @memberof SeatWithRelationsAllOf
      */
-    userGroups: Array<UserGroup>;
+    userGroups: Array<SeatUserGroup>;
 }
 /**
  * 
@@ -4858,10 +4902,10 @@ export interface SeatWithoutId {
     isActive?: boolean;
     /**
      * 
-     * @type {Array<UserGroupLink>}
+     * @type {Array<SeatUserGroup>}
      * @memberof SeatWithoutId
      */
-    userGroups?: Array<UserGroupLink>;
+    userGroups?: Array<SeatUserGroup>;
     /**
      * 
      * @type {Array<SeatSeatTag>}
@@ -4907,10 +4951,10 @@ export interface SeatWithoutIdAllOf {
     seatType: SeatType;
     /**
      * 
-     * @type {Array<UserGroupLink>}
+     * @type {Array<SeatUserGroup>}
      * @memberof SeatWithoutIdAllOf
      */
-    userGroups?: Array<UserGroupLink>;
+    userGroups?: Array<SeatUserGroup>;
     /**
      * 
      * @type {Array<SeatSeatTag>}
@@ -5122,10 +5166,10 @@ export interface UsedSeat {
     isActive?: boolean;
     /**
      * 
-     * @type {Array<UserGroupLink>}
+     * @type {Array<SeatUserGroup>}
      * @memberof UsedSeat
      */
-    userGroups?: Array<UserGroupLink>;
+    userGroups?: Array<SeatUserGroup>;
     /**
      * 
      * @type {Array<SeatSeatTag>}
