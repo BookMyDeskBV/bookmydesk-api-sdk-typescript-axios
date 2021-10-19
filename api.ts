@@ -2836,6 +2836,44 @@ export interface InlineResponse2009Result {
 /**
  * 
  * @export
+ * @interface InlineResponse201
+ */
+export interface InlineResponse201 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse201
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {InlineResponse201Result}
+     * @memberof InlineResponse201
+     */
+    result: InlineResponse201Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse201Result
+ */
+export interface InlineResponse201Result {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof InlineResponse201Result
+     */
+    errors: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof InlineResponse201Result
+     */
+    successes: Array<string>;
+}
+/**
+ * 
+ * @export
  * @interface InlineResponse400
  */
 export interface InlineResponse400 {
@@ -10137,7 +10175,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async importUsers(companyId: string, file: any, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async importUsers(companyId: string, file: any, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse201>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importUsers(companyId, file, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -11082,7 +11120,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        importUsers(companyId: string, file: any, options?: any): AxiosPromise<void> {
+        importUsers(companyId: string, file: any, options?: any): AxiosPromise<InlineResponse201> {
             return localVarFp.importUsers(companyId, file, options).then((request) => request(axios, basePath));
         },
         /**
