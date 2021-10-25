@@ -465,7 +465,7 @@ export interface Company {
      * @type {Language}
      * @memberof Company
      */
-    language?: Language;
+    language: Language;
     /**
      * 
      * @type {boolean}
@@ -791,7 +791,7 @@ export interface CompanyWithoutId {
      * @type {Language}
      * @memberof CompanyWithoutId
      */
-    language?: Language;
+    language: Language;
     /**
      * 
      * @type {boolean}
@@ -973,6 +973,12 @@ export interface CompanyWithoutIdAllOf {
      * @memberof CompanyWithoutIdAllOf
      */
     billingType: BillingType;
+    /**
+     * 
+     * @type {Language}
+     * @memberof CompanyWithoutIdAllOf
+     */
+    language: Language;
 }
 /**
  * 
