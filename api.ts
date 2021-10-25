@@ -1231,19 +1231,19 @@ export interface InlineObject6 {
      * @type {string}
      * @memberof InlineObject6
      */
-    first_name?: string;
+    first_name?: string | null;
     /**
      * 
      * @type {string}
      * @memberof InlineObject6
      */
-    infix?: string;
+    infix?: string | null;
     /**
      * 
      * @type {string}
      * @memberof InlineObject6
      */
-    last_name?: string;
+    last_name?: string | null;
     /**
      * 
      * @type {Language}
@@ -8707,7 +8707,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         postCompanyReservationReocurring: async (companyId: string, inlineObject9?: InlineObject9, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'companyId' is not null or undefined
             assertParamExists('postCompanyReservationReocurring', 'companyId', companyId)
-            const localVarPath = `/v2/company/{company_id}/recurring-reservation`
+            const localVarPath = `/company/{company_id}/recurring-reservation`
                 .replace(`{${"company_id"}}`, encodeURIComponent(String(companyId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -10659,7 +10659,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMe(inlineObject6: InlineObject6, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async updateMe(inlineObject6: InlineObject6, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateMe(inlineObject6, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -11570,7 +11570,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateMe(inlineObject6: InlineObject6, options?: any): AxiosPromise<void> {
+        updateMe(inlineObject6: InlineObject6, options?: any): AxiosPromise<string> {
             return localVarFp.updateMe(inlineObject6, options).then((request) => request(axios, basePath));
         },
         /**
