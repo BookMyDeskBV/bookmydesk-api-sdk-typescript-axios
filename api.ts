@@ -265,6 +265,74 @@ export interface AdminUserUpdateAllOf {
 /**
  * 
  * @export
+ * @interface AdminUserWithRelations
+ */
+export interface AdminUserWithRelations {
+    /**
+     * 
+     * @type {number}
+     * @memberof AdminUserWithRelations
+     */
+    id: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof AdminUserWithRelations
+     */
+    firstName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AdminUserWithRelations
+     */
+    infix?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AdminUserWithRelations
+     */
+    lastName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AdminUserWithRelations
+     */
+    email: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof AdminUserWithRelations
+     */
+    newsletter?: boolean;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof AdminUserWithRelations
+     */
+    roles: Array<string>;
+    /**
+     * 
+     * @type {Array<Company>}
+     * @memberof AdminUserWithRelations
+     */
+    companies: Array<Company>;
+}
+/**
+ * 
+ * @export
+ * @interface AdminUserWithRelationsAllOf
+ */
+export interface AdminUserWithRelationsAllOf {
+    /**
+     * 
+     * @type {Array<Company>}
+     * @memberof AdminUserWithRelationsAllOf
+     */
+    companies: Array<Company>;
+}
+/**
+ * 
+ * @export
  * @interface AdminUserWithoutId
  */
 export interface AdminUserWithoutId {
@@ -1248,19 +1316,19 @@ export interface InlineObject7 {
      * @type {string}
      * @memberof InlineObject7
      */
-    visitor_name?: string;
+    visitor_name?: string | null;
     /**
      * 
      * @type {string}
      * @memberof InlineObject7
      */
-    visitor_email?: string;
+    visitor_email?: string | null;
     /**
      * 
      * @type {string}
      * @memberof InlineObject7
      */
-    visitor_phone?: string;
+    visitor_phone?: string | null;
 }
 
 /**
@@ -1319,19 +1387,19 @@ export interface InlineObject8 {
      * @type {string}
      * @memberof InlineObject8
      */
-    visitor_name?: string;
+    visitor_name?: string | null;
     /**
      * 
      * @type {string}
      * @memberof InlineObject8
      */
-    visitor_email?: string;
+    visitor_email?: string | null;
     /**
      * 
      * @type {string}
      * @memberof InlineObject8
      */
-    visitor_phone?: string;
+    visitor_phone?: string | null;
 }
 
 /**
@@ -1396,19 +1464,19 @@ export interface InlineObject9 {
      * @type {string}
      * @memberof InlineObject9
      */
-    visitor_name?: string;
+    visitor_name?: string | null;
     /**
      * 
      * @type {string}
      * @memberof InlineObject9
      */
-    visitor_email?: string;
+    visitor_email?: string | null;
     /**
      * 
      * @type {string}
      * @memberof InlineObject9
      */
-    visitor_phone?: string;
+    visitor_phone?: string | null;
 }
 
 /**
@@ -1575,10 +1643,10 @@ export interface InlineResponse20013Result {
     total: number;
     /**
      * 
-     * @type {Array<AdminUser & Operations & object>}
+     * @type {Array<AdminUserWithRelations & Operations & object>}
      * @memberof InlineResponse20013Result
      */
-    items: Array<AdminUser & Operations & object>;
+    items: Array<AdminUserWithRelations & Operations & object>;
 }
 /**
  * 
@@ -6972,11 +7040,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} companyId Company ID to get reservations for
          * @param {string} [from] Start of daterange
          * @param {string} [to] End of daterange
-         * @param {string} [location] LocationId to get reservations for
+         * @param {string} [locationId] LocationId to get reservations for
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCompanyReservations: async (companyId: string, from?: string, to?: string, location?: string, options: any = {}): Promise<RequestArgs> => {
+        getCompanyReservations: async (companyId: string, from?: string, to?: string, locationId?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'companyId' is not null or undefined
             assertParamExists('getCompanyReservations', 'companyId', companyId)
             const localVarPath = `/v2/company/{company_id}/reservation`
@@ -7008,8 +7076,8 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
                     to;
             }
 
-            if (location !== undefined) {
-                localVarQueryParameter['location'] = location;
+            if (locationId !== undefined) {
+                localVarQueryParameter['location_id'] = locationId;
             }
 
 
@@ -10013,12 +10081,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {string} companyId Company ID to get reservations for
          * @param {string} [from] Start of daterange
          * @param {string} [to] End of daterange
-         * @param {string} [location] LocationId to get reservations for
+         * @param {string} [locationId] LocationId to get reservations for
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCompanyReservations(companyId: string, from?: string, to?: string, location?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<object>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCompanyReservations(companyId, from, to, location, options);
+        async getCompanyReservations(companyId: string, from?: string, to?: string, locationId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<object>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCompanyReservations(companyId, from, to, locationId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -10973,12 +11041,12 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {string} companyId Company ID to get reservations for
          * @param {string} [from] Start of daterange
          * @param {string} [to] End of daterange
-         * @param {string} [location] LocationId to get reservations for
+         * @param {string} [locationId] LocationId to get reservations for
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCompanyReservations(companyId: string, from?: string, to?: string, location?: string, options?: any): AxiosPromise<Array<object>> {
-            return localVarFp.getCompanyReservations(companyId, from, to, location, options).then((request) => request(axios, basePath));
+        getCompanyReservations(companyId: string, from?: string, to?: string, locationId?: string, options?: any): AxiosPromise<Array<object>> {
+            return localVarFp.getCompanyReservations(companyId, from, to, locationId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -11932,13 +12000,13 @@ export class DefaultApi extends BaseAPI {
      * @param {string} companyId Company ID to get reservations for
      * @param {string} [from] Start of daterange
      * @param {string} [to] End of daterange
-     * @param {string} [location] LocationId to get reservations for
+     * @param {string} [locationId] LocationId to get reservations for
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getCompanyReservations(companyId: string, from?: string, to?: string, location?: string, options?: any) {
-        return DefaultApiFp(this.configuration).getCompanyReservations(companyId, from, to, location, options).then((request) => request(this.axios, this.basePath));
+    public getCompanyReservations(companyId: string, from?: string, to?: string, locationId?: string, options?: any) {
+        return DefaultApiFp(this.configuration).getCompanyReservations(companyId, from, to, locationId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
