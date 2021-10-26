@@ -4153,6 +4153,12 @@ export interface MeAdmin {
      * @memberof MeAdmin
      */
     companyIds: Array<string>;
+    /**
+     * 
+     * @type {BillingType}
+     * @memberof MeAdmin
+     */
+    billingType?: BillingType;
 }
 /**
  * 
@@ -8078,14 +8084,14 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate'} [sortField] field to sort on
+         * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate' | 'language'} [sortField] field to sort on
          * @param {'asc' | 'desc'} [sortDirection] direction to sort to
          * @param {number} [take] Amount of items to take
          * @param {number} [skip] Amount of items to skip
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCompanies: async (sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options: any = {}): Promise<RequestArgs> => {
+        listCompanies: async (sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate' | 'language', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v3/companies`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -10554,14 +10560,14 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate'} [sortField] field to sort on
+         * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate' | 'language'} [sortField] field to sort on
          * @param {'asc' | 'desc'} [sortDirection] direction to sort to
          * @param {number} [take] Amount of items to take
          * @param {number} [skip] Amount of items to skip
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listCompanies(sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2006>> {
+        async listCompanies(sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate' | 'language', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2006>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCompanies(sortField, sortDirection, take, skip, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -11497,14 +11503,14 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
-         * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate'} [sortField] field to sort on
+         * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate' | 'language'} [sortField] field to sort on
          * @param {'asc' | 'desc'} [sortDirection] direction to sort to
          * @param {number} [take] Amount of items to take
          * @param {number} [skip] Amount of items to skip
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCompanies(sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse2006> {
+        listCompanies(sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate' | 'language', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse2006> {
             return localVarFp.listCompanies(sortField, sortDirection, take, skip, options).then((request) => request(axios, basePath));
         },
         /**
@@ -12490,7 +12496,7 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 
-     * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate'} [sortField] field to sort on
+     * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate' | 'language'} [sortField] field to sort on
      * @param {'asc' | 'desc'} [sortDirection] direction to sort to
      * @param {number} [take] Amount of items to take
      * @param {number} [skip] Amount of items to skip
@@ -12498,7 +12504,7 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public listCompanies(sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any) {
+    public listCompanies(sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate' | 'language', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any) {
         return DefaultApiFp(this.configuration).listCompanies(sortField, sortDirection, take, skip, options).then((request) => request(this.axios, this.basePath));
     }
 
