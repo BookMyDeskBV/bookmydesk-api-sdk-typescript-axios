@@ -753,6 +753,230 @@ export interface CompanyProperties {
 /**
  * 
  * @export
+ * @interface CompanyWithCounts
+ */
+export interface CompanyWithCounts {
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    contactFirstname: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    contactLastname: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    contactEmail: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    contactPhone: string;
+    /**
+     * 
+     * @type {Language}
+     * @memberof CompanyWithCounts
+     */
+    language: Language;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    forceGeofence?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    mandatoryCheckIn?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    reservationWindowLength: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    forceTimeslotUse?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    checkInEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    checkInV2Enabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    lunchEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    meetingEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    visitorsEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    recurringEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    overlappingUserReservationsEnabled?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    billingPricePerCustomer: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    billingStartDate: string;
+    /**
+     * 
+     * @type {BillingType}
+     * @memberof CompanyWithCounts
+     */
+    billingType: BillingType;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    billingVoucherCode?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    mapEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    presentpaneEnabled?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    employeeCount?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    notes?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    autoProvisioningDomain?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    locationCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    mapCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    userCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    reservationCount: number;
+}
+/**
+ * 
+ * @export
+ * @interface CompanyWithCountsAllOf
+ */
+export interface CompanyWithCountsAllOf {
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCountsAllOf
+     */
+    locationCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCountsAllOf
+     */
+    mapCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCountsAllOf
+     */
+    userCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCountsAllOf
+     */
+    reservationCount: number;
+}
+/**
+ * 
+ * @export
  * @interface CompanyWithoutId
  */
 export interface CompanyWithoutId {
@@ -2800,10 +3024,10 @@ export interface InlineResponse2006Result {
     total: number;
     /**
      * 
-     * @type {Array<Company>}
+     * @type {Array<CompanyWithCounts>}
      * @memberof InlineResponse2006Result
      */
-    items: Array<Company>;
+    items: Array<CompanyWithCounts>;
 }
 /**
  * 
@@ -7854,14 +8078,14 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {'name'} [sortField] field to sort on
+         * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate'} [sortField] field to sort on
          * @param {'asc' | 'desc'} [sortDirection] direction to sort to
          * @param {number} [take] Amount of items to take
          * @param {number} [skip] Amount of items to skip
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCompanies: async (sortField?: 'name', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options: any = {}): Promise<RequestArgs> => {
+        listCompanies: async (sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v3/companies`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -10330,14 +10554,14 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {'name'} [sortField] field to sort on
+         * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate'} [sortField] field to sort on
          * @param {'asc' | 'desc'} [sortDirection] direction to sort to
          * @param {number} [take] Amount of items to take
          * @param {number} [skip] Amount of items to skip
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listCompanies(sortField?: 'name', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2006>> {
+        async listCompanies(sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2006>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCompanies(sortField, sortDirection, take, skip, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -11273,14 +11497,14 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
-         * @param {'name'} [sortField] field to sort on
+         * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate'} [sortField] field to sort on
          * @param {'asc' | 'desc'} [sortDirection] direction to sort to
          * @param {number} [take] Amount of items to take
          * @param {number} [skip] Amount of items to skip
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCompanies(sortField?: 'name', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse2006> {
+        listCompanies(sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse2006> {
             return localVarFp.listCompanies(sortField, sortDirection, take, skip, options).then((request) => request(axios, basePath));
         },
         /**
@@ -12266,7 +12490,7 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 
-     * @param {'name'} [sortField] field to sort on
+     * @param {'name' | 'billingPricePerCustomer' | 'billingStartDate'} [sortField] field to sort on
      * @param {'asc' | 'desc'} [sortDirection] direction to sort to
      * @param {number} [take] Amount of items to take
      * @param {number} [skip] Amount of items to skip
@@ -12274,7 +12498,7 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public listCompanies(sortField?: 'name', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any) {
+    public listCompanies(sortField?: 'name' | 'billingPricePerCustomer' | 'billingStartDate', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any) {
         return DefaultApiFp(this.configuration).listCompanies(sortField, sortDirection, take, skip, options).then((request) => request(this.axios, this.basePath));
     }
 
