@@ -3124,6 +3124,24 @@ export interface Location {
     order?: number;
     /**
      * 
+     * @type {number}
+     * @memberof Location
+     */
+    centerLat?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Location
+     */
+    centerLng?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Location
+     */
+    proximityRadius?: number;
+    /**
+     * 
      * @type {string}
      * @memberof Location
      */
@@ -3177,6 +3195,24 @@ export interface LocationProperties {
      * @memberof LocationProperties
      */
     order?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof LocationProperties
+     */
+    centerLat?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof LocationProperties
+     */
+    centerLng?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof LocationProperties
+     */
+    proximityRadius?: number;
 }
 /**
  * 
@@ -3263,6 +3299,24 @@ export interface LocationWithoutId {
      * @memberof LocationWithoutId
      */
     order?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof LocationWithoutId
+     */
+    centerLat?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof LocationWithoutId
+     */
+    centerLng?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof LocationWithoutId
+     */
+    proximityRadius?: number;
 }
 /**
  * 
