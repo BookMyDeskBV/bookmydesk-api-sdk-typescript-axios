@@ -4401,10 +4401,16 @@ export interface Reservation {
     includeParking: boolean;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof Reservation
      */
-    checkIn: boolean;
+    checkedInTime?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Reservation
+     */
+    checkedOutTime?: string;
     /**
      * 
      * @type {string}
