@@ -2939,6 +2939,12 @@ export interface InlineResponse20042Result {
      * @memberof InlineResponse20042Result
      */
     seatCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20042Result
+     */
+    parkingCount: number;
 }
 /**
  * 
