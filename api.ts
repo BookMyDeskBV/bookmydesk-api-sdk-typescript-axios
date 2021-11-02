@@ -4768,6 +4768,12 @@ export interface ReportWithRelations {
      * @memberof ReportWithRelations
      */
     reason: ReportReason;
+    /**
+     * 
+     * @type {User}
+     * @memberof ReportWithRelations
+     */
+    user: User;
 }
 /**
  * 
@@ -4787,6 +4793,12 @@ export interface ReportWithRelationsAllOf {
      * @memberof ReportWithRelationsAllOf
      */
     reason: ReportReason;
+    /**
+     * 
+     * @type {User}
+     * @memberof ReportWithRelationsAllOf
+     */
+    user: User;
 }
 /**
  * 
