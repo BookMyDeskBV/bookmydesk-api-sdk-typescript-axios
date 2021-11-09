@@ -3009,6 +3009,12 @@ export interface InlineResponse20044Result {
      * @memberof InlineResponse20044Result
      */
     seatCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20044Result
+     */
+    parkingCount: number;
 }
 /**
  * 
@@ -4542,6 +4548,12 @@ export interface OperationsOperations {
      * @memberof OperationsOperations
      */
     canDelete?: boolean;
+    /**
+     * Reason why the entity cannot be deleted
+     * @type {string}
+     * @memberof OperationsOperations
+     */
+    cannotDeleteDescription?: string;
 }
 /**
  * 
