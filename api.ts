@@ -1788,10 +1788,10 @@ export interface InlineResponse20010Result {
     total: number;
     /**
      * 
-     * @type {Array<ReportReasonWithRelations>}
+     * @type {Array<ReportReasonWithRelations & Operations>}
      * @memberof InlineResponse20010Result
      */
-    items: Array<ReportReasonWithRelations>;
+    items: Array<ReportReasonWithRelations & Operations>;
 }
 /**
  * 
@@ -2579,10 +2579,10 @@ export interface InlineResponse20033Result {
     total: number;
     /**
      * 
-     * @type {Array<SeatTag>}
+     * @type {Array<SeatTag & Operations>}
      * @memberof InlineResponse20033Result
      */
-    items: Array<SeatTag>;
+    items: Array<SeatTag & Operations>;
 }
 /**
  * 
@@ -2681,10 +2681,10 @@ export interface InlineResponse20036Result {
     total: number;
     /**
      * 
-     * @type {Array<UserGroup>}
+     * @type {Array<UserGroup & Operations>}
      * @memberof InlineResponse20036Result
      */
-    items: Array<UserGroup>;
+    items: Array<UserGroup & Operations>;
 }
 /**
  * 
@@ -2783,10 +2783,10 @@ export interface InlineResponse20039Result {
     total: number;
     /**
      * 
-     * @type {Array<Timeslot>}
+     * @type {Array<Timeslot & Operations>}
      * @memberof InlineResponse20039Result
      */
-    items: Array<Timeslot>;
+    items: Array<Timeslot & Operations>;
 }
 /**
  * 
