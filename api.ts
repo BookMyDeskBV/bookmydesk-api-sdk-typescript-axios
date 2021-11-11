@@ -1367,7 +1367,7 @@ export interface InlineObject5 {
      * @type {number}
      * @memberof InlineObject5
      */
-    employee_count: number;
+    employee_count?: number;
     /**
      * 
      * @type {string}
@@ -1415,7 +1415,7 @@ export interface InlineObject5 {
      * @type {string}
      * @memberof InlineObject5
      */
-    updates: InlineObject5UpdatesEnum;
+    updates?: InlineObject5UpdatesEnum;
 }
 
 /**
@@ -5978,6 +5978,12 @@ export interface UserGroup {
     label: string;
     /**
      * 
+     * @type {number}
+     * @memberof UserGroup
+     */
+    reservationWindowLength?: number;
+    /**
+     * 
      * @type {string}
      * @memberof UserGroup
      */
@@ -6021,6 +6027,12 @@ export interface UserGroupProperties {
      * @memberof UserGroupProperties
      */
     label?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof UserGroupProperties
+     */
+    reservationWindowLength?: number;
 }
 /**
  * 
@@ -6034,6 +6046,12 @@ export interface UserGroupWithoutId {
      * @memberof UserGroupWithoutId
      */
     label: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof UserGroupWithoutId
+     */
+    reservationWindowLength?: number;
 }
 /**
  * 
