@@ -5981,7 +5981,7 @@ export interface UserGroup {
      * @type {number}
      * @memberof UserGroup
      */
-    reservationWindowLength?: number;
+    reservationWindowLength?: number | null;
     /**
      * 
      * @type {string}
@@ -6032,7 +6032,7 @@ export interface UserGroupProperties {
      * @type {number}
      * @memberof UserGroupProperties
      */
-    reservationWindowLength?: number;
+    reservationWindowLength?: number | null;
 }
 /**
  * 
@@ -6051,7 +6051,7 @@ export interface UserGroupWithoutId {
      * @type {number}
      * @memberof UserGroupWithoutId
      */
-    reservationWindowLength?: number;
+    reservationWindowLength?: number | null;
 }
 /**
  * 
