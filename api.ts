@@ -3484,6 +3484,12 @@ export interface Location {
      */
     proximityRadius?: number;
     /**
+     * ISO 3166-1 Alpha-2 country codes https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
+     * @type {string}
+     * @memberof Location
+     */
+    countryCode?: string;
+    /**
      * 
      * @type {string}
      * @memberof Location
@@ -3556,6 +3562,12 @@ export interface LocationProperties {
      * @memberof LocationProperties
      */
     proximityRadius?: number;
+    /**
+     * ISO 3166-1 Alpha-2 country codes https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
+     * @type {string}
+     * @memberof LocationProperties
+     */
+    countryCode?: string;
 }
 /**
  * 
@@ -3660,6 +3672,12 @@ export interface LocationWithoutId {
      * @memberof LocationWithoutId
      */
     proximityRadius?: number;
+    /**
+     * ISO 3166-1 Alpha-2 country codes https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
+     * @type {string}
+     * @memberof LocationWithoutId
+     */
+    countryCode?: string;
 }
 /**
  * 
