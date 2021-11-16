@@ -3431,10 +3431,10 @@ export interface Location {
     name: string;
     /**
      * 
-     * @type {LocationPropertiesAddress}
+     * @type {LocationWithoutIdAllOfAddress}
      * @memberof Location
      */
-    address: LocationPropertiesAddress;
+    address: LocationWithoutIdAllOfAddress;
     /**
      * 
      * @type {number}
@@ -3483,12 +3483,6 @@ export interface Location {
      * @memberof Location
      */
     proximityRadius?: number;
-    /**
-     * ISO 3166-1 Alpha-2 country codes https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
-     * @type {string}
-     * @memberof Location
-     */
-    countryCode?: string;
     /**
      * 
      * @type {string}
@@ -3562,12 +3556,6 @@ export interface LocationProperties {
      * @memberof LocationProperties
      */
     proximityRadius?: number;
-    /**
-     * ISO 3166-1 Alpha-2 country codes https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
-     * @type {string}
-     * @memberof LocationProperties
-     */
-    countryCode?: string;
 }
 /**
  * 
@@ -3605,6 +3593,12 @@ export interface LocationPropertiesAddress {
      * @memberof LocationPropertiesAddress
      */
     city: string;
+    /**
+     * ISO 3166-1 Alpha-2 country codes https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
+     * @type {string}
+     * @memberof LocationPropertiesAddress
+     */
+    countryCode?: string;
 }
 /**
  * 
@@ -3620,10 +3614,10 @@ export interface LocationWithoutId {
     name: string;
     /**
      * 
-     * @type {LocationPropertiesAddress}
+     * @type {LocationWithoutIdAllOfAddress}
      * @memberof LocationWithoutId
      */
-    address: LocationPropertiesAddress;
+    address: LocationWithoutIdAllOfAddress;
     /**
      * 
      * @type {number}
@@ -3672,12 +3666,6 @@ export interface LocationWithoutId {
      * @memberof LocationWithoutId
      */
     proximityRadius?: number;
-    /**
-     * ISO 3166-1 Alpha-2 country codes https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
-     * @type {string}
-     * @memberof LocationWithoutId
-     */
-    countryCode?: string;
 }
 /**
  * 
@@ -3705,10 +3693,47 @@ export interface LocationWithoutIdAllOf {
     contactEmail: string;
     /**
      * 
-     * @type {LocationPropertiesAddress}
+     * @type {LocationWithoutIdAllOfAddress}
      * @memberof LocationWithoutIdAllOf
      */
-    address: LocationPropertiesAddress;
+    address: LocationWithoutIdAllOfAddress;
+}
+/**
+ * 
+ * @export
+ * @interface LocationWithoutIdAllOfAddress
+ */
+export interface LocationWithoutIdAllOfAddress {
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationWithoutIdAllOfAddress
+     */
+    street: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof LocationWithoutIdAllOfAddress
+     */
+    number: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationWithoutIdAllOfAddress
+     */
+    addition: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationWithoutIdAllOfAddress
+     */
+    postalCode: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationWithoutIdAllOfAddress
+     */
+    city: string;
 }
 /**
  * 
