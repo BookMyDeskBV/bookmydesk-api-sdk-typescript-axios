@@ -3431,10 +3431,10 @@ export interface Location {
     name: string;
     /**
      * 
-     * @type {LocationWithoutIdAllOfAddress}
+     * @type {LocationAddress}
      * @memberof Location
      */
-    address: LocationWithoutIdAllOfAddress;
+    address: LocationAddress;
     /**
      * 
      * @type {number}
@@ -3493,6 +3493,49 @@ export interface Location {
 /**
  * 
  * @export
+ * @interface LocationAddress
+ */
+export interface LocationAddress {
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationAddress
+     */
+    street: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof LocationAddress
+     */
+    number: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationAddress
+     */
+    addition: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationAddress
+     */
+    postalCode: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationAddress
+     */
+    city: string;
+    /**
+     * ISO 3166-1 Alpha-2 country codes https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
+     * @type {string}
+     * @memberof LocationAddress
+     */
+    countryCode?: string;
+}
+/**
+ * 
+ * @export
  * @interface LocationProperties
  */
 export interface LocationProperties {
@@ -3504,10 +3547,10 @@ export interface LocationProperties {
     name?: string;
     /**
      * 
-     * @type {LocationPropertiesAddress}
+     * @type {LocationAddress}
      * @memberof LocationProperties
      */
-    address?: LocationPropertiesAddress;
+    address?: LocationAddress;
     /**
      * 
      * @type {number}
@@ -3560,49 +3603,6 @@ export interface LocationProperties {
 /**
  * 
  * @export
- * @interface LocationPropertiesAddress
- */
-export interface LocationPropertiesAddress {
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationPropertiesAddress
-     */
-    street: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof LocationPropertiesAddress
-     */
-    number: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationPropertiesAddress
-     */
-    addition: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationPropertiesAddress
-     */
-    postalCode: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationPropertiesAddress
-     */
-    city: string;
-    /**
-     * ISO 3166-1 Alpha-2 country codes https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
-     * @type {string}
-     * @memberof LocationPropertiesAddress
-     */
-    countryCode?: string;
-}
-/**
- * 
- * @export
  * @interface LocationWithoutId
  */
 export interface LocationWithoutId {
@@ -3614,10 +3614,10 @@ export interface LocationWithoutId {
     name: string;
     /**
      * 
-     * @type {LocationWithoutIdAllOfAddress}
+     * @type {LocationAddress}
      * @memberof LocationWithoutId
      */
-    address: LocationWithoutIdAllOfAddress;
+    address: LocationAddress;
     /**
      * 
      * @type {number}
@@ -3693,47 +3693,10 @@ export interface LocationWithoutIdAllOf {
     contactEmail: string;
     /**
      * 
-     * @type {LocationWithoutIdAllOfAddress}
+     * @type {LocationAddress}
      * @memberof LocationWithoutIdAllOf
      */
-    address: LocationWithoutIdAllOfAddress;
-}
-/**
- * 
- * @export
- * @interface LocationWithoutIdAllOfAddress
- */
-export interface LocationWithoutIdAllOfAddress {
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationWithoutIdAllOfAddress
-     */
-    street: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof LocationWithoutIdAllOfAddress
-     */
-    number: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationWithoutIdAllOfAddress
-     */
-    addition: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationWithoutIdAllOfAddress
-     */
-    postalCode: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationWithoutIdAllOfAddress
-     */
-    city: string;
+    address: LocationAddress;
 }
 /**
  * 
