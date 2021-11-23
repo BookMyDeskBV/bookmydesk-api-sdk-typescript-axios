@@ -586,6 +586,42 @@ export interface Company {
      * @memberof Company
      */
     autoProvisioningDomain?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Company
+     */
+    deskAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Company
+     */
+    deskExpirationTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Company
+     */
+    lunchAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Company
+     */
+    lunchExpirationTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Company
+     */
+    meetingAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Company
+     */
+    meetingExpirationTime?: number;
 }
 /**
  * 
@@ -749,6 +785,42 @@ export interface CompanyProperties {
      * @memberof CompanyProperties
      */
     autoProvisioningDomain?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyProperties
+     */
+    deskAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyProperties
+     */
+    deskExpirationTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyProperties
+     */
+    lunchAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyProperties
+     */
+    lunchExpirationTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyProperties
+     */
+    meetingAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyProperties
+     */
+    meetingExpirationTime?: number;
 }
 /**
  * 
@@ -918,6 +990,42 @@ export interface CompanyWithCounts {
      * @memberof CompanyWithCounts
      */
     autoProvisioningDomain?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    deskAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    deskExpirationTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    lunchAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    lunchExpirationTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    meetingAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    meetingExpirationTime?: number;
     /**
      * 
      * @type {number}
@@ -1136,6 +1244,42 @@ export interface CompanyWithoutId {
      * @memberof CompanyWithoutId
      */
     autoProvisioningDomain?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithoutId
+     */
+    deskAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithoutId
+     */
+    deskExpirationTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithoutId
+     */
+    lunchAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithoutId
+     */
+    lunchExpirationTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithoutId
+     */
+    meetingAutoCheckoutTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithoutId
+     */
+    meetingExpirationTime?: number;
 }
 /**
  * 
@@ -3431,10 +3575,10 @@ export interface Location {
     name: string;
     /**
      * 
-     * @type {LocationPropertiesAddress}
+     * @type {LocationAddress}
      * @memberof Location
      */
-    address: LocationPropertiesAddress;
+    address: LocationAddress;
     /**
      * 
      * @type {number}
@@ -3493,6 +3637,49 @@ export interface Location {
 /**
  * 
  * @export
+ * @interface LocationAddress
+ */
+export interface LocationAddress {
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationAddress
+     */
+    street: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof LocationAddress
+     */
+    number: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationAddress
+     */
+    addition: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationAddress
+     */
+    postalCode: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationAddress
+     */
+    city: string;
+    /**
+     * ISO 3166-1 Alpha-2 country codes https://en.wikipedia.org/wiki/ISO_3166-1#Officially_assigned_code_elements
+     * @type {string}
+     * @memberof LocationAddress
+     */
+    countryCode?: string;
+}
+/**
+ * 
+ * @export
  * @interface LocationProperties
  */
 export interface LocationProperties {
@@ -3504,10 +3691,10 @@ export interface LocationProperties {
     name?: string;
     /**
      * 
-     * @type {LocationPropertiesAddress}
+     * @type {LocationAddress}
      * @memberof LocationProperties
      */
-    address?: LocationPropertiesAddress;
+    address?: LocationAddress;
     /**
      * 
      * @type {number}
@@ -3560,43 +3747,6 @@ export interface LocationProperties {
 /**
  * 
  * @export
- * @interface LocationPropertiesAddress
- */
-export interface LocationPropertiesAddress {
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationPropertiesAddress
-     */
-    street: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof LocationPropertiesAddress
-     */
-    number: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationPropertiesAddress
-     */
-    addition: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationPropertiesAddress
-     */
-    postalCode: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationPropertiesAddress
-     */
-    city: string;
-}
-/**
- * 
- * @export
  * @interface LocationWithoutId
  */
 export interface LocationWithoutId {
@@ -3608,10 +3758,10 @@ export interface LocationWithoutId {
     name: string;
     /**
      * 
-     * @type {LocationPropertiesAddress}
+     * @type {LocationAddress}
      * @memberof LocationWithoutId
      */
-    address: LocationPropertiesAddress;
+    address: LocationAddress;
     /**
      * 
      * @type {number}
@@ -3687,10 +3837,10 @@ export interface LocationWithoutIdAllOf {
     contactEmail: string;
     /**
      * 
-     * @type {LocationPropertiesAddress}
+     * @type {LocationAddress}
      * @memberof LocationWithoutIdAllOf
      */
-    address: LocationPropertiesAddress;
+    address: LocationAddress;
 }
 /**
  * 
