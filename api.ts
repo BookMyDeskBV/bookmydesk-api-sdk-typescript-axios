@@ -591,37 +591,37 @@ export interface Company {
      * @type {number}
      * @memberof Company
      */
-    deskAutoCheckoutTime?: number;
+    deskAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof Company
      */
-    deskExpirationTime?: number;
+    deskExpirationTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof Company
      */
-    lunchAutoCheckoutTime?: number;
+    lunchAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof Company
      */
-    lunchExpirationTime?: number;
+    lunchExpirationTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof Company
      */
-    meetingAutoCheckoutTime?: number;
+    meetingAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof Company
      */
-    meetingExpirationTime?: number;
+    meetingExpirationTime?: number | null;
 }
 /**
  * 
@@ -790,37 +790,37 @@ export interface CompanyProperties {
      * @type {number}
      * @memberof CompanyProperties
      */
-    deskAutoCheckoutTime?: number;
+    deskAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyProperties
      */
-    deskExpirationTime?: number;
+    deskExpirationTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyProperties
      */
-    lunchAutoCheckoutTime?: number;
+    lunchAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyProperties
      */
-    lunchExpirationTime?: number;
+    lunchExpirationTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyProperties
      */
-    meetingAutoCheckoutTime?: number;
+    meetingAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyProperties
      */
-    meetingExpirationTime?: number;
+    meetingExpirationTime?: number | null;
 }
 /**
  * 
@@ -995,37 +995,37 @@ export interface CompanyWithCounts {
      * @type {number}
      * @memberof CompanyWithCounts
      */
-    deskAutoCheckoutTime?: number;
+    deskAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyWithCounts
      */
-    deskExpirationTime?: number;
+    deskExpirationTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyWithCounts
      */
-    lunchAutoCheckoutTime?: number;
+    lunchAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyWithCounts
      */
-    lunchExpirationTime?: number;
+    lunchExpirationTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyWithCounts
      */
-    meetingAutoCheckoutTime?: number;
+    meetingAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyWithCounts
      */
-    meetingExpirationTime?: number;
+    meetingExpirationTime?: number | null;
     /**
      * 
      * @type {number}
@@ -1249,37 +1249,37 @@ export interface CompanyWithoutId {
      * @type {number}
      * @memberof CompanyWithoutId
      */
-    deskAutoCheckoutTime?: number;
+    deskAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyWithoutId
      */
-    deskExpirationTime?: number;
+    deskExpirationTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyWithoutId
      */
-    lunchAutoCheckoutTime?: number;
+    lunchAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyWithoutId
      */
-    lunchExpirationTime?: number;
+    lunchExpirationTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyWithoutId
      */
-    meetingAutoCheckoutTime?: number;
+    meetingAutoCheckoutTime?: number | null;
     /**
      * 
      * @type {number}
      * @memberof CompanyWithoutId
      */
-    meetingExpirationTime?: number;
+    meetingExpirationTime?: number | null;
 }
 /**
  * 
