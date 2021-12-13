@@ -5053,6 +5053,12 @@ export interface Reservation {
      * @memberof Reservation
      */
     cancelled?: boolean;
+    /**
+     * 
+     * @type {ReservationStatus}
+     * @memberof Reservation
+     */
+    status: ReservationStatus;
 }
 /**
  * 
@@ -5153,6 +5159,19 @@ export interface ReservationSeatMapLocation {
      */
     visible: boolean;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum ReservationStatus {
+    Expired = 'expired',
+    Cancelled = 'cancelled',
+    CheckedOut = 'checkedOut',
+    CheckedIn = 'checkedIn',
+    Reserved = 'reserved'
+}
+
 /**
  * Information about this response (response time and status)
  * @export
