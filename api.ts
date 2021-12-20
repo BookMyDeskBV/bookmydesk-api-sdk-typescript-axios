@@ -69,6 +69,12 @@ export interface AdminUser {
      * @memberof AdminUser
      */
     roles: Array<string>;
+    /**
+     * 
+     * @type {Language}
+     * @memberof AdminUser
+     */
+    language: Language | null;
 }
 /**
  * 
@@ -125,6 +131,12 @@ export interface AdminUserCreate {
      * @memberof AdminUserCreate
      */
     roles: Array<string>;
+    /**
+     * 
+     * @type {Language}
+     * @memberof AdminUserCreate
+     */
+    language: Language | null;
     /**
      * 
      * @type {string}
@@ -199,6 +211,12 @@ export interface AdminUserProperties {
      * @memberof AdminUserProperties
      */
     roles?: Array<string>;
+    /**
+     * 
+     * @type {Language}
+     * @memberof AdminUserProperties
+     */
+    language?: Language | null;
 }
 /**
  * 
@@ -242,6 +260,12 @@ export interface AdminUserUpdate {
      * @memberof AdminUserUpdate
      */
     roles?: Array<string>;
+    /**
+     * 
+     * @type {Language}
+     * @memberof AdminUserUpdate
+     */
+    language?: Language | null;
     /**
      * 
      * @type {string}
@@ -312,6 +336,12 @@ export interface AdminUserWithRelations {
     roles: Array<string>;
     /**
      * 
+     * @type {Language}
+     * @memberof AdminUserWithRelations
+     */
+    language: Language | null;
+    /**
+     * 
      * @type {Array<Company>}
      * @memberof AdminUserWithRelations
      */
@@ -372,6 +402,12 @@ export interface AdminUserWithoutId {
      * @memberof AdminUserWithoutId
      */
     roles: Array<string>;
+    /**
+     * 
+     * @type {Language}
+     * @memberof AdminUserWithoutId
+     */
+    language: Language | null;
 }
 /**
  * 
@@ -403,6 +439,12 @@ export interface AdminUserWithoutIdAllOf {
      * @memberof AdminUserWithoutIdAllOf
      */
     roles: Array<string>;
+    /**
+     * 
+     * @type {Language}
+     * @memberof AdminUserWithoutIdAllOf
+     */
+    language: Language | null;
 }
 /**
  * 
@@ -465,7 +507,7 @@ export interface Company {
      * @type {Language}
      * @memberof Company
      */
-    language: Language;
+    language: Language | null;
     /**
      * 
      * @type {boolean}
@@ -664,7 +706,7 @@ export interface CompanyProperties {
      * @type {Language}
      * @memberof CompanyProperties
      */
-    language?: Language;
+    language?: Language | null;
     /**
      * 
      * @type {boolean}
@@ -869,7 +911,7 @@ export interface CompanyWithCounts {
      * @type {Language}
      * @memberof CompanyWithCounts
      */
-    language: Language;
+    language: Language | null;
     /**
      * 
      * @type {boolean}
@@ -1123,7 +1165,7 @@ export interface CompanyWithoutId {
      * @type {Language}
      * @memberof CompanyWithoutId
      */
-    language: Language;
+    language: Language | null;
     /**
      * 
      * @type {boolean}
@@ -1346,7 +1388,7 @@ export interface CompanyWithoutIdAllOf {
      * @type {Language}
      * @memberof CompanyWithoutIdAllOf
      */
-    language: Language;
+    language: Language | null;
 }
 /**
  * 
@@ -1606,7 +1648,7 @@ export interface InlineObject5 {
      * @type {Language}
      * @memberof InlineObject5
      */
-    language: Language;
+    language: Language | null;
     /**
      * 
      * @type {string}
@@ -4428,6 +4470,12 @@ export interface MeAdmin {
      * @memberof MeAdmin
      */
     billingType?: BillingType;
+    /**
+     * 
+     * @type {Language}
+     * @memberof MeAdmin
+     */
+    language: Language | null;
 }
 /**
  * 
@@ -4476,7 +4524,7 @@ export interface MeUser {
      * @type {Language}
      * @memberof MeUser
      */
-    language: Language;
+    language: Language | null;
     /**
      * 
      * @type {boolean}
@@ -5430,6 +5478,25 @@ export enum SeatType {
 /**
  * 
  * @export
+ * @interface SeatTypeStatistic
+ */
+export interface SeatTypeStatistic {
+    /**
+     * 
+     * @type {number}
+     * @memberof SeatTypeStatistic
+     */
+    total: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SeatTypeStatistic
+     */
+    used: number;
+}
+/**
+ * 
+ * @export
  * @interface SeatUpdate
  */
 export interface SeatUpdate {
@@ -6058,7 +6125,7 @@ export interface User {
      * @type {Language}
      * @memberof User
      */
-    language: Language;
+    language: Language | null;
     /**
      * 
      * @type {string}
@@ -6251,7 +6318,7 @@ export interface UserProperties {
      * @type {Language}
      * @memberof UserProperties
      */
-    language?: Language;
+    language?: Language | null;
     /**
      * 
      * @type {string}
@@ -6317,7 +6384,7 @@ export interface UserUpdate {
      * @type {Language}
      * @memberof UserUpdate
      */
-    language?: Language;
+    language?: Language | null;
     /**
      * 
      * @type {string}
@@ -6402,7 +6469,7 @@ export interface UserWithRelations {
      * @type {Language}
      * @memberof UserWithRelations
      */
-    language: Language;
+    language: Language | null;
     /**
      * 
      * @type {string}
@@ -6493,7 +6560,7 @@ export interface UserWithoutId {
      * @type {Language}
      * @memberof UserWithoutId
      */
-    language: Language;
+    language: Language | null;
     /**
      * 
      * @type {string}
@@ -6547,7 +6614,7 @@ export interface UserWithoutIdAllOf {
      * @type {Language}
      * @memberof UserWithoutIdAllOf
      */
-    language: Language;
+    language: Language | null;
     /**
      * 
      * @type {Array<UserGroupLink>}
@@ -7960,7 +8027,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} date Date to get stats for
          * @param {string} from Start time to get stats for
          * @param {string} to End of time range
-         * @param {'desk' | 'lunch' | 'meeting'} seatType Type of seat
+         * @param {'desk' | 'lunch' | 'meeting'} seatType Deprecated, use seatStatistics instead
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -11151,7 +11218,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {string} date Date to get stats for
          * @param {string} from Start time to get stats for
          * @param {string} to End of time range
-         * @param {'desk' | 'lunch' | 'meeting'} seatType Type of seat
+         * @param {'desk' | 'lunch' | 'meeting'} seatType Deprecated, use seatStatistics instead
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -12177,7 +12244,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {string} date Date to get stats for
          * @param {string} from Start time to get stats for
          * @param {string} to End of time range
-         * @param {'desk' | 'lunch' | 'meeting'} seatType Type of seat
+         * @param {'desk' | 'lunch' | 'meeting'} seatType Deprecated, use seatStatistics instead
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -13208,7 +13275,7 @@ export class DefaultApi extends BaseAPI {
      * @param {string} date Date to get stats for
      * @param {string} from Start time to get stats for
      * @param {string} to End of time range
-     * @param {'desk' | 'lunch' | 'meeting'} seatType Type of seat
+     * @param {'desk' | 'lunch' | 'meeting'} seatType Deprecated, use seatStatistics instead
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
