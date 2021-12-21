@@ -4655,7 +4655,8 @@ export interface ModelMap {
 export enum NullableLanguage {
     Nl = 'NL',
     De = 'DE',
-    En = 'EN'
+    En = 'EN',
+    Null = 'null'
 }
 
 /**
