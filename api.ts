@@ -71,10 +71,10 @@ export interface AdminUser {
     roles: Array<string>;
     /**
      * 
-     * @type {NullableLanguage}
+     * @type {Language}
      * @memberof AdminUser
      */
-    language: NullableLanguage | null;
+    language: Language | null;
 }
 /**
  * 
@@ -133,10 +133,10 @@ export interface AdminUserCreate {
     roles: Array<string>;
     /**
      * 
-     * @type {NullableLanguage}
+     * @type {Language}
      * @memberof AdminUserCreate
      */
-    language: NullableLanguage | null;
+    language: Language | null;
     /**
      * 
      * @type {string}
@@ -213,10 +213,10 @@ export interface AdminUserProperties {
     roles?: Array<string>;
     /**
      * 
-     * @type {NullableLanguage}
+     * @type {Language}
      * @memberof AdminUserProperties
      */
-    language?: NullableLanguage | null;
+    language?: Language | null;
 }
 /**
  * 
@@ -262,10 +262,10 @@ export interface AdminUserUpdate {
     roles?: Array<string>;
     /**
      * 
-     * @type {NullableLanguage}
+     * @type {Language}
      * @memberof AdminUserUpdate
      */
-    language?: NullableLanguage | null;
+    language?: Language | null;
     /**
      * 
      * @type {string}
@@ -336,10 +336,10 @@ export interface AdminUserWithRelations {
     roles: Array<string>;
     /**
      * 
-     * @type {NullableLanguage}
+     * @type {Language}
      * @memberof AdminUserWithRelations
      */
-    language: NullableLanguage | null;
+    language: Language | null;
     /**
      * 
      * @type {Array<Company>}
@@ -404,10 +404,10 @@ export interface AdminUserWithoutId {
     roles: Array<string>;
     /**
      * 
-     * @type {NullableLanguage}
+     * @type {Language}
      * @memberof AdminUserWithoutId
      */
-    language: NullableLanguage | null;
+    language: Language | null;
 }
 /**
  * 
@@ -441,10 +441,10 @@ export interface AdminUserWithoutIdAllOf {
     roles: Array<string>;
     /**
      * 
-     * @type {NullableLanguage}
+     * @type {Language}
      * @memberof AdminUserWithoutIdAllOf
      */
-    language: NullableLanguage | null;
+    language: Language | null;
 }
 /**
  * 
@@ -4472,10 +4472,10 @@ export interface MeAdmin {
     billingType?: BillingType;
     /**
      * 
-     * @type {NullableLanguage}
+     * @type {Language}
      * @memberof MeAdmin
      */
-    language: NullableLanguage | null;
+    language: Language | null;
 }
 /**
  * 
@@ -4521,10 +4521,10 @@ export interface MeUser {
     last_name: string;
     /**
      * 
-     * @type {NullableLanguage}
+     * @type {Language}
      * @memberof MeUser
      */
-    language: NullableLanguage | null;
+    language: Language;
     /**
      * 
      * @type {boolean}
@@ -4647,18 +4647,6 @@ export interface ModelMap {
      */
     locationId: string;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
-export enum NullableLanguage {
-    Nl = 'NL',
-    De = 'DE',
-    En = 'EN',
-    Null = 'null'
-}
-
 /**
  * 
  * @export
