@@ -664,6 +664,12 @@ export interface Company {
      * @memberof Company
      */
     meetingExpirationTime?: number | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Company
+     */
+    reservationForUserEnabled?: boolean;
 }
 /**
  * 
@@ -863,6 +869,12 @@ export interface CompanyProperties {
      * @memberof CompanyProperties
      */
     meetingExpirationTime?: number | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyProperties
+     */
+    reservationForUserEnabled?: boolean;
 }
 /**
  * 
@@ -1068,6 +1080,12 @@ export interface CompanyWithCounts {
      * @memberof CompanyWithCounts
      */
     meetingExpirationTime?: number | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    reservationForUserEnabled?: boolean;
     /**
      * 
      * @type {number}
@@ -1322,6 +1340,12 @@ export interface CompanyWithoutId {
      * @memberof CompanyWithoutId
      */
     meetingExpirationTime?: number | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithoutId
+     */
+    reservationForUserEnabled?: boolean;
 }
 /**
  * 
@@ -3147,16 +3171,10 @@ export interface InlineResponse20043 {
 export interface InlineResponse20043Result {
     /**
      * 
-     * @type {number}
+     * @type {ReservationWithRelations}
      * @memberof InlineResponse20043Result
      */
-    total: number;
-    /**
-     * 
-     * @type {Array<Reservation>}
-     * @memberof InlineResponse20043Result
-     */
-    items: Array<Reservation>;
+    reservation?: ReservationWithRelations;
 }
 /**
  * 
@@ -3172,82 +3190,139 @@ export interface InlineResponse20044 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {InlineResponse20044Result}
+     * @type {object}
      * @memberof InlineResponse20044
      */
-    result: InlineResponse20044Result;
+    result: object;
 }
 /**
  * 
  * @export
- * @interface InlineResponse20044Result
+ * @interface InlineResponse20045
  */
-export interface InlineResponse20044Result {
+export interface InlineResponse20045 {
     /**
      * 
-     * @type {Array<InlineResponse20044ResultItems>}
-     * @memberof InlineResponse20044Result
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20045
      */
-    items: Array<InlineResponse20044ResultItems>;
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {InlineResponse20045Result}
+     * @memberof InlineResponse20045
+     */
+    result: InlineResponse20045Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20045Result
+ */
+export interface InlineResponse20045Result {
     /**
      * 
      * @type {number}
-     * @memberof InlineResponse20044Result
+     * @memberof InlineResponse20045Result
+     */
+    total: number;
+    /**
+     * 
+     * @type {Array<ReservationWithRelations>}
+     * @memberof InlineResponse20045Result
+     */
+    items: Array<ReservationWithRelations>;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20046
+ */
+export interface InlineResponse20046 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20046
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {InlineResponse20046Result}
+     * @memberof InlineResponse20046
+     */
+    result: InlineResponse20046Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20046Result
+ */
+export interface InlineResponse20046Result {
+    /**
+     * 
+     * @type {Array<InlineResponse20046ResultItems>}
+     * @memberof InlineResponse20046Result
+     */
+    items: Array<InlineResponse20046ResultItems>;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20046Result
      */
     seatCount: number;
     /**
      * 
      * @type {number}
-     * @memberof InlineResponse20044Result
+     * @memberof InlineResponse20046Result
      */
     parkingCount: number;
 }
 /**
  * 
  * @export
- * @interface InlineResponse20044ResultItems
+ * @interface InlineResponse20046ResultItems
  */
-export interface InlineResponse20044ResultItems {
+export interface InlineResponse20046ResultItems {
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse20044ResultItems
+     * @memberof InlineResponse20046ResultItems
      */
     date?: string;
     /**
      * 
      * @type {number}
-     * @memberof InlineResponse20044ResultItems
+     * @memberof InlineResponse20046ResultItems
      */
     hoursInUse?: number;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse20044ResultItems
+     * @memberof InlineResponse20046ResultItems
      */
     minTimeslot?: string;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse20044ResultItems
+     * @memberof InlineResponse20046ResultItems
      */
     maxTimeslot?: string;
     /**
      * 
      * @type {number}
-     * @memberof InlineResponse20044ResultItems
+     * @memberof InlineResponse20046ResultItems
      */
     seatreservationsCount?: number;
     /**
      * 
      * @type {number}
-     * @memberof InlineResponse20044ResultItems
+     * @memberof InlineResponse20046ResultItems
      */
     parkingspotsClaimed?: number;
     /**
      * 
      * @type {number}
-     * @memberof InlineResponse20044ResultItems
+     * @memberof InlineResponse20046ResultItems
      */
     checkinCount?: number;
 }
@@ -4329,6 +4404,12 @@ export interface MapWithRelationsAllOfLocation {
      * @memberof MapWithRelationsAllOfLocation
      */
     name: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof MapWithRelationsAllOfLocation
+     */
+    visible?: boolean;
 }
 /**
  * 
@@ -5019,18 +5100,6 @@ export interface Reservation {
     id: string;
     /**
      * 
-     * @type {UserWithRelations}
-     * @memberof Reservation
-     */
-    user: UserWithRelations;
-    /**
-     * 
-     * @type {ReservationSeat}
-     * @memberof Reservation
-     */
-    seat: ReservationSeat;
-    /**
-     * 
      * @type {string}
      * @memberof Reservation
      */
@@ -5107,105 +5176,217 @@ export interface Reservation {
      * @memberof Reservation
      */
     status: ReservationStatus;
+    /**
+     * 
+     * @type {string}
+     * @memberof Reservation
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Reservation
+     */
+    reocurReferenceId?: string;
 }
 /**
  * 
  * @export
- * @interface ReservationSeat
+ * @interface ReservationAdd
  */
-export interface ReservationSeat {
+export interface ReservationAdd {
     /**
      * 
      * @type {string}
-     * @memberof ReservationSeat
+     * @memberof ReservationAdd
      */
-    id: string;
+    seatId: string;
     /**
      * 
      * @type {string}
-     * @memberof ReservationSeat
+     * @memberof ReservationAdd
      */
-    name: string;
+    from: string;
     /**
      * 
      * @type {string}
-     * @memberof ReservationSeat
+     * @memberof ReservationAdd
      */
-    type: string;
-    /**
-     * 
-     * @type {ReservationSeatMap}
-     * @memberof ReservationSeat
-     */
-    map: ReservationSeatMap;
-    /**
-     * 
-     * @type {Array<SeatTag>}
-     * @memberof ReservationSeat
-     */
-    seatTags: Array<SeatTag>;
-    /**
-     * 
-     * @type {Array<UserGroup>}
-     * @memberof ReservationSeat
-     */
-    userGroups: Array<UserGroup>;
-}
-/**
- * 
- * @export
- * @interface ReservationSeatMap
- */
-export interface ReservationSeatMap {
+    to: string;
     /**
      * 
      * @type {string}
-     * @memberof ReservationSeatMap
+     * @memberof ReservationAdd
      */
-    id: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ReservationSeatMap
-     */
-    name: string;
+    date: string;
     /**
      * 
      * @type {boolean}
-     * @memberof ReservationSeatMap
+     * @memberof ReservationAdd
      */
-    visible: boolean;
+    includeParking?: boolean;
     /**
      * 
-     * @type {ReservationSeatMapLocation}
-     * @memberof ReservationSeatMap
+     * @type {string}
+     * @memberof ReservationAdd
      */
-    location: ReservationSeatMapLocation;
+    type: ReservationAddTypeEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationAdd
+     */
+    visitorName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationAdd
+     */
+    visitorEmail?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationAdd
+     */
+    visitorPhone?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationAdd
+     */
+    userId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationAdd
+     */
+    rrule?: string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ReservationAddTypeEnum {
+    Normal = 'normal',
+    Visitor = 'visitor'
+}
+
+/**
+ * 
+ * @export
+ * @interface ReservationAddAllOf
+ */
+export interface ReservationAddAllOf {
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationAddAllOf
+     */
+    userId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationAddAllOf
+     */
+    rrule?: string;
 }
 /**
  * 
  * @export
- * @interface ReservationSeatMapLocation
+ * @interface ReservationProperties
  */
-export interface ReservationSeatMapLocation {
+export interface ReservationProperties {
     /**
      * 
      * @type {string}
-     * @memberof ReservationSeatMapLocation
+     * @memberof ReservationProperties
      */
-    id: string;
+    from?: string;
     /**
      * 
      * @type {string}
-     * @memberof ReservationSeatMapLocation
+     * @memberof ReservationProperties
      */
-    name: string;
+    to?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    date?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    type?: string;
     /**
      * 
      * @type {boolean}
-     * @memberof ReservationSeatMapLocation
+     * @memberof ReservationProperties
      */
-    visible: boolean;
+    includeParking?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    checkedInTime?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    checkedOutTime?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    visitorName?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    visitorEmail?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    visitorPhone?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    expiredAt?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ReservationProperties
+     */
+    cancelled?: boolean;
+    /**
+     * 
+     * @type {ReservationStatus}
+     * @memberof ReservationProperties
+     */
+    status?: ReservationStatus;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    reocurReferenceId?: string;
 }
 /**
  * 
@@ -5220,6 +5401,405 @@ export enum ReservationStatus {
     Reserved = 'reserved'
 }
 
+/**
+ * 
+ * @export
+ * @interface ReservationUpdate
+ */
+export interface ReservationUpdate {
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationUpdate
+     */
+    seatId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationUpdate
+     */
+    from: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationUpdate
+     */
+    to: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationUpdate
+     */
+    date: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ReservationUpdate
+     */
+    includeParking?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationUpdate
+     */
+    type: ReservationUpdateTypeEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationUpdate
+     */
+    visitorName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationUpdate
+     */
+    visitorEmail?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationUpdate
+     */
+    visitorPhone?: string | null;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ReservationUpdateTypeEnum {
+    Normal = 'normal',
+    Visitor = 'visitor'
+}
+
+/**
+ * 
+ * @export
+ * @interface ReservationWithRelations
+ */
+export interface ReservationWithRelations {
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    from: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    to: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    date: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    type: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ReservationWithRelations
+     */
+    includeParking: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    checkedInTime?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    checkedOutTime?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    visitorName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    visitorEmail: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    visitorPhone: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    expiredAt?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ReservationWithRelations
+     */
+    cancelled?: boolean;
+    /**
+     * 
+     * @type {ReservationStatus}
+     * @memberof ReservationWithRelations
+     */
+    status: ReservationStatus;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    reocurReferenceId?: string;
+    /**
+     * 
+     * @type {Seat & object}
+     * @memberof ReservationWithRelations
+     */
+    seat: Seat & object;
+    /**
+     * 
+     * @type {UserWithRelations}
+     * @memberof ReservationWithRelations
+     */
+    user: UserWithRelations;
+    /**
+     * 
+     * @type {UserWithRelations}
+     * @memberof ReservationWithRelations
+     */
+    createdByUser?: UserWithRelations;
+}
+/**
+ * 
+ * @export
+ * @interface ReservationWithRelationsAllOf
+ */
+export interface ReservationWithRelationsAllOf {
+    /**
+     * 
+     * @type {Seat & object}
+     * @memberof ReservationWithRelationsAllOf
+     */
+    seat: Seat & object;
+    /**
+     * 
+     * @type {UserWithRelations}
+     * @memberof ReservationWithRelationsAllOf
+     */
+    user: UserWithRelations;
+    /**
+     * 
+     * @type {UserWithRelations}
+     * @memberof ReservationWithRelationsAllOf
+     */
+    createdByUser?: UserWithRelations;
+}
+/**
+ * 
+ * @export
+ * @interface ReservationWithoutId
+ */
+export interface ReservationWithoutId {
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    from: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    to: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    date: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    type: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ReservationWithoutId
+     */
+    includeParking: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    checkedInTime?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    checkedOutTime?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    visitorName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    visitorEmail: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    visitorPhone: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    expiredAt?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ReservationWithoutId
+     */
+    cancelled?: boolean;
+    /**
+     * 
+     * @type {ReservationStatus}
+     * @memberof ReservationWithoutId
+     */
+    status: ReservationStatus;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    reocurReferenceId?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ReservationWithoutIdAllOf
+ */
+export interface ReservationWithoutIdAllOf {
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    from: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    to: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    date: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    type: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    includeParking: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    checkedInTime?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    checkedOutTime?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    visitorName: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    visitorEmail: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    visitorPhone: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    expiredAt?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    cancelled?: boolean;
+    /**
+     * 
+     * @type {ReservationStatus}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    status: ReservationStatus;
+}
 /**
  * Information about this response (response time and status)
  * @export
@@ -7003,6 +7583,45 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(reportReasonWithoutId, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {ReservationAdd} reservationAdd 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addReservation: async (reservationAdd: ReservationAdd, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reservationAdd' is not null or undefined
+            assertParamExists('addReservation', 'reservationAdd', reservationAdd)
+            const localVarPath = `/v3/reservation`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(reservationAdd, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -10599,6 +11218,52 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @param {string} reservationId Reservation ID
+         * @param {ReservationUpdate} reservationUpdate 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateReservation_1: async (reservationId: string, reservationUpdate: ReservationUpdate, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reservationId' is not null or undefined
+            assertParamExists('updateReservation_1', 'reservationId', reservationId)
+            // verify required parameter 'reservationUpdate' is not null or undefined
+            assertParamExists('updateReservation_1', 'reservationUpdate', reservationUpdate)
+            const localVarPath = `/v3/reservation`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (reservationId !== undefined) {
+                localVarQueryParameter['reservationId'] = reservationId;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(reservationUpdate, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {string} seatId Seat ID
          * @param {SeatUpdate} seatUpdate 
          * @param {*} [options] Override http request option.
@@ -10956,6 +11621,16 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          */
         async addReportReason(reportReasonWithoutId: ReportReasonWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20013>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addReportReason(reportReasonWithoutId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {ReservationAdd} reservationAdd 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addReservation(reservationAdd: ReservationAdd, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addReservation(reservationAdd, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -11499,7 +12174,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
+        async listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, status, locationId, mapId, seatType, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -11729,7 +12404,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
+        async reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.reservationsStatistics(from, to, seatType, companyId, locationId, mapId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -11849,6 +12524,17 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          */
         async updateReservation(reservationId: string, inlineObject9?: InlineObject9, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateReservation(reservationId, inlineObject9, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} reservationId Reservation ID
+         * @param {ReservationUpdate} reservationUpdate 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateReservation_1(reservationId: string, reservationUpdate: ReservationUpdate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateReservation_1(reservationId, reservationUpdate, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -12007,6 +12693,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         addReportReason(reportReasonWithoutId: ReportReasonWithoutId, options?: any): AxiosPromise<InlineResponse20013> {
             return localVarFp.addReportReason(reportReasonWithoutId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {ReservationAdd} reservationAdd 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addReservation(reservationAdd: ReservationAdd, options?: any): AxiosPromise<InlineResponse20044> {
+            return localVarFp.addReservation(reservationAdd, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -12501,7 +13196,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, options?: any): AxiosPromise<InlineResponse20043> {
+        listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, options?: any): AxiosPromise<InlineResponse20045> {
             return localVarFp.listReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, status, locationId, mapId, seatType, options).then((request) => request(axios, basePath));
         },
         /**
@@ -12712,7 +13407,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20044> {
+        reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20046> {
             return localVarFp.reservationsStatistics(from, to, seatType, companyId, locationId, mapId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -12821,6 +13516,16 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         updateReservation(reservationId: string, inlineObject9?: InlineObject9, options?: any): AxiosPromise<void> {
             return localVarFp.updateReservation(reservationId, inlineObject9, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} reservationId Reservation ID
+         * @param {ReservationUpdate} reservationUpdate 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateReservation_1(reservationId: string, reservationUpdate: ReservationUpdate, options?: any): AxiosPromise<InlineResponse20043> {
+            return localVarFp.updateReservation_1(reservationId, reservationUpdate, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -12989,6 +13694,17 @@ export class DefaultApi extends BaseAPI {
      */
     public addReportReason(reportReasonWithoutId: ReportReasonWithoutId, options?: any) {
         return DefaultApiFp(this.configuration).addReportReason(reportReasonWithoutId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {ReservationAdd} reservationAdd 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public addReservation(reservationAdd: ReservationAdd, options?: any) {
+        return DefaultApiFp(this.configuration).addReservation(reservationAdd, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -13961,6 +14677,18 @@ export class DefaultApi extends BaseAPI {
      */
     public updateReservation(reservationId: string, inlineObject9?: InlineObject9, options?: any) {
         return DefaultApiFp(this.configuration).updateReservation(reservationId, inlineObject9, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} reservationId Reservation ID
+     * @param {ReservationUpdate} reservationUpdate 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public updateReservation_1(reservationId: string, reservationUpdate: ReservationUpdate, options?: any) {
+        return DefaultApiFp(this.configuration).updateReservation_1(reservationId, reservationUpdate, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
