@@ -5254,6 +5254,12 @@ export interface Reservation {
     cancelled?: boolean;
     /**
      * 
+     * @type {string}
+     * @memberof Reservation
+     */
+    cancelledReason?: string;
+    /**
+     * 
      * @type {ReservationStatus}
      * @memberof Reservation
      */
@@ -5451,6 +5457,12 @@ export interface ReservationProperties {
      * @memberof ReservationProperties
      */
     cancelled?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    cancelledReason?: string;
     /**
      * 
      * @type {ReservationStatus}
@@ -5705,6 +5717,12 @@ export interface ReservationWithRelations {
     cancelled?: boolean;
     /**
      * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    cancelledReason?: string;
+    /**
+     * 
      * @type {ReservationStatus}
      * @memberof ReservationWithRelations
      */
@@ -5843,6 +5861,12 @@ export interface ReservationWithoutId {
      * @memberof ReservationWithoutId
      */
     cancelled?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    cancelledReason?: string;
     /**
      * 
      * @type {ReservationStatus}
