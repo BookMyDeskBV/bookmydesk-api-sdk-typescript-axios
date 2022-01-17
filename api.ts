@@ -670,6 +670,12 @@ export interface Company {
      * @memberof Company
      */
     reservationForUserEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Company
+     */
+    microsoftSsoEnabled?: boolean;
 }
 /**
  * 
@@ -875,6 +881,12 @@ export interface CompanyProperties {
      * @memberof CompanyProperties
      */
     reservationForUserEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyProperties
+     */
+    microsoftSsoEnabled?: boolean;
 }
 /**
  * 
@@ -1086,6 +1098,12 @@ export interface CompanyWithCounts {
      * @memberof CompanyWithCounts
      */
     reservationForUserEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    microsoftSsoEnabled?: boolean;
     /**
      * 
      * @type {number}
@@ -1346,6 +1364,12 @@ export interface CompanyWithoutId {
      * @memberof CompanyWithoutId
      */
     reservationForUserEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithoutId
+     */
+    microsoftSsoEnabled?: boolean;
 }
 /**
  * 
@@ -1970,6 +1994,24 @@ export interface InlineResponse200 {
      * @memberof InlineResponse200
      */
     version?: string;
+    /**
+     * Current head
+     * @type {string}
+     * @memberof InlineResponse200
+     */
+    head?: string;
+    /**
+     * Current latest commit in master
+     * @type {string}
+     * @memberof InlineResponse200
+     */
+    master?: string;
+    /**
+     * Current branch
+     * @type {string}
+     * @memberof InlineResponse200
+     */
+    branch?: string;
 }
 /**
  * 
@@ -3763,6 +3805,17 @@ export enum Language {
 /**
  * 
  * @export
+ * @enum {string}
+ */
+export enum LanguageLowercase {
+    Nl = 'nl',
+    De = 'de',
+    En = 'en'
+}
+
+/**
+ * 
+ * @export
  * @interface Location
  */
 export interface Location {
@@ -4684,10 +4737,10 @@ export interface MeUser {
     last_name: string;
     /**
      * 
-     * @type {Language}
+     * @type {LanguageLowercase}
      * @memberof MeUser
      */
-    language: Language;
+    language: LanguageLowercase;
     /**
      * 
      * @type {boolean}
@@ -4730,6 +4783,25 @@ export interface MeUser {
      * @memberof MeUser
      */
     userGroups: Array<UserGroup>;
+    /**
+     * 
+     * @type {MeUserOperations}
+     * @memberof MeUser
+     */
+    _operations?: MeUserOperations;
+}
+/**
+ * 
+ * @export
+ * @interface MeUserOperations
+ */
+export interface MeUserOperations {
+    /**
+     * Can update name fields (first, infix, last)
+     * @type {boolean}
+     * @memberof MeUserOperations
+     */
+    canUpdateName?: boolean;
 }
 /**
  * 
@@ -5324,19 +5396,19 @@ export interface ReservationAdd {
      * @type {string}
      * @memberof ReservationAdd
      */
-    visitorName?: string | null;
+    visitorName?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationAdd
      */
-    visitorEmail?: string | null;
+    visitorEmail?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationAdd
      */
-    visitorPhone?: string | null;
+    visitorPhone?: string;
     /**
      * 
      * @type {string}
@@ -5378,6 +5450,32 @@ export interface ReservationAddAllOf {
      * @memberof ReservationAddAllOf
      */
     rrule?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ReservationOperations
+ */
+export interface ReservationOperations {
+    /**
+     * 
+     * @type {ReservationOperationsOperations}
+     * @memberof ReservationOperations
+     */
+    _operations?: ReservationOperationsOperations;
+}
+/**
+ * 
+ * @export
+ * @interface ReservationOperationsOperations
+ */
+export interface ReservationOperationsOperations {
+    /**
+     * Can cancel this reservation
+     * @type {boolean}
+     * @memberof ReservationOperationsOperations
+     */
+    canCancel?: boolean;
 }
 /**
  * 
@@ -5542,19 +5640,19 @@ export interface ReservationUpdate {
      * @type {string}
      * @memberof ReservationUpdate
      */
-    visitorName?: string | null;
+    visitorName?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationUpdate
      */
-    visitorEmail?: string | null;
+    visitorEmail?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationUpdate
      */
-    visitorPhone?: string | null;
+    visitorPhone?: string;
 }
 
 /**
@@ -5741,22 +5839,28 @@ export interface ReservationWithRelations {
     reocurReferenceId?: string;
     /**
      * 
+     * @type {ReservationOperationsOperations}
+     * @memberof ReservationWithRelations
+     */
+    _operations?: ReservationOperationsOperations;
+    /**
+     * 
      * @type {Seat & object}
      * @memberof ReservationWithRelations
      */
     seat: Seat & object;
     /**
      * 
-     * @type {UserWithRelations}
+     * @type {User}
      * @memberof ReservationWithRelations
      */
-    user: UserWithRelations;
+    user: User;
     /**
      * 
-     * @type {UserWithRelations}
+     * @type {User}
      * @memberof ReservationWithRelations
      */
-    createdByUser?: UserWithRelations;
+    createdByUser?: User;
 }
 /**
  * 
@@ -5772,16 +5876,16 @@ export interface ReservationWithRelationsAllOf {
     seat: Seat & object;
     /**
      * 
-     * @type {UserWithRelations}
+     * @type {User}
      * @memberof ReservationWithRelationsAllOf
      */
-    user: UserWithRelations;
+    user: User;
     /**
      * 
-     * @type {UserWithRelations}
+     * @type {User}
      * @memberof ReservationWithRelationsAllOf
      */
-    createdByUser?: UserWithRelations;
+    createdByUser?: User;
 }
 /**
  * 
@@ -7239,6 +7343,12 @@ export interface UserWithRelations {
      * @memberof UserWithRelations
      */
     id: string;
+    /**
+     * 
+     * @type {Array<UserWithRelationsAllOfSsoProviders>}
+     * @memberof UserWithRelations
+     */
+    ssoProviders: Array<UserWithRelationsAllOfSsoProviders>;
 }
 
 /**
@@ -7263,7 +7373,35 @@ export interface UserWithRelationsAllOf {
      * @memberof UserWithRelationsAllOf
      */
     userGroups: Array<UserGroup>;
+    /**
+     * 
+     * @type {Array<UserWithRelationsAllOfSsoProviders>}
+     * @memberof UserWithRelationsAllOf
+     */
+    ssoProviders: Array<UserWithRelationsAllOfSsoProviders>;
 }
+/**
+ * 
+ * @export
+ * @interface UserWithRelationsAllOfSsoProviders
+ */
+export interface UserWithRelationsAllOfSsoProviders {
+    /**
+     * 
+     * @type {string}
+     * @memberof UserWithRelationsAllOfSsoProviders
+     */
+    provider?: UserWithRelationsAllOfSsoProvidersProviderEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum UserWithRelationsAllOfSsoProvidersProviderEnum {
+    MicrosoftGraph = 'microsoft_graph'
+}
+
 /**
  * 
  * @export
@@ -10476,6 +10614,50 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * 
+         * @param {string} [code] Code from MS
+         * @param {string} [state] State send in step one
+         * @param {string} [sessionState] State of session - what is difference?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mSCallback: async (code?: string, state?: string, sessionState?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v3/auth/microsoft/callback`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (code !== undefined) {
+                localVarQueryParameter['code'] = code;
+            }
+
+            if (state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+
+            if (sessionState !== undefined) {
+                localVarQueryParameter['session_state'] = sessionState;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Basic API metrics
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -10726,6 +10908,42 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(inlineObject4, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} clientId ClientId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        redirToMS: async (clientId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'clientId' is not null or undefined
+            assertParamExists('redirToMS', 'clientId', clientId)
+            const localVarPath = `/v3/auth/microsoft`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (clientId !== undefined) {
+                localVarQueryParameter['client_id'] = clientId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -12546,6 +12764,18 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * 
+         * @param {string} [code] Code from MS
+         * @param {string} [state] State send in step one
+         * @param {string} [sessionState] State of session - what is difference?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async mSCallback(code?: string, state?: string, sessionState?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mSCallback(code, state, sessionState, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Basic API metrics
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -12614,6 +12844,16 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          */
         async postReport(inlineObject4: InlineObject4, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postReport(inlineObject4, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} clientId ClientId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async redirToMS(clientId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.redirToMS(clientId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -13579,6 +13819,17 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.logout(options).then((request) => request(axios, basePath));
         },
         /**
+         * 
+         * @param {string} [code] Code from MS
+         * @param {string} [state] State send in step one
+         * @param {string} [sessionState] State of session - what is difference?
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mSCallback(code?: string, state?: string, sessionState?: string, options?: any): AxiosPromise<void> {
+            return localVarFp.mSCallback(code, state, sessionState, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Basic API metrics
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -13642,6 +13893,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         postReport(inlineObject4: InlineObject4, options?: any): AxiosPromise<InlineResponse2001> {
             return localVarFp.postReport(inlineObject4, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} clientId ClientId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        redirToMS(clientId: string, options?: any): AxiosPromise<void> {
+            return localVarFp.redirToMS(clientId, options).then((request) => request(axios, basePath));
         },
         /**
          * Register a new company
@@ -14718,6 +14978,19 @@ export class DefaultApi extends BaseAPI {
     }
 
     /**
+     * 
+     * @param {string} [code] Code from MS
+     * @param {string} [state] State send in step one
+     * @param {string} [sessionState] State of session - what is difference?
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public mSCallback(code?: string, state?: string, sessionState?: string, options?: any) {
+        return DefaultApiFp(this.configuration).mSCallback(code, state, sessionState, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Basic API metrics
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -14792,6 +15065,17 @@ export class DefaultApi extends BaseAPI {
      */
     public postReport(inlineObject4: InlineObject4, options?: any) {
         return DefaultApiFp(this.configuration).postReport(inlineObject4, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} clientId ClientId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public redirToMS(clientId: string, options?: any) {
+        return DefaultApiFp(this.configuration).redirToMS(clientId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
