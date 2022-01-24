@@ -1727,7 +1727,7 @@ export interface InlineObject5 {
      * @type {string}
      * @memberof InlineObject5
      */
-    privacy: InlineObject5PrivacyEnum;
+    privacy?: InlineObject5PrivacyEnum;
     /**
      * 
      * @type {string}
@@ -5347,7 +5347,7 @@ export interface Reservation {
      * @type {string}
      * @memberof Reservation
      */
-    reocurReferenceId?: string;
+    reoccurReferenceId?: string;
 }
 /**
  * 
@@ -5578,7 +5578,7 @@ export interface ReservationProperties {
      * @type {string}
      * @memberof ReservationProperties
      */
-    reocurReferenceId?: string;
+    reoccurReferenceId?: string;
 }
 /**
  * 
@@ -5667,55 +5667,55 @@ export enum ReservationUpdateTypeEnum {
 /**
  * 
  * @export
- * @interface ReservationUpdateReocurring
+ * @interface ReservationUpdateReoccurring
  */
-export interface ReservationUpdateReocurring {
+export interface ReservationUpdateReoccurring {
     /**
      * 
      * @type {string}
-     * @memberof ReservationUpdateReocurring
+     * @memberof ReservationUpdateReoccurring
      */
     seatId: string;
     /**
      * 
      * @type {string}
-     * @memberof ReservationUpdateReocurring
+     * @memberof ReservationUpdateReoccurring
      */
     from: string;
     /**
      * 
      * @type {string}
-     * @memberof ReservationUpdateReocurring
+     * @memberof ReservationUpdateReoccurring
      */
     to: string;
     /**
      * 
      * @type {boolean}
-     * @memberof ReservationUpdateReocurring
+     * @memberof ReservationUpdateReoccurring
      */
     includeParking?: boolean;
     /**
      * 
      * @type {string}
-     * @memberof ReservationUpdateReocurring
+     * @memberof ReservationUpdateReoccurring
      */
-    type: ReservationUpdateReocurringTypeEnum;
+    type: ReservationUpdateReoccurringTypeEnum;
     /**
      * 
      * @type {string}
-     * @memberof ReservationUpdateReocurring
+     * @memberof ReservationUpdateReoccurring
      */
     visitorName?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof ReservationUpdateReocurring
+     * @memberof ReservationUpdateReoccurring
      */
     visitorEmail?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof ReservationUpdateReocurring
+     * @memberof ReservationUpdateReoccurring
      */
     visitorPhone?: string | null;
 }
@@ -5724,7 +5724,7 @@ export interface ReservationUpdateReocurring {
     * @export
     * @enum {string}
     */
-export enum ReservationUpdateReocurringTypeEnum {
+export enum ReservationUpdateReoccurringTypeEnum {
     Normal = 'normal',
     Visitor = 'visitor'
 }
@@ -5836,7 +5836,7 @@ export interface ReservationWithRelations {
      * @type {string}
      * @memberof ReservationWithRelations
      */
-    reocurReferenceId?: string;
+    reoccurReferenceId?: string;
     /**
      * 
      * @type {ReservationOperationsOperations}
@@ -5988,7 +5988,7 @@ export interface ReservationWithoutId {
      * @type {string}
      * @memberof ReservationWithoutId
      */
-    reocurReferenceId?: string;
+    reoccurReferenceId?: string;
 }
 /**
  * 
@@ -6348,6 +6348,12 @@ export interface SeatTypeStatistic {
      * @memberof SeatTypeStatistic
      */
     used: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SeatTypeStatistic
+     */
+    max: number;
 }
 /**
  * 
@@ -8994,11 +9000,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} date Date to get stats for
          * @param {string} from Start time to get stats for
          * @param {string} to End of time range
-         * @param {'desk' | 'lunch' | 'meeting'} seatType Deprecated, use seatStatistics instead
+         * @param {'desk' | 'lunch' | 'meeting'} [seatType] Deprecated, use seatStatistics instead
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getLocationStats: async (locationId: string, date: string, from: string, to: string, seatType: 'desk' | 'lunch' | 'meeting', options: any = {}): Promise<RequestArgs> => {
+        getLocationStats: async (locationId: string, date: string, from: string, to: string, seatType?: 'desk' | 'lunch' | 'meeting', options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'locationId' is not null or undefined
             assertParamExists('getLocationStats', 'locationId', locationId)
             // verify required parameter 'date' is not null or undefined
@@ -9007,8 +9013,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             assertParamExists('getLocationStats', 'from', from)
             // verify required parameter 'to' is not null or undefined
             assertParamExists('getLocationStats', 'to', to)
-            // verify required parameter 'seatType' is not null or undefined
-            assertParamExists('getLocationStats', 'seatType', seatType)
             const localVarPath = `/v2/location/{location_id}/stats`
                 .replace(`{${"location_id"}}`, encodeURIComponent(String(locationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -11558,17 +11562,17 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {string} reocurReferenceId Reocur reference ID
-         * @param {ReservationUpdateReocurring} reservationUpdateReocurring 
+         * @param {string} reoccurReferenceId Reoccur reference ID
+         * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateReocurringReservation: async (reocurReferenceId: string, reservationUpdateReocurring: ReservationUpdateReocurring, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'reocurReferenceId' is not null or undefined
-            assertParamExists('updateReocurringReservation', 'reocurReferenceId', reocurReferenceId)
-            // verify required parameter 'reservationUpdateReocurring' is not null or undefined
-            assertParamExists('updateReocurringReservation', 'reservationUpdateReocurring', reservationUpdateReocurring)
-            const localVarPath = `/v3/reservation/reocurring`;
+        updateReoccurringReservation: async (reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reoccurReferenceId' is not null or undefined
+            assertParamExists('updateReoccurringReservation', 'reoccurReferenceId', reoccurReferenceId)
+            // verify required parameter 'reservationUpdateReoccurring' is not null or undefined
+            assertParamExists('updateReoccurringReservation', 'reservationUpdateReoccurring', reservationUpdateReoccurring)
+            const localVarPath = `/v3/reservation/reoccurring`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -11584,8 +11588,8 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
-            if (reocurReferenceId !== undefined) {
-                localVarQueryParameter['reocurReferenceId'] = reocurReferenceId;
+            if (reoccurReferenceId !== undefined) {
+                localVarQueryParameter['reoccurReferenceId'] = reoccurReferenceId;
             }
 
 
@@ -11595,7 +11599,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(reservationUpdateReocurring, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(reservationUpdateReoccurring, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -12377,11 +12381,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {string} date Date to get stats for
          * @param {string} from Start time to get stats for
          * @param {string} to End of time range
-         * @param {'desk' | 'lunch' | 'meeting'} seatType Deprecated, use seatStatistics instead
+         * @param {'desk' | 'lunch' | 'meeting'} [seatType] Deprecated, use seatStatistics instead
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getLocationStats(locationId: string, date: string, from: string, to: string, seatType: 'desk' | 'lunch' | 'meeting', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async getLocationStats(locationId: string, date: string, from: string, to: string, seatType?: 'desk' | 'lunch' | 'meeting', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLocationStats(locationId, date, from, to, seatType, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -13011,13 +13015,13 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} reocurReferenceId Reocur reference ID
-         * @param {ReservationUpdateReocurring} reservationUpdateReocurring 
+         * @param {string} reoccurReferenceId Reoccur reference ID
+         * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateReocurringReservation(reocurReferenceId: string, reservationUpdateReocurring: ReservationUpdateReocurring, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateReocurringReservation(reocurReferenceId, reservationUpdateReocurring, options);
+        async updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -13465,11 +13469,11 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {string} date Date to get stats for
          * @param {string} from Start time to get stats for
          * @param {string} to End of time range
-         * @param {'desk' | 'lunch' | 'meeting'} seatType Deprecated, use seatStatistics instead
+         * @param {'desk' | 'lunch' | 'meeting'} [seatType] Deprecated, use seatStatistics instead
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getLocationStats(locationId: string, date: string, from: string, to: string, seatType: 'desk' | 'lunch' | 'meeting', options?: any): AxiosPromise<object> {
+        getLocationStats(locationId: string, date: string, from: string, to: string, seatType?: 'desk' | 'lunch' | 'meeting', options?: any): AxiosPromise<object> {
             return localVarFp.getLocationStats(locationId, date, from, to, seatType, options).then((request) => request(axios, basePath));
         },
         /**
@@ -14044,13 +14048,13 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
-         * @param {string} reocurReferenceId Reocur reference ID
-         * @param {ReservationUpdateReocurring} reservationUpdateReocurring 
+         * @param {string} reoccurReferenceId Reoccur reference ID
+         * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateReocurringReservation(reocurReferenceId: string, reservationUpdateReocurring: ReservationUpdateReocurring, options?: any): AxiosPromise<InlineResponse20045> {
-            return localVarFp.updateReocurringReservation(reocurReferenceId, reservationUpdateReocurring, options).then((request) => request(axios, basePath));
+        updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, options?: any): AxiosPromise<InlineResponse20045> {
+            return localVarFp.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -14558,12 +14562,12 @@ export class DefaultApi extends BaseAPI {
      * @param {string} date Date to get stats for
      * @param {string} from Start time to get stats for
      * @param {string} to End of time range
-     * @param {'desk' | 'lunch' | 'meeting'} seatType Deprecated, use seatStatistics instead
+     * @param {'desk' | 'lunch' | 'meeting'} [seatType] Deprecated, use seatStatistics instead
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public getLocationStats(locationId: string, date: string, from: string, to: string, seatType: 'desk' | 'lunch' | 'meeting', options?: any) {
+    public getLocationStats(locationId: string, date: string, from: string, to: string, seatType?: 'desk' | 'lunch' | 'meeting', options?: any) {
         return DefaultApiFp(this.configuration).getLocationStats(locationId, date, from, to, seatType, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -15247,14 +15251,14 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 
-     * @param {string} reocurReferenceId Reocur reference ID
-     * @param {ReservationUpdateReocurring} reservationUpdateReocurring 
+     * @param {string} reoccurReferenceId Reoccur reference ID
+     * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public updateReocurringReservation(reocurReferenceId: string, reservationUpdateReocurring: ReservationUpdateReocurring, options?: any) {
-        return DefaultApiFp(this.configuration).updateReocurringReservation(reocurReferenceId, reservationUpdateReocurring, options).then((request) => request(this.axios, this.basePath));
+    public updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, options?: any) {
+        return DefaultApiFp(this.configuration).updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
