@@ -684,6 +684,12 @@ export interface Company {
     microsoftSsoEnabled?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof Company
+     */
+    microsoftSyncEnabled?: boolean;
+    /**
+     * 
      * @type {any}
      * @memberof Company
      */
@@ -905,6 +911,12 @@ export interface CompanyProperties {
      * @memberof CompanyProperties
      */
     microsoftSsoEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyProperties
+     */
+    microsoftSyncEnabled?: boolean;
 }
 /**
  * 
@@ -1128,6 +1140,12 @@ export interface CompanyWithCounts {
      * @memberof CompanyWithCounts
      */
     microsoftSsoEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    microsoftSyncEnabled?: boolean;
     /**
      * 
      * @type {any}
@@ -1420,6 +1438,12 @@ export interface CompanyWithRelations {
     microsoftSsoEnabled?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    microsoftSyncEnabled?: boolean;
+    /**
+     * 
      * @type {any}
      * @memberof CompanyWithRelations
      */
@@ -1676,6 +1700,12 @@ export interface CompanyWithoutId {
      * @memberof CompanyWithoutId
      */
     microsoftSsoEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithoutId
+     */
+    microsoftSyncEnabled?: boolean;
     /**
      * 
      * @type {any}
