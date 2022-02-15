@@ -1193,6 +1193,276 @@ export interface CompanyWithCountsAllOf {
 /**
  * 
  * @export
+ * @interface CompanyWithRelations
+ */
+export interface CompanyWithRelations {
+    /**
+     * 
+     * @type {Array<CompanyWithRelationsAllOfTokens>}
+     * @memberof CompanyWithRelations
+     */
+    tokens: Array<CompanyWithRelationsAllOfTokens>;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    contactFirstname: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    contactLastname: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    contactEmail: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    contactPhone: string;
+    /**
+     * 
+     * @type {Language}
+     * @memberof CompanyWithRelations
+     */
+    language: Language;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    forceGeofence?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    mandatoryCheckIn?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithRelations
+     */
+    reservationWindowLength: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    forceTimeslotUse?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    checkInEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    checkInV2Enabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    lunchEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    meetingEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    visitorsEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    recurringEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    overlappingUserReservationsEnabled?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithRelations
+     */
+    billingPricePerCustomer: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    billingStartDate: string;
+    /**
+     * 
+     * @type {BillingType}
+     * @memberof CompanyWithRelations
+     */
+    billingType: BillingType;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    billingVoucherCode?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    mapEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    presentpaneEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    facilitymanagementEnabled?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithRelations
+     */
+    employeeCount?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    notes?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    autoProvisioningDomain?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithRelations
+     */
+    deskAutoCheckoutTime?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithRelations
+     */
+    deskExpirationTime?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithRelations
+     */
+    lunchAutoCheckoutTime?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithRelations
+     */
+    lunchExpirationTime?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithRelations
+     */
+    meetingAutoCheckoutTime?: number | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithRelations
+     */
+    meetingExpirationTime?: number | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    reservationForUserEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    microsoftSsoEnabled?: boolean;
+    /**
+     * 
+     * @type {any}
+     * @memberof CompanyWithRelations
+     */
+    created: any | null;
+}
+/**
+ * 
+ * @export
+ * @interface CompanyWithRelationsAllOf
+ */
+export interface CompanyWithRelationsAllOf {
+    /**
+     * 
+     * @type {Array<CompanyWithRelationsAllOfTokens>}
+     * @memberof CompanyWithRelationsAllOf
+     */
+    tokens: Array<CompanyWithRelationsAllOfTokens>;
+}
+/**
+ * 
+ * @export
+ * @interface CompanyWithRelationsAllOfTokens
+ */
+export interface CompanyWithRelationsAllOfTokens {
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelationsAllOfTokens
+     */
+    token_type: CompanyWithRelationsAllOfTokensTokenTypeEnum;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum CompanyWithRelationsAllOfTokensTokenTypeEnum {
+    MicrosoftGraphAdmin = 'microsoft_graph_admin'
+}
+
+/**
+ * 
+ * @export
  * @interface CompanyWithoutId
  */
 export interface CompanyWithoutId {
@@ -3489,6 +3759,38 @@ export interface InlineResponse20047ResultItems {
 /**
  * 
  * @export
+ * @interface InlineResponse20048
+ */
+export interface InlineResponse20048 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20048
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {InlineResponse20048Result}
+     * @memberof InlineResponse20048
+     */
+    result: InlineResponse20048Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20048Result
+ */
+export interface InlineResponse20048Result {
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20048Result
+     */
+    authUrl: string;
+}
+/**
+ * 
+ * @export
  * @interface InlineResponse2004Result
  */
 export interface InlineResponse2004Result {
@@ -3634,10 +3936,10 @@ export interface InlineResponse2008 {
 export interface InlineResponse2008Result {
     /**
      * 
-     * @type {Company}
+     * @type {CompanyWithRelations}
      * @memberof InlineResponse2008Result
      */
-    company: Company;
+    company: CompanyWithRelations;
 }
 /**
  * 
@@ -10709,13 +11011,74 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {string} [code] Code from MS
+         * @param {string} [adminConsent] admin_consent from MS
          * @param {string} [state] State send in step one
-         * @param {string} [sessionState] State of session - what is difference?
+         * @param {string} [tenant] Tennant of the admin user (company ID)
+         * @param {string} [scope] Scope of the gotten access
+         * @param {string} [error] MS error Code
+         * @param {string} [errorDescription] error description by microsoft
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mSCallback: async (code?: string, state?: string, sessionState?: string, options: any = {}): Promise<RequestArgs> => {
+        mSAdminCallback: async (adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v3/auth/microsoft/adminCallback`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (adminConsent !== undefined) {
+                localVarQueryParameter['admin_consent'] = adminConsent;
+            }
+
+            if (state !== undefined) {
+                localVarQueryParameter['state'] = state;
+            }
+
+            if (tenant !== undefined) {
+                localVarQueryParameter['tenant'] = tenant;
+            }
+
+            if (scope !== undefined) {
+                localVarQueryParameter['scope'] = scope;
+            }
+
+            if (error !== undefined) {
+                localVarQueryParameter['error'] = error;
+            }
+
+            if (errorDescription !== undefined) {
+                localVarQueryParameter['error_description'] = errorDescription;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} [code] Code from MS
+         * @param {string} [state] State send in step one
+         * @param {string} [sessionState] State of session - what is difference?
+         * @param {string} [error] MS error Code
+         * @param {string} [errorDescription] error description by microsoft
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mSCallback: async (code?: string, state?: string, sessionState?: string, error?: string, errorDescription?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v3/auth/microsoft/callback`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -10738,6 +11101,14 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (sessionState !== undefined) {
                 localVarQueryParameter['session_state'] = sessionState;
+            }
+
+            if (error !== undefined) {
+                localVarQueryParameter['error'] = error;
+            }
+
+            if (errorDescription !== undefined) {
+                localVarQueryParameter['error_description'] = errorDescription;
             }
 
 
@@ -11032,6 +11403,39 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             if (clientId !== undefined) {
                 localVarQueryParameter['client_id'] = clientId;
             }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        redirToMSAdmin: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v3/auth/adminMicrosoft`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
 
     
@@ -12865,14 +13269,31 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {string} [code] Code from MS
+         * @param {string} [adminConsent] admin_consent from MS
          * @param {string} [state] State send in step one
-         * @param {string} [sessionState] State of session - what is difference?
+         * @param {string} [tenant] Tennant of the admin user (company ID)
+         * @param {string} [scope] Scope of the gotten access
+         * @param {string} [error] MS error Code
+         * @param {string} [errorDescription] error description by microsoft
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async mSCallback(code?: string, state?: string, sessionState?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.mSCallback(code, state, sessionState, options);
+        async mSAdminCallback(adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mSAdminCallback(adminConsent, state, tenant, scope, error, errorDescription, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} [code] Code from MS
+         * @param {string} [state] State send in step one
+         * @param {string} [sessionState] State of session - what is difference?
+         * @param {string} [error] MS error Code
+         * @param {string} [errorDescription] error description by microsoft
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async mSCallback(code?: string, state?: string, sessionState?: string, error?: string, errorDescription?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mSCallback(code, state, sessionState, error, errorDescription, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -12954,6 +13375,15 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          */
         async redirToMS(clientId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.redirToMS(clientId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async redirToMSAdmin(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.redirToMSAdmin(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -13926,14 +14356,30 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
-         * @param {string} [code] Code from MS
+         * @param {string} [adminConsent] admin_consent from MS
          * @param {string} [state] State send in step one
-         * @param {string} [sessionState] State of session - what is difference?
+         * @param {string} [tenant] Tennant of the admin user (company ID)
+         * @param {string} [scope] Scope of the gotten access
+         * @param {string} [error] MS error Code
+         * @param {string} [errorDescription] error description by microsoft
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mSCallback(code?: string, state?: string, sessionState?: string, options?: any): AxiosPromise<void> {
-            return localVarFp.mSCallback(code, state, sessionState, options).then((request) => request(axios, basePath));
+        mSAdminCallback(adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, options?: any): AxiosPromise<void> {
+            return localVarFp.mSAdminCallback(adminConsent, state, tenant, scope, error, errorDescription, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} [code] Code from MS
+         * @param {string} [state] State send in step one
+         * @param {string} [sessionState] State of session - what is difference?
+         * @param {string} [error] MS error Code
+         * @param {string} [errorDescription] error description by microsoft
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        mSCallback(code?: string, state?: string, sessionState?: string, error?: string, errorDescription?: string, options?: any): AxiosPromise<void> {
+            return localVarFp.mSCallback(code, state, sessionState, error, errorDescription, options).then((request) => request(axios, basePath));
         },
         /**
          * Basic API metrics
@@ -14008,6 +14454,14 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         redirToMS(clientId: string, options?: any): AxiosPromise<void> {
             return localVarFp.redirToMS(clientId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        redirToMSAdmin(options?: any): AxiosPromise<InlineResponse20048> {
+            return localVarFp.redirToMSAdmin(options).then((request) => request(axios, basePath));
         },
         /**
          * Register a new company
@@ -15091,15 +15545,33 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 
-     * @param {string} [code] Code from MS
+     * @param {string} [adminConsent] admin_consent from MS
      * @param {string} [state] State send in step one
-     * @param {string} [sessionState] State of session - what is difference?
+     * @param {string} [tenant] Tennant of the admin user (company ID)
+     * @param {string} [scope] Scope of the gotten access
+     * @param {string} [error] MS error Code
+     * @param {string} [errorDescription] error description by microsoft
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public mSCallback(code?: string, state?: string, sessionState?: string, options?: any) {
-        return DefaultApiFp(this.configuration).mSCallback(code, state, sessionState, options).then((request) => request(this.axios, this.basePath));
+    public mSAdminCallback(adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, options?: any) {
+        return DefaultApiFp(this.configuration).mSAdminCallback(adminConsent, state, tenant, scope, error, errorDescription, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} [code] Code from MS
+     * @param {string} [state] State send in step one
+     * @param {string} [sessionState] State of session - what is difference?
+     * @param {string} [error] MS error Code
+     * @param {string} [errorDescription] error description by microsoft
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public mSCallback(code?: string, state?: string, sessionState?: string, error?: string, errorDescription?: string, options?: any) {
+        return DefaultApiFp(this.configuration).mSCallback(code, state, sessionState, error, errorDescription, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15188,6 +15660,16 @@ export class DefaultApi extends BaseAPI {
      */
     public redirToMS(clientId: string, options?: any) {
         return DefaultApiFp(this.configuration).redirToMS(clientId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public redirToMSAdmin(options?: any) {
+        return DefaultApiFp(this.configuration).redirToMSAdmin(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
