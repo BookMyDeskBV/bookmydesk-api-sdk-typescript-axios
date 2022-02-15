@@ -2783,10 +2783,10 @@ export interface InlineResponse20021 {
 export interface InlineResponse20021Result {
     /**
      * 
-     * @type {UserWithRelations}
+     * @type {UserWithRelations & Operations}
      * @memberof InlineResponse20021Result
      */
-    user: UserWithRelations;
+    user: UserWithRelations & Operations;
 }
 /**
  * 
@@ -5312,6 +5312,18 @@ export interface OperationsOperations {
      * @memberof OperationsOperations
      */
     cannotDeleteDescription?: string;
+    /**
+     * Can update name for this user
+     * @type {boolean}
+     * @memberof OperationsOperations
+     */
+    canUpdateName?: boolean;
+    /**
+     * Can update email for this user
+     * @type {boolean}
+     * @memberof OperationsOperations
+     */
+    canUpdateEmail?: boolean;
 }
 /**
  * 
