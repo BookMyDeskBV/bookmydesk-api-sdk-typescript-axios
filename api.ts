@@ -693,7 +693,7 @@ export interface Company {
      * @type {any}
      * @memberof Company
      */
-    created: any | null;
+    created?: any | null;
 }
 /**
  * 
@@ -917,6 +917,12 @@ export interface CompanyProperties {
      * @memberof CompanyProperties
      */
     microsoftSyncEnabled?: boolean;
+    /**
+     * 
+     * @type {any}
+     * @memberof CompanyProperties
+     */
+    created?: any | null;
 }
 /**
  * 
@@ -1151,7 +1157,7 @@ export interface CompanyWithCounts {
      * @type {any}
      * @memberof CompanyWithCounts
      */
-    created: any | null;
+    created?: any | null;
     /**
      * 
      * @type {number}
@@ -1447,7 +1453,7 @@ export interface CompanyWithRelations {
      * @type {any}
      * @memberof CompanyWithRelations
      */
-    created: any | null;
+    created?: any | null;
 }
 /**
  * 
@@ -1711,7 +1717,7 @@ export interface CompanyWithoutId {
      * @type {any}
      * @memberof CompanyWithoutId
      */
-    created: any | null;
+    created?: any | null;
 }
 /**
  * 
@@ -1779,12 +1785,6 @@ export interface CompanyWithoutIdAllOf {
      * @memberof CompanyWithoutIdAllOf
      */
     language: Language;
-    /**
-     * 
-     * @type {any}
-     * @memberof CompanyWithoutIdAllOf
-     */
-    created: any | null;
 }
 /**
  * 
@@ -4213,6 +4213,12 @@ export interface Location {
     contactEmail: string;
     /**
      * 
+     * @type {string}
+     * @memberof Location
+     */
+    visitorReservationEmail?: string | null;
+    /**
+     * 
      * @type {number}
      * @memberof Location
      */
@@ -4329,6 +4335,12 @@ export interface LocationProperties {
     contactEmail?: string;
     /**
      * 
+     * @type {string}
+     * @memberof LocationProperties
+     */
+    visitorReservationEmail?: string | null;
+    /**
+     * 
      * @type {number}
      * @memberof LocationProperties
      */
@@ -4394,6 +4406,12 @@ export interface LocationWithoutId {
      * @memberof LocationWithoutId
      */
     contactEmail: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationWithoutId
+     */
+    visitorReservationEmail?: string | null;
     /**
      * 
      * @type {number}
@@ -8782,6 +8800,51 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Delete all future reservations with the same reoccurReferenceId
+         * @param {string} reoccurReferenceId Reoccur reference ID
+         * @param {string} [fromReservationId] Delete this reservation and all future reservations from this date with the same reoccurReferenceId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteReoccurringReservation: async (reoccurReferenceId: string, fromReservationId?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reoccurReferenceId' is not null or undefined
+            assertParamExists('deleteReoccurringReservation', 'reoccurReferenceId', reoccurReferenceId)
+            const localVarPath = `/v3/reservation/reoccurring`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (reoccurReferenceId !== undefined) {
+                localVarQueryParameter['reoccurReferenceId'] = reoccurReferenceId;
+            }
+
+            if (fromReservationId !== undefined) {
+                localVarQueryParameter['fromReservationId'] = fromReservationId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * 
          * @param {string} reportReasonId Report reason ID
          * @param {*} [options] Override http request option.
@@ -12097,13 +12160,14 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
+         * Update all future reservations with the same reoccurReferenceId
          * @param {string} reoccurReferenceId Reoccur reference ID
          * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
+         * @param {string} [fromReservationId] Update this reservation and all future reservations from this date with the same reoccurReferenceId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateReoccurringReservation: async (reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, options: any = {}): Promise<RequestArgs> => {
+        updateReoccurringReservation: async (reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'reoccurReferenceId' is not null or undefined
             assertParamExists('updateReoccurringReservation', 'reoccurReferenceId', reoccurReferenceId)
             // verify required parameter 'reservationUpdateReoccurring' is not null or undefined
@@ -12126,6 +12190,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (reoccurReferenceId !== undefined) {
                 localVarQueryParameter['reoccurReferenceId'] = reoccurReferenceId;
+            }
+
+            if (fromReservationId !== undefined) {
+                localVarQueryParameter['fromReservationId'] = fromReservationId;
             }
 
 
@@ -12755,6 +12823,17 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          */
         async deleteMapObject(mapObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMapObject(mapObjectId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Delete all future reservations with the same reoccurReferenceId
+         * @param {string} reoccurReferenceId Reoccur reference ID
+         * @param {string} [fromReservationId] Delete this reservation and all future reservations from this date with the same reoccurReferenceId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteReoccurringReservation(reoccurReferenceId: string, fromReservationId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteReoccurringReservation(reoccurReferenceId, fromReservationId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -13582,14 +13661,15 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * 
+         * Update all future reservations with the same reoccurReferenceId
          * @param {string} reoccurReferenceId Reoccur reference ID
          * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
+         * @param {string} [fromReservationId] Update this reservation and all future reservations from this date with the same reoccurReferenceId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, options);
+        async updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, fromReservationId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -13890,6 +13970,16 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         deleteMapObject(mapObjectId: string, options?: any): AxiosPromise<void> {
             return localVarFp.deleteMapObject(mapObjectId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete all future reservations with the same reoccurReferenceId
+         * @param {string} reoccurReferenceId Reoccur reference ID
+         * @param {string} [fromReservationId] Delete this reservation and all future reservations from this date with the same reoccurReferenceId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteReoccurringReservation(reoccurReferenceId: string, fromReservationId?: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteReoccurringReservation(reoccurReferenceId, fromReservationId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -14645,14 +14735,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.updatePassword(inlineObject2, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Update all future reservations with the same reoccurReferenceId
          * @param {string} reoccurReferenceId Reoccur reference ID
          * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
+         * @param {string} [fromReservationId] Update this reservation and all future reservations from this date with the same reoccurReferenceId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, options?: any): AxiosPromise<InlineResponse20045> {
-            return localVarFp.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, options).then((request) => request(axios, basePath));
+        updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options?: any): AxiosPromise<InlineResponse20045> {
+            return localVarFp.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, fromReservationId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -14984,6 +15075,18 @@ export class DefaultApi extends BaseAPI {
      */
     public deleteMapObject(mapObjectId: string, options?: any) {
         return DefaultApiFp(this.configuration).deleteMapObject(mapObjectId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete all future reservations with the same reoccurReferenceId
+     * @param {string} reoccurReferenceId Reoccur reference ID
+     * @param {string} [fromReservationId] Delete this reservation and all future reservations from this date with the same reoccurReferenceId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public deleteReoccurringReservation(reoccurReferenceId: string, fromReservationId?: string, options?: any) {
+        return DefaultApiFp(this.configuration).deleteReoccurringReservation(reoccurReferenceId, fromReservationId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15882,15 +15985,16 @@ export class DefaultApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Update all future reservations with the same reoccurReferenceId
      * @param {string} reoccurReferenceId Reoccur reference ID
      * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
+     * @param {string} [fromReservationId] Update this reservation and all future reservations from this date with the same reoccurReferenceId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, options?: any) {
-        return DefaultApiFp(this.configuration).updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, options).then((request) => request(this.axios, this.basePath));
+    public updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options?: any) {
+        return DefaultApiFp(this.configuration).updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, fromReservationId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
