@@ -1827,7 +1827,7 @@ export interface FavoriteUserWithoutId {
      * @type {string}
      * @memberof FavoriteUserWithoutId
      */
-    favoriteUserId: string;
+    favorite_user_id: string;
 }
 /**
  * 
@@ -5730,7 +5730,7 @@ export interface Reservation {
      * @type {string}
      * @memberof Reservation
      */
-    from: string;
+    from?: string;
     /**
      * 
      * @type {string}
@@ -6231,7 +6231,7 @@ export interface ReservationWithRelations {
      * @type {string}
      * @memberof ReservationWithRelations
      */
-    from: string;
+    from?: string;
     /**
      * 
      * @type {string}
@@ -6389,7 +6389,7 @@ export interface ReservationWithoutId {
      * @type {string}
      * @memberof ReservationWithoutId
      */
-    from: string;
+    from?: string;
     /**
      * 
      * @type {string}
@@ -6498,7 +6498,7 @@ export interface ReservationWithoutIdAllOf {
      * @type {string}
      * @memberof ReservationWithoutIdAllOf
      */
-    from: string;
+    from?: string;
     /**
      * 
      * @type {string}
@@ -6652,6 +6652,12 @@ export interface Seat {
      */
     isActive?: boolean;
     /**
+     * Hotdesk is a seat that can only be booked in the future
+     * @type {boolean}
+     * @memberof Seat
+     */
+    isHotdesk?: boolean;
+    /**
      * 
      * @type {Array<SeatUserGroup>}
      * @memberof Seat
@@ -6744,6 +6750,12 @@ export interface SeatProperties {
      * @memberof SeatProperties
      */
     isActive?: boolean;
+    /**
+     * Hotdesk is a seat that can only be booked in the future
+     * @type {boolean}
+     * @memberof SeatProperties
+     */
+    isHotdesk?: boolean;
 }
 /**
  * 
@@ -6907,6 +6919,12 @@ export interface SeatUpdate {
      */
     isActive?: boolean;
     /**
+     * Hotdesk is a seat that can only be booked in the future
+     * @type {boolean}
+     * @memberof SeatUpdate
+     */
+    isHotdesk?: boolean;
+    /**
      * 
      * @type {Array<SeatUserGroup>}
      * @memberof SeatUpdate
@@ -7049,6 +7067,12 @@ export interface SeatWithRelations {
      */
     isActive?: boolean;
     /**
+     * Hotdesk is a seat that can only be booked in the future
+     * @type {boolean}
+     * @memberof SeatWithRelations
+     */
+    isHotdesk?: boolean;
+    /**
      * 
      * @type {Array<SeatUserGroup>}
      * @memberof SeatWithRelations
@@ -7140,6 +7164,12 @@ export interface SeatWithoutId {
      * @memberof SeatWithoutId
      */
     isActive?: boolean;
+    /**
+     * Hotdesk is a seat that can only be booked in the future
+     * @type {boolean}
+     * @memberof SeatWithoutId
+     */
+    isHotdesk?: boolean;
     /**
      * 
      * @type {Array<SeatUserGroup>}
@@ -7404,6 +7434,12 @@ export interface UsedSeat {
      * @memberof UsedSeat
      */
     isActive?: boolean;
+    /**
+     * Hotdesk is a seat that can only be booked in the future
+     * @type {boolean}
+     * @memberof UsedSeat
+     */
+    isHotdesk?: boolean;
     /**
      * 
      * @type {Array<SeatUserGroup>}
@@ -7853,7 +7889,7 @@ export interface UserWithRelations {
      */
     status?: UserWithRelationsStatusEnum;
     /**
-     * Is this user favorite of the calling user?
+     * Is this user a favorite of the requesting user
      * @type {boolean}
      * @memberof UserWithRelations
      */
@@ -7906,6 +7942,12 @@ export interface UserWithRelationsAllOf {
      * @memberof UserWithRelationsAllOf
      */
     ssoProviders: Array<UserWithRelationsAllOfSsoProviders>;
+    /**
+     * Is this user a favorite of the requesting user
+     * @type {boolean}
+     * @memberof UserWithRelationsAllOf
+     */
+    isFavorite?: boolean;
 }
 /**
  * 
@@ -8863,7 +8905,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Remove a favorite user
+         * Remove  a favorite user
          * @param {string} favoriteUserId ID of the other user to remove from favorites
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -8888,7 +8930,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (favoriteUserId !== undefined) {
-                localVarQueryParameter['favoriteUserId'] = favoriteUserId;
+                localVarQueryParameter['favorite_user_id'] = favoriteUserId;
             }
 
 
@@ -13068,7 +13110,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Remove a favorite user
+         * Remove  a favorite user
          * @param {string} favoriteUserId ID of the other user to remove from favorites
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14254,7 +14296,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteCompany(companyId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Remove a favorite user
+         * Remove  a favorite user
          * @param {string} favoriteUserId ID of the other user to remove from favorites
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -15393,7 +15435,7 @@ export class DefaultApi extends BaseAPI {
     }
 
     /**
-     * Remove a favorite user
+     * Remove  a favorite user
      * @param {string} favoriteUserId ID of the other user to remove from favorites
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
