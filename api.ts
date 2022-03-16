@@ -681,6 +681,12 @@ export interface Company {
      * @type {boolean}
      * @memberof Company
      */
+    hideCheckInTimeEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Company
+     */
     microsoftSsoEnabled?: boolean;
     /**
      * 
@@ -905,6 +911,12 @@ export interface CompanyProperties {
      * @memberof CompanyProperties
      */
     reservationForUserEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyProperties
+     */
+    hideCheckInTimeEnabled?: boolean;
     /**
      * 
      * @type {boolean}
@@ -1140,6 +1152,12 @@ export interface CompanyWithCounts {
      * @memberof CompanyWithCounts
      */
     reservationForUserEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    hideCheckInTimeEnabled?: boolean;
     /**
      * 
      * @type {boolean}
@@ -1441,6 +1459,12 @@ export interface CompanyWithRelations {
      * @type {boolean}
      * @memberof CompanyWithRelations
      */
+    hideCheckInTimeEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
     microsoftSsoEnabled?: boolean;
     /**
      * 
@@ -1705,6 +1729,12 @@ export interface CompanyWithoutId {
      * @type {boolean}
      * @memberof CompanyWithoutId
      */
+    hideCheckInTimeEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithoutId
+     */
     microsoftSsoEnabled?: boolean;
     /**
      * 
@@ -1785,6 +1815,19 @@ export interface CompanyWithoutIdAllOf {
      * @memberof CompanyWithoutIdAllOf
      */
     language: Language;
+}
+/**
+ * 
+ * @export
+ * @interface FavoriteUserWithoutId
+ */
+export interface FavoriteUserWithoutId {
+    /**
+     * ID of the other user
+     * @type {string}
+     * @memberof FavoriteUserWithoutId
+     */
+    favoriteUserId: string;
 }
 /**
  * 
@@ -3631,41 +3674,10 @@ export interface InlineResponse20045 {
 export interface InlineResponse20045Result {
     /**
      * 
-     * @type {Array<ReservationWithRelations>}
+     * @type {boolean}
      * @memberof InlineResponse20045Result
      */
-    updatedReservations?: Array<ReservationWithRelations>;
-    /**
-     * 
-     * @type {Array<InlineResponse20045ResultFailedReservations>}
-     * @memberof InlineResponse20045Result
-     */
-    failedReservations?: Array<InlineResponse20045ResultFailedReservations>;
-}
-/**
- * 
- * @export
- * @interface InlineResponse20045ResultFailedReservations
- */
-export interface InlineResponse20045ResultFailedReservations {
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20045ResultFailedReservations
-     */
-    message: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20045ResultFailedReservations
-     */
-    code: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20045ResultFailedReservations
-     */
-    date: string;
+    allowed: boolean;
 }
 /**
  * 
@@ -3694,16 +3706,41 @@ export interface InlineResponse20046 {
 export interface InlineResponse20046Result {
     /**
      * 
-     * @type {number}
-     * @memberof InlineResponse20046Result
-     */
-    total: number;
-    /**
-     * 
      * @type {Array<ReservationWithRelations>}
      * @memberof InlineResponse20046Result
      */
-    items: Array<ReservationWithRelations>;
+    updatedReservations?: Array<ReservationWithRelations>;
+    /**
+     * 
+     * @type {Array<InlineResponse20046ResultFailedReservations>}
+     * @memberof InlineResponse20046Result
+     */
+    failedReservations?: Array<InlineResponse20046ResultFailedReservations>;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20046ResultFailedReservations
+ */
+export interface InlineResponse20046ResultFailedReservations {
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20046ResultFailedReservations
+     */
+    message: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20046ResultFailedReservations
+     */
+    code: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20046ResultFailedReservations
+     */
+    date: string;
 }
 /**
  * 
@@ -3732,59 +3769,16 @@ export interface InlineResponse20047 {
 export interface InlineResponse20047Result {
     /**
      * 
-     * @type {Array<InlineResponse20047ResultItems>}
-     * @memberof InlineResponse20047Result
-     */
-    items: Array<InlineResponse20047ResultItems>;
-    /**
-     * 
      * @type {number}
      * @memberof InlineResponse20047Result
      */
-    seatCount: number;
+    total: number;
     /**
      * 
-     * @type {number}
+     * @type {Array<ReservationWithRelations>}
      * @memberof InlineResponse20047Result
      */
-    parkingCount: number;
-}
-/**
- * 
- * @export
- * @interface InlineResponse20047ResultItems
- */
-export interface InlineResponse20047ResultItems {
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20047ResultItems
-     */
-    date?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20047ResultItems
-     */
-    minTimeslot?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20047ResultItems
-     */
-    maxTimeslot?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20047ResultItems
-     */
-    seatreservationsCount?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20047ResultItems
-     */
-    parkingspotsClaimed?: number;
+    items: Array<ReservationWithRelations>;
 }
 /**
  * 
@@ -3813,8 +3807,89 @@ export interface InlineResponse20048 {
 export interface InlineResponse20048Result {
     /**
      * 
-     * @type {string}
+     * @type {Array<InlineResponse20048ResultItems>}
      * @memberof InlineResponse20048Result
+     */
+    items: Array<InlineResponse20048ResultItems>;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20048Result
+     */
+    seatCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20048Result
+     */
+    parkingCount: number;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20048ResultItems
+ */
+export interface InlineResponse20048ResultItems {
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20048ResultItems
+     */
+    date?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20048ResultItems
+     */
+    minTimeslot?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20048ResultItems
+     */
+    maxTimeslot?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20048ResultItems
+     */
+    seatreservationsCount?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20048ResultItems
+     */
+    parkingspotsClaimed?: number;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20049
+ */
+export interface InlineResponse20049 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20049
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {InlineResponse20049Result}
+     * @memberof InlineResponse20049
+     */
+    result: InlineResponse20049Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20049Result
+ */
+export interface InlineResponse20049Result {
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20049Result
      */
     authUrl: string;
 }
@@ -5681,7 +5756,7 @@ export interface Reservation {
      */
     includeParking: boolean;
     /**
-     * 
+     * undefined if not checked in Or if check in times are hidden (company setting)
      * @type {string}
      * @memberof Reservation
      */
@@ -5918,7 +5993,7 @@ export interface ReservationProperties {
      */
     includeParking?: boolean;
     /**
-     * 
+     * undefined if not checked in Or if check in times are hidden (company setting)
      * @type {string}
      * @memberof ReservationProperties
      */
@@ -6182,7 +6257,7 @@ export interface ReservationWithRelations {
      */
     includeParking: boolean;
     /**
-     * 
+     * undefined if not checked in Or if check in times are hidden (company setting)
      * @type {string}
      * @memberof ReservationWithRelations
      */
@@ -6340,7 +6415,7 @@ export interface ReservationWithoutId {
      */
     includeParking: boolean;
     /**
-     * 
+     * undefined if not checked in Or if check in times are hidden (company setting)
      * @type {string}
      * @memberof ReservationWithoutId
      */
@@ -6449,7 +6524,7 @@ export interface ReservationWithoutIdAllOf {
      */
     includeParking: boolean;
     /**
-     * 
+     * undefined if not checked in Or if check in times are hidden (company setting)
      * @type {string}
      * @memberof ReservationWithoutIdAllOf
      */
@@ -7416,6 +7491,12 @@ export interface User {
      */
     status?: UserStatusEnum;
     /**
+     * Is this user favorite of the calling user?
+     * @type {boolean}
+     * @memberof User
+     */
+    isFavorite?: boolean;
+    /**
      * 
      * @type {Array<UserGroupLink>}
      * @memberof User
@@ -7608,6 +7689,12 @@ export interface UserProperties {
      * @memberof UserProperties
      */
     status?: UserPropertiesStatusEnum;
+    /**
+     * Is this user favorite of the calling user?
+     * @type {boolean}
+     * @memberof UserProperties
+     */
+    isFavorite?: boolean;
 }
 
 /**
@@ -7674,6 +7761,12 @@ export interface UserUpdate {
      * @memberof UserUpdate
      */
     status?: UserUpdateStatusEnum;
+    /**
+     * Is this user favorite of the calling user?
+     * @type {boolean}
+     * @memberof UserUpdate
+     */
+    isFavorite?: boolean;
     /**
      * 
      * @type {Array<UserGroupLink>}
@@ -7759,6 +7852,12 @@ export interface UserWithRelations {
      * @memberof UserWithRelations
      */
     status?: UserWithRelationsStatusEnum;
+    /**
+     * Is this user favorite of the calling user?
+     * @type {boolean}
+     * @memberof UserWithRelations
+     */
+    isFavorite?: boolean;
     /**
      * 
      * @type {Array<UserGroup>}
@@ -7884,6 +7983,12 @@ export interface UserWithoutId {
      * @memberof UserWithoutId
      */
     status?: UserWithoutIdStatusEnum;
+    /**
+     * Is this user favorite of the calling user?
+     * @type {boolean}
+     * @memberof UserWithoutId
+     */
+    isFavorite?: boolean;
     /**
      * 
      * @type {Array<UserGroupLink>}
@@ -8018,6 +8123,45 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(companyWithoutId, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Add a favorite user
+         * @param {FavoriteUserWithoutId} favoriteUserWithoutId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFavoriteUser: async (favoriteUserWithoutId: FavoriteUserWithoutId, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'favoriteUserWithoutId' is not null or undefined
+            assertParamExists('addFavoriteUser', 'favoriteUserWithoutId', favoriteUserWithoutId)
+            const localVarPath = `/v3/favoriteUser`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(favoriteUserWithoutId, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -8561,6 +8705,45 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Endpoint to test if a reservation with the provided properties is allowed to be created
+         * @param {ReservationAdd} reservationAdd 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        canCreateReservation: async (reservationAdd: ReservationAdd, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reservationAdd' is not null or undefined
+            assertParamExists('canCreateReservation', 'reservationAdd', reservationAdd)
+            const localVarPath = `/v3/reservation/canCreate`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(reservationAdd, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * 
          * @param {InlineObject17} inlineObject17 
          * @param {*} [options] Override http request option.
@@ -8666,6 +8849,46 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (companyId !== undefined) {
                 localVarQueryParameter['companyId'] = companyId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Remove a favorite user
+         * @param {string} favoriteUserId ID of the other user to remove from favorites
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFavoriteUser: async (favoriteUserId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'favoriteUserId' is not null or undefined
+            assertParamExists('deleteFavoriteUser', 'favoriteUserId', favoriteUserId)
+            const localVarPath = `/v3/favoriteUser`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (favoriteUserId !== undefined) {
+                localVarQueryParameter['favoriteUserId'] = favoriteUserId;
             }
 
 
@@ -9259,6 +9482,35 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             if (seatType !== undefined) {
                 localVarQueryParameter['seatType'] = seatType;
             }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * throw api error
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        failGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/fail`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
 
 
     
@@ -12634,6 +12886,16 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Add a favorite user
+         * @param {FavoriteUserWithoutId} favoriteUserWithoutId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addFavoriteUser(favoriteUserWithoutId: FavoriteUserWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addFavoriteUser(favoriteUserWithoutId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * 
          * @param {LocationWithoutId} locationWithoutId 
          * @param {*} [options] Override http request option.
@@ -12766,6 +13028,16 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Endpoint to test if a reservation with the provided properties is allowed to be created
+         * @param {ReservationAdd} reservationAdd 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async canCreateReservation(reservationAdd: ReservationAdd, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.canCreateReservation(reservationAdd, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * 
          * @param {InlineObject17} inlineObject17 
          * @param {*} [options] Override http request option.
@@ -12793,6 +13065,16 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          */
         async deleteCompany(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCompany(companyId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Remove a favorite user
+         * @param {string} favoriteUserId ID of the other user to remove from favorites
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteFavoriteUser(favoriteUserId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFavoriteUser(favoriteUserId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -12938,6 +13220,15 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          */
         async exportReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, userId, status, locationId, mapId, seatType, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * throw api error
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async failGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.failGet(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -13283,7 +13574,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
+        async listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, userId, status, locationId, mapId, seatType, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -13503,7 +13794,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async redirToMSAdmin(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
+        async redirToMSAdmin(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.redirToMSAdmin(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -13561,7 +13852,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
+        async reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.reservationsStatistics(from, to, seatType, companyId, locationId, mapId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -13668,7 +13959,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
+        async updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, fromReservationId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -13799,6 +14090,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.addCompany(companyWithoutId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Add a favorite user
+         * @param {FavoriteUserWithoutId} favoriteUserWithoutId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addFavoriteUser(favoriteUserWithoutId: FavoriteUserWithoutId, options?: any): AxiosPromise<void> {
+            return localVarFp.addFavoriteUser(favoriteUserWithoutId, options).then((request) => request(axios, basePath));
+        },
+        /**
          * 
          * @param {LocationWithoutId} locationWithoutId 
          * @param {*} [options] Override http request option.
@@ -13918,6 +14218,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.addUserGroup(userGroupWithoutId, options).then((request) => request(axios, basePath));
         },
         /**
+         * Endpoint to test if a reservation with the provided properties is allowed to be created
+         * @param {ReservationAdd} reservationAdd 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        canCreateReservation(reservationAdd: ReservationAdd, options?: any): AxiosPromise<InlineResponse20045> {
+            return localVarFp.canCreateReservation(reservationAdd, options).then((request) => request(axios, basePath));
+        },
+        /**
          * 
          * @param {InlineObject17} inlineObject17 
          * @param {*} [options] Override http request option.
@@ -13943,6 +14252,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         deleteCompany(companyId: string, options?: any): AxiosPromise<void> {
             return localVarFp.deleteCompany(companyId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Remove a favorite user
+         * @param {string} favoriteUserId ID of the other user to remove from favorites
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFavoriteUser(favoriteUserId: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteFavoriteUser(favoriteUserId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -14075,6 +14393,14 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         exportReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, options?: any): AxiosPromise<any> {
             return localVarFp.exportReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, userId, status, locationId, mapId, seatType, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * throw api error
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        failGet(options?: any): AxiosPromise<void> {
+            return localVarFp.failGet(options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -14390,7 +14716,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, options?: any): AxiosPromise<InlineResponse20046> {
+        listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, options?: any): AxiosPromise<InlineResponse20047> {
             return localVarFp.listReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, userId, status, locationId, mapId, seatType, options).then((request) => request(axios, basePath));
         },
         /**
@@ -14592,7 +14918,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        redirToMSAdmin(options?: any): AxiosPromise<InlineResponse20048> {
+        redirToMSAdmin(options?: any): AxiosPromise<InlineResponse20049> {
             return localVarFp.redirToMSAdmin(options).then((request) => request(axios, basePath));
         },
         /**
@@ -14645,7 +14971,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20047> {
+        reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20048> {
             return localVarFp.reservationsStatistics(from, to, seatType, companyId, locationId, mapId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -14742,7 +15068,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options?: any): AxiosPromise<InlineResponse20045> {
+        updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options?: any): AxiosPromise<InlineResponse20046> {
             return localVarFp.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, fromReservationId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -14864,6 +15190,17 @@ export class DefaultApi extends BaseAPI {
      */
     public addCompany(companyWithoutId: CompanyWithoutId, options?: any) {
         return DefaultApiFp(this.configuration).addCompany(companyWithoutId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Add a favorite user
+     * @param {FavoriteUserWithoutId} favoriteUserWithoutId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public addFavoriteUser(favoriteUserWithoutId: FavoriteUserWithoutId, options?: any) {
+        return DefaultApiFp(this.configuration).addFavoriteUser(favoriteUserWithoutId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15012,6 +15349,17 @@ export class DefaultApi extends BaseAPI {
     }
 
     /**
+     * Endpoint to test if a reservation with the provided properties is allowed to be created
+     * @param {ReservationAdd} reservationAdd 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public canCreateReservation(reservationAdd: ReservationAdd, options?: any) {
+        return DefaultApiFp(this.configuration).canCreateReservation(reservationAdd, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * 
      * @param {InlineObject17} inlineObject17 
      * @param {*} [options] Override http request option.
@@ -15042,6 +15390,17 @@ export class DefaultApi extends BaseAPI {
      */
     public deleteCompany(companyId: string, options?: any) {
         return DefaultApiFp(this.configuration).deleteCompany(companyId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Remove a favorite user
+     * @param {string} favoriteUserId ID of the other user to remove from favorites
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public deleteFavoriteUser(favoriteUserId: string, options?: any) {
+        return DefaultApiFp(this.configuration).deleteFavoriteUser(favoriteUserId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15200,6 +15559,16 @@ export class DefaultApi extends BaseAPI {
      */
     public exportReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, options?: any) {
         return DefaultApiFp(this.configuration).exportReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, userId, status, locationId, mapId, seatType, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * throw api error
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public failGet(options?: any) {
+        return DefaultApiFp(this.configuration).failGet(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
