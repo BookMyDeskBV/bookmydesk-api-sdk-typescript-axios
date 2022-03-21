@@ -461,6 +461,17 @@ export enum BillingType {
 }
 
 /**
+ * Type for checkin, usually manual
+ * @export
+ * @enum {string}
+ */
+export enum CheckInType {
+    Manual = 'manual',
+    Geofence = 'geofence',
+    Hotdesk = 'hotdesk'
+}
+
+/**
  * 
  * @export
  * @interface Company
@@ -1827,7 +1838,7 @@ export interface FavoriteUserWithoutId {
      * @type {string}
      * @memberof FavoriteUserWithoutId
      */
-    favorite_user_id: string;
+    favoriteUserId: string;
 }
 /**
  * 
@@ -1953,10 +1964,10 @@ export interface InlineObject13 {
 export interface InlineObject15 {
     /**
      * 
-     * @type {string}
+     * @type {CheckInType}
      * @memberof InlineObject15
      */
-    type: string;
+    type: CheckInType;
 }
 /**
  * 
@@ -4333,6 +4344,12 @@ export interface Location {
      * @type {string}
      * @memberof Location
      */
+    timezone: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Location
+     */
     id: string;
 }
 /**
@@ -4450,6 +4467,12 @@ export interface LocationProperties {
      * @memberof LocationProperties
      */
     proximityRadius?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationProperties
+     */
+    timezone?: string;
 }
 /**
  * 
@@ -4523,6 +4546,12 @@ export interface LocationWithoutId {
      * @memberof LocationWithoutId
      */
     proximityRadius?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationWithoutId
+     */
+    timezone: string;
 }
 /**
  * 
@@ -4554,6 +4583,12 @@ export interface LocationWithoutIdAllOf {
      * @memberof LocationWithoutIdAllOf
      */
     address: LocationAddress;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationWithoutIdAllOf
+     */
+    timezone: string;
 }
 /**
  * 
@@ -5729,20 +5764,35 @@ export interface Reservation {
      * 
      * @type {string}
      * @memberof Reservation
+     * @deprecated
      */
     from?: string;
     /**
      * 
      * @type {string}
      * @memberof Reservation
+     * @deprecated
      */
-    to: string;
+    to?: string;
     /**
      * 
      * @type {string}
      * @memberof Reservation
+     * @deprecated
      */
-    date: string;
+    date?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof Reservation
+     */
+    dateStart: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof Reservation
+     */
+    dateEnd: string;
     /**
      * 
      * @type {string}
@@ -5844,20 +5894,35 @@ export interface ReservationAdd {
      * 
      * @type {string}
      * @memberof ReservationAdd
+     * @deprecated
      */
-    from: string;
+    from?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationAdd
+     * @deprecated
      */
-    to: string;
+    to?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationAdd
+     * @deprecated
      */
-    date: string;
+    date?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationAdd
+     */
+    dateStart?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationAdd
+     */
+    dateEnd?: string;
     /**
      * 
      * @type {boolean}
@@ -5933,6 +5998,103 @@ export interface ReservationAddAllOf {
 /**
  * 
  * @export
+ * @interface ReservationCanCreate
+ */
+export interface ReservationCanCreate {
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationCanCreate
+     */
+    companyId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationCanCreate
+     */
+    locationId?: string;
+    /**
+     * 
+     * @type {SeatType}
+     * @memberof ReservationCanCreate
+     */
+    seatType: SeatType;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationCanCreate
+     */
+    userId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationCanCreate
+     */
+    seatId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationCanCreate
+     */
+    from: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationCanCreate
+     * @deprecated
+     */
+    to: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationCanCreate
+     * @deprecated
+     */
+    date: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationCanCreate
+     */
+    dateStart?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationCanCreate
+     */
+    dateEnd?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ReservationCanCreate
+     */
+    includeParking?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationCanCreate
+     */
+    type: ReservationCanCreateTypeEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationCanCreate
+     */
+    rrule?: string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ReservationCanCreateTypeEnum {
+    Normal = 'normal',
+    Visitor = 'visitor'
+}
+
+/**
+ * 
+ * @export
  * @interface ReservationOperations
  */
 export interface ReservationOperations {
@@ -5966,20 +6128,35 @@ export interface ReservationProperties {
      * 
      * @type {string}
      * @memberof ReservationProperties
+     * @deprecated
      */
     from?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationProperties
+     * @deprecated
      */
     to?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationProperties
+     * @deprecated
      */
     date?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    dateStart?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    dateEnd?: string;
     /**
      * 
      * @type {string}
@@ -6094,20 +6271,35 @@ export interface ReservationUpdate {
      * 
      * @type {string}
      * @memberof ReservationUpdate
+     * @deprecated
      */
-    from: string;
+    from?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationUpdate
+     * @deprecated
      */
-    to: string;
+    to?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationUpdate
+     * @deprecated
      */
-    date: string;
+    date?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationUpdate
+     */
+    dateStart?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationUpdate
+     */
+    dateEnd?: string;
     /**
      * 
      * @type {boolean}
@@ -6165,14 +6357,28 @@ export interface ReservationUpdateReoccurring {
      * 
      * @type {string}
      * @memberof ReservationUpdateReoccurring
+     * @deprecated
      */
-    from: string;
+    from?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationUpdateReoccurring
+     * @deprecated
      */
-    to: string;
+    to?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationUpdateReoccurring
+     */
+    dateStart?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationUpdateReoccurring
+     */
+    dateEnd?: string;
     /**
      * 
      * @type {boolean}
@@ -6230,20 +6436,35 @@ export interface ReservationWithRelations {
      * 
      * @type {string}
      * @memberof ReservationWithRelations
+     * @deprecated
      */
     from?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationWithRelations
+     * @deprecated
      */
-    to: string;
+    to?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationWithRelations
+     * @deprecated
      */
-    date: string;
+    date?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    dateStart: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    dateEnd: string;
     /**
      * 
      * @type {string}
@@ -6388,20 +6609,35 @@ export interface ReservationWithoutId {
      * 
      * @type {string}
      * @memberof ReservationWithoutId
+     * @deprecated
      */
     from?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationWithoutId
+     * @deprecated
      */
-    to: string;
+    to?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationWithoutId
+     * @deprecated
      */
-    date: string;
+    date?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    dateStart: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    dateEnd: string;
     /**
      * 
      * @type {string}
@@ -6497,20 +6733,35 @@ export interface ReservationWithoutIdAllOf {
      * 
      * @type {string}
      * @memberof ReservationWithoutIdAllOf
+     * @deprecated
      */
     from?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationWithoutIdAllOf
+     * @deprecated
      */
-    to: string;
+    to?: string;
     /**
      * 
      * @type {string}
      * @memberof ReservationWithoutIdAllOf
+     * @deprecated
      */
-    date: string;
+    date?: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    dateStart: string;
+    /**
+     * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
+     * @type {string}
+     * @memberof ReservationWithoutIdAllOf
+     */
+    dateEnd: string;
     /**
      * 
      * @type {string}
@@ -6652,12 +6903,6 @@ export interface Seat {
      */
     isActive?: boolean;
     /**
-     * Hotdesk is a seat that can only be booked in the future
-     * @type {boolean}
-     * @memberof Seat
-     */
-    isHotdesk?: boolean;
-    /**
      * 
      * @type {Array<SeatUserGroup>}
      * @memberof Seat
@@ -6750,12 +6995,6 @@ export interface SeatProperties {
      * @memberof SeatProperties
      */
     isActive?: boolean;
-    /**
-     * Hotdesk is a seat that can only be booked in the future
-     * @type {boolean}
-     * @memberof SeatProperties
-     */
-    isHotdesk?: boolean;
 }
 /**
  * 
@@ -6919,12 +7158,6 @@ export interface SeatUpdate {
      */
     isActive?: boolean;
     /**
-     * Hotdesk is a seat that can only be booked in the future
-     * @type {boolean}
-     * @memberof SeatUpdate
-     */
-    isHotdesk?: boolean;
-    /**
      * 
      * @type {Array<SeatUserGroup>}
      * @memberof SeatUpdate
@@ -7067,12 +7300,6 @@ export interface SeatWithRelations {
      */
     isActive?: boolean;
     /**
-     * Hotdesk is a seat that can only be booked in the future
-     * @type {boolean}
-     * @memberof SeatWithRelations
-     */
-    isHotdesk?: boolean;
-    /**
      * 
      * @type {Array<SeatUserGroup>}
      * @memberof SeatWithRelations
@@ -7164,12 +7391,6 @@ export interface SeatWithoutId {
      * @memberof SeatWithoutId
      */
     isActive?: boolean;
-    /**
-     * Hotdesk is a seat that can only be booked in the future
-     * @type {boolean}
-     * @memberof SeatWithoutId
-     */
-    isHotdesk?: boolean;
     /**
      * 
      * @type {Array<SeatUserGroup>}
@@ -7434,12 +7655,6 @@ export interface UsedSeat {
      * @memberof UsedSeat
      */
     isActive?: boolean;
-    /**
-     * Hotdesk is a seat that can only be booked in the future
-     * @type {boolean}
-     * @memberof UsedSeat
-     */
-    isHotdesk?: boolean;
     /**
      * 
      * @type {Array<SeatUserGroup>}
@@ -7889,7 +8104,7 @@ export interface UserWithRelations {
      */
     status?: UserWithRelationsStatusEnum;
     /**
-     * Is this user a favorite of the requesting user
+     * Is this user favorite of the calling user?
      * @type {boolean}
      * @memberof UserWithRelations
      */
@@ -7942,12 +8157,6 @@ export interface UserWithRelationsAllOf {
      * @memberof UserWithRelationsAllOf
      */
     ssoProviders: Array<UserWithRelationsAllOfSsoProviders>;
-    /**
-     * Is this user a favorite of the requesting user
-     * @type {boolean}
-     * @memberof UserWithRelationsAllOf
-     */
-    isFavorite?: boolean;
 }
 /**
  * 
@@ -8748,13 +8957,13 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * Endpoint to test if a reservation with the provided properties is allowed to be created
-         * @param {ReservationAdd} reservationAdd 
+         * @param {ReservationCanCreate} reservationCanCreate 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        canCreateReservation: async (reservationAdd: ReservationAdd, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'reservationAdd' is not null or undefined
-            assertParamExists('canCreateReservation', 'reservationAdd', reservationAdd)
+        canCreateReservation: async (reservationCanCreate: ReservationCanCreate, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reservationCanCreate' is not null or undefined
+            assertParamExists('canCreateReservation', 'reservationCanCreate', reservationCanCreate)
             const localVarPath = `/v3/reservation/canCreate`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -8778,7 +8987,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(reservationAdd, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(reservationCanCreate, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -8905,7 +9114,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Remove  a favorite user
+         * Remove a favorite user
          * @param {string} favoriteUserId ID of the other user to remove from favorites
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -8930,7 +9139,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (favoriteUserId !== undefined) {
-                localVarQueryParameter['favorite_user_id'] = favoriteUserId;
+                localVarQueryParameter['favoriteUserId'] = favoriteUserId;
             }
 
 
@@ -13071,12 +13280,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * Endpoint to test if a reservation with the provided properties is allowed to be created
-         * @param {ReservationAdd} reservationAdd 
+         * @param {ReservationCanCreate} reservationCanCreate 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async canCreateReservation(reservationAdd: ReservationAdd, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.canCreateReservation(reservationAdd, options);
+        async canCreateReservation(reservationCanCreate: ReservationCanCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.canCreateReservation(reservationCanCreate, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -13110,7 +13319,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Remove  a favorite user
+         * Remove a favorite user
          * @param {string} favoriteUserId ID of the other user to remove from favorites
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14261,12 +14470,12 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * Endpoint to test if a reservation with the provided properties is allowed to be created
-         * @param {ReservationAdd} reservationAdd 
+         * @param {ReservationCanCreate} reservationCanCreate 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        canCreateReservation(reservationAdd: ReservationAdd, options?: any): AxiosPromise<InlineResponse20045> {
-            return localVarFp.canCreateReservation(reservationAdd, options).then((request) => request(axios, basePath));
+        canCreateReservation(reservationCanCreate: ReservationCanCreate, options?: any): AxiosPromise<InlineResponse20045> {
+            return localVarFp.canCreateReservation(reservationCanCreate, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -14296,7 +14505,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteCompany(companyId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Remove  a favorite user
+         * Remove a favorite user
          * @param {string} favoriteUserId ID of the other user to remove from favorites
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -15392,13 +15601,13 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * Endpoint to test if a reservation with the provided properties is allowed to be created
-     * @param {ReservationAdd} reservationAdd 
+     * @param {ReservationCanCreate} reservationCanCreate 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public canCreateReservation(reservationAdd: ReservationAdd, options?: any) {
-        return DefaultApiFp(this.configuration).canCreateReservation(reservationAdd, options).then((request) => request(this.axios, this.basePath));
+    public canCreateReservation(reservationCanCreate: ReservationCanCreate, options?: any) {
+        return DefaultApiFp(this.configuration).canCreateReservation(reservationCanCreate, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15435,7 +15644,7 @@ export class DefaultApi extends BaseAPI {
     }
 
     /**
-     * Remove  a favorite user
+     * Remove a favorite user
      * @param {string} favoriteUserId ID of the other user to remove from favorites
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
