@@ -707,6 +707,12 @@ export interface Company {
     microsoftSyncEnabled?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof Company
+     */
+    visitorReservationConfirmEmailEnabled?: boolean;
+    /**
+     * 
      * @type {any}
      * @memberof Company
      */
@@ -940,6 +946,12 @@ export interface CompanyProperties {
      * @memberof CompanyProperties
      */
     microsoftSyncEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyProperties
+     */
+    visitorReservationConfirmEmailEnabled?: boolean;
     /**
      * 
      * @type {any}
@@ -1181,6 +1193,12 @@ export interface CompanyWithCounts {
      * @memberof CompanyWithCounts
      */
     microsoftSyncEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    visitorReservationConfirmEmailEnabled?: boolean;
     /**
      * 
      * @type {any}
@@ -1485,6 +1503,12 @@ export interface CompanyWithRelations {
     microsoftSyncEnabled?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    visitorReservationConfirmEmailEnabled?: boolean;
+    /**
+     * 
      * @type {any}
      * @memberof CompanyWithRelations
      */
@@ -1753,6 +1777,12 @@ export interface CompanyWithoutId {
      * @memberof CompanyWithoutId
      */
     microsoftSyncEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithoutId
+     */
+    visitorReservationConfirmEmailEnabled?: boolean;
     /**
      * 
      * @type {any}
