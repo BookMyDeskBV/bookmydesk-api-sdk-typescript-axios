@@ -3894,7 +3894,7 @@ export interface InlineResponse20048ResultItems {
      * @type {number}
      * @memberof InlineResponse20048ResultItems
      */
-    seatreservationsCount?: number;
+    seatReservationsCount?: number;
     /**
      * 
      * @type {number}
@@ -9707,6 +9707,39 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+        exportAdminUserEmails: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v3/export/adminUserEmails`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
         exportCompanyUserCount: async (options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v3/export/companyUserCount`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -13559,6 +13592,15 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+        async exportAdminUserEmails(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportAdminUserEmails(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
         async exportCompanyUserCount(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportCompanyUserCount(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
@@ -14742,6 +14784,14 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
+        exportAdminUserEmails(options?: any): AxiosPromise<any> {
+            return localVarFp.exportAdminUserEmails(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
         exportCompanyUserCount(options?: any): AxiosPromise<any> {
             return localVarFp.exportCompanyUserCount(options).then((request) => request(axios, basePath));
         },
@@ -15909,6 +15959,16 @@ export class DefaultApi extends BaseAPI {
      */
     public deleteUserGroup(groupId: string, options?: any) {
         return DefaultApiFp(this.configuration).deleteUserGroup(groupId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public exportAdminUserEmails(options?: any) {
+        return DefaultApiFp(this.configuration).exportAdminUserEmails(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
