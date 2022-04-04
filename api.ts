@@ -3900,7 +3900,7 @@ export interface InlineResponse20048ResultItems {
      * @type {number}
      * @memberof InlineResponse20048ResultItems
      */
-    parkingspotsClaimed?: number;
+    parkingSpotsClaimed: number;
 }
 /**
  * 
