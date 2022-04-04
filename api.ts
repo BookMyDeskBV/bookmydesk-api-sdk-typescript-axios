@@ -3876,7 +3876,7 @@ export interface InlineResponse20048ResultItems {
      * @type {string}
      * @memberof InlineResponse20048ResultItems
      */
-    date?: string;
+    date: string;
     /**
      * 
      * @type {string}
@@ -3894,7 +3894,7 @@ export interface InlineResponse20048ResultItems {
      * @type {number}
      * @memberof InlineResponse20048ResultItems
      */
-    seatReservationsCount?: number;
+    seatReservationsCount: number;
     /**
      * 
      * @type {number}
