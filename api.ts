@@ -3968,7 +3968,7 @@ export interface InlineResponse20049ResultItems {
      * @type {number}
      * @memberof InlineResponse20049ResultItems
      */
-    count: number;
+    seatReservationsCount: number;
     /**
      * 
      * @type {number}
@@ -12390,19 +12390,20 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * 
          * @param {string} from date
          * @param {string} to date
+         * @param {SeatType} seatType seat type
          * @param {string} companyId Company ID
-         * @param {SeatType} [seatType] seat type
-         * @param {ReservationType} [type] Reservation type
          * @param {string} [locationId] location
          * @param {string} [mapId] map
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        reservationsStatistics: async (from: string, to: string, companyId: string, seatType?: SeatType, type?: ReservationType, locationId?: string, mapId?: string, options: any = {}): Promise<RequestArgs> => {
+        reservationsStatistics: async (from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'from' is not null or undefined
             assertParamExists('reservationsStatistics', 'from', from)
             // verify required parameter 'to' is not null or undefined
             assertParamExists('reservationsStatistics', 'to', to)
+            // verify required parameter 'seatType' is not null or undefined
+            assertParamExists('reservationsStatistics', 'seatType', seatType)
             // verify required parameter 'companyId' is not null or undefined
             assertParamExists('reservationsStatistics', 'companyId', companyId)
             const localVarPath = `/v3/reservations/statistics`;
@@ -12435,10 +12436,6 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (seatType !== undefined) {
                 localVarQueryParameter['seatType'] = seatType;
-            }
-
-            if (type !== undefined) {
-                localVarQueryParameter['type'] = type;
             }
 
             if (locationId !== undefined) {
@@ -14340,16 +14337,15 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * 
          * @param {string} from date
          * @param {string} to date
+         * @param {SeatType} seatType seat type
          * @param {string} companyId Company ID
-         * @param {SeatType} [seatType] seat type
-         * @param {ReservationType} [type] Reservation type
          * @param {string} [locationId] location
          * @param {string} [mapId] map
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async reservationsStatistics(from: string, to: string, companyId: string, seatType?: SeatType, type?: ReservationType, locationId?: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.reservationsStatistics(from, to, companyId, seatType, type, locationId, mapId, options);
+        async reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.reservationsStatistics(from, to, seatType, companyId, locationId, mapId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -15490,16 +15486,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * 
          * @param {string} from date
          * @param {string} to date
+         * @param {SeatType} seatType seat type
          * @param {string} companyId Company ID
-         * @param {SeatType} [seatType] seat type
-         * @param {ReservationType} [type] Reservation type
          * @param {string} [locationId] location
          * @param {string} [mapId] map
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        reservationsStatistics(from: string, to: string, companyId: string, seatType?: SeatType, type?: ReservationType, locationId?: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20049> {
-            return localVarFp.reservationsStatistics(from, to, companyId, seatType, type, locationId, mapId, options).then((request) => request(axios, basePath));
+        reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20049> {
+            return localVarFp.reservationsStatistics(from, to, seatType, companyId, locationId, mapId, options).then((request) => request(axios, basePath));
         },
         /**
          * Reset user\'s password
@@ -16797,17 +16792,16 @@ export class DefaultApi extends BaseAPI {
      * 
      * @param {string} from date
      * @param {string} to date
+     * @param {SeatType} seatType seat type
      * @param {string} companyId Company ID
-     * @param {SeatType} [seatType] seat type
-     * @param {ReservationType} [type] Reservation type
      * @param {string} [locationId] location
      * @param {string} [mapId] map
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public reservationsStatistics(from: string, to: string, companyId: string, seatType?: SeatType, type?: ReservationType, locationId?: string, mapId?: string, options?: any) {
-        return DefaultApiFp(this.configuration).reservationsStatistics(from, to, companyId, seatType, type, locationId, mapId, options).then((request) => request(this.axios, this.basePath));
+    public reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any) {
+        return DefaultApiFp(this.configuration).reservationsStatistics(from, to, seatType, companyId, locationId, mapId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
