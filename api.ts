@@ -10080,7 +10080,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @throws {RequiredError}
          */
         getBookMyDeskStatistics: async (options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v3/statistics`;
+            const localVarPath = `/v3/bookmydesk/statistics`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
