@@ -4085,10 +4085,10 @@ export interface InlineResponse20051Result {
     billedUserCount: number;
     /**
      * 
-     * @type {object}
+     * @type {InlineResponse20051ResultBillingTypeCount}
      * @memberof InlineResponse20051Result
      */
-    billingTypeCount: object;
+    billingTypeCount: InlineResponse20051ResultBillingTypeCount;
     /**
      * 
      * @type {number}
@@ -4101,6 +4101,37 @@ export interface InlineResponse20051Result {
      * @memberof InlineResponse20051Result
      */
     todayReservationCount: number;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20051ResultBillingTypeCount
+ */
+export interface InlineResponse20051ResultBillingTypeCount {
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20051ResultBillingTypeCount
+     */
+    enterprise: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20051ResultBillingTypeCount
+     */
+    free: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20051ResultBillingTypeCount
+     */
+    year: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20051ResultBillingTypeCount
+     */
+    month: number;
 }
 /**
  * 
