@@ -6272,6 +6272,12 @@ export interface MeUser {
     defaultTransportOptionId: string | null;
     /**
      * 
+     * @type {CompanyTransportOption}
+     * @memberof MeUser
+     */
+    defaultTransportOption: CompanyTransportOption | null;
+    /**
+     * 
      * @type {Array<object>}
      * @memberof MeUser
      */
@@ -11099,10 +11105,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} [mapId] ReservationMapId
          * @param {SeatType} [seatType] ReservationSeatType
          * @param {ReservationType} [type] ReservationType
+         * @param {boolean} [includeAnonymous] includeAnonymous in reservations
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        exportReservations: async (companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, options: any = {}): Promise<RequestArgs> => {
+        exportReservations: async (companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'companyId' is not null or undefined
             assertParamExists('exportReservations', 'companyId', companyId)
             const localVarPath = `/v3/reservations/export`;
@@ -11183,6 +11190,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+
+            if (includeAnonymous !== undefined) {
+                localVarQueryParameter['includeAnonymous'] = includeAnonymous;
             }
 
 
@@ -12758,10 +12769,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} [mapId] ReservationMapId
          * @param {SeatType} [seatType] ReservationSeatType
          * @param {ReservationType} [type] ReservationType
+         * @param {boolean} [includeAnonymous] includeAnonymous in reservations
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listReservations: async (companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, options: any = {}): Promise<RequestArgs> => {
+        listReservations: async (companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'companyId' is not null or undefined
             assertParamExists('listReservations', 'companyId', companyId)
             const localVarPath = `/v3/reservations`;
@@ -12846,6 +12858,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (type !== undefined) {
                 localVarQueryParameter['type'] = type;
+            }
+
+            if (includeAnonymous !== undefined) {
+                localVarQueryParameter['includeAnonymous'] = includeAnonymous;
             }
 
 
@@ -15399,11 +15415,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {string} [mapId] ReservationMapId
          * @param {SeatType} [seatType] ReservationSeatType
          * @param {ReservationType} [type] ReservationType
+         * @param {boolean} [includeAnonymous] includeAnonymous in reservations
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async exportReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, userId, status, locationId, mapId, seatType, type, options);
+        async exportReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -15809,11 +15826,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {string} [mapId] ReservationMapId
          * @param {SeatType} [seatType] ReservationSeatType
          * @param {ReservationType} [type] ReservationType
+         * @param {boolean} [includeAnonymous] includeAnonymous in reservations
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, options);
+        async listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -16723,11 +16741,12 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {string} [mapId] ReservationMapId
          * @param {SeatType} [seatType] ReservationSeatType
          * @param {ReservationType} [type] ReservationType
+         * @param {boolean} [includeAnonymous] includeAnonymous in reservations
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        exportReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, options?: any): AxiosPromise<any> {
-            return localVarFp.exportReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, userId, status, locationId, mapId, seatType, type, options).then((request) => request(axios, basePath));
+        exportReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options?: any): AxiosPromise<any> {
+            return localVarFp.exportReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, options).then((request) => request(axios, basePath));
         },
         /**
          * throw api error
@@ -17097,11 +17116,12 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {string} [mapId] ReservationMapId
          * @param {SeatType} [seatType] ReservationSeatType
          * @param {ReservationType} [type] ReservationType
+         * @param {boolean} [includeAnonymous] includeAnonymous in reservations
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, options?: any): AxiosPromise<InlineResponse20048> {
-            return localVarFp.listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, options).then((request) => request(axios, basePath));
+        listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options?: any): AxiosPromise<InlineResponse20048> {
+            return localVarFp.listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -18039,12 +18059,13 @@ export class DefaultApi extends BaseAPI {
      * @param {string} [mapId] ReservationMapId
      * @param {SeatType} [seatType] ReservationSeatType
      * @param {ReservationType} [type] ReservationType
+     * @param {boolean} [includeAnonymous] includeAnonymous in reservations
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public exportReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, options?: any) {
-        return DefaultApiFp(this.configuration).exportReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, userId, status, locationId, mapId, seatType, type, options).then((request) => request(this.axios, this.basePath));
+    public exportReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options?: any) {
+        return DefaultApiFp(this.configuration).exportReservations(companyId, sortField, sortDirection, filter, fromOperator, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18485,12 +18506,13 @@ export class DefaultApi extends BaseAPI {
      * @param {string} [mapId] ReservationMapId
      * @param {SeatType} [seatType] ReservationSeatType
      * @param {ReservationType} [type] ReservationType
+     * @param {boolean} [includeAnonymous] includeAnonymous in reservations
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, options?: any) {
-        return DefaultApiFp(this.configuration).listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, options).then((request) => request(this.axios, this.basePath));
+    public listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options?: any) {
+        return DefaultApiFp(this.configuration).listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
