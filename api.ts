@@ -2096,21 +2096,11 @@ export interface InlineObject13 {
 export interface InlineObject15 {
     /**
      * 
-     * @type {string}
+     * @type {OrderDirection}
      * @memberof InlineObject15
      */
-    direction: InlineObject15DirectionEnum;
+    direction: OrderDirection;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum InlineObject15DirectionEnum {
-    Up = 'up',
-    Down = 'down'
-}
-
 /**
  * 
  * @export
@@ -5739,6 +5729,16 @@ export interface OperationsOperations {
      */
     canUpdateEmail?: boolean;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum OrderDirection {
+    Up = 'up',
+    Down = 'down'
+}
+
 /**
  * 
  * @export
