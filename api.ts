@@ -2083,23 +2083,23 @@ export enum InlineObject10TypeEnum {
 export interface InlineObject13 {
     /**
      * 
-     * @type {Array<string>}
+     * @type {OrderDirection}
      * @memberof InlineObject13
      */
-    userIds?: Array<string>;
+    direction: OrderDirection;
 }
 /**
  * 
  * @export
- * @interface InlineObject15
+ * @interface InlineObject14
  */
-export interface InlineObject15 {
+export interface InlineObject14 {
     /**
      * 
-     * @type {OrderDirection}
-     * @memberof InlineObject15
+     * @type {Array<string>}
+     * @memberof InlineObject14
      */
-    direction: OrderDirection;
+    userIds?: Array<string>;
 }
 /**
  * 
@@ -2109,10 +2109,10 @@ export interface InlineObject15 {
 export interface InlineObject16 {
     /**
      * 
-     * @type {CheckInType}
+     * @type {OrderDirection}
      * @memberof InlineObject16
      */
-    type: CheckInType;
+    direction: OrderDirection;
 }
 /**
  * 
@@ -2122,10 +2122,10 @@ export interface InlineObject16 {
 export interface InlineObject17 {
     /**
      * 
-     * @type {string}
+     * @type {CheckInType}
      * @memberof InlineObject17
      */
-    type: string;
+    type: CheckInType;
 }
 /**
  * 
@@ -2135,14 +2135,27 @@ export interface InlineObject17 {
 export interface InlineObject18 {
     /**
      * 
-     * @type {Array<string>}
+     * @type {string}
      * @memberof InlineObject18
+     */
+    type: string;
+}
+/**
+ * 
+ * @export
+ * @interface InlineObject19
+ */
+export interface InlineObject19 {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof InlineObject19
      */
     reservationIds: Array<string>;
     /**
      * 
      * @type {string}
-     * @memberof InlineObject18
+     * @memberof InlineObject19
      */
     reason?: string;
 }
@@ -9268,13 +9281,13 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {InlineObject18} inlineObject18 
+         * @param {InlineObject19} inlineObject19 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        cancelReservation: async (inlineObject18: InlineObject18, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject18' is not null or undefined
-            assertParamExists('cancelReservation', 'inlineObject18', inlineObject18)
+        cancelReservation: async (inlineObject19: InlineObject19, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject19' is not null or undefined
+            assertParamExists('cancelReservation', 'inlineObject19', inlineObject19)
             const localVarPath = `/v3/reservation/cancel`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -9298,7 +9311,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject18, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject19, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -9308,15 +9321,15 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {string} locationId Location ID
-         * @param {InlineObject15} inlineObject15 
+         * @param {InlineObject16} inlineObject16 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        changeLocationOrder: async (locationId: string, inlineObject15: InlineObject15, options: any = {}): Promise<RequestArgs> => {
+        changeLocationOrder: async (locationId: string, inlineObject16: InlineObject16, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'locationId' is not null or undefined
             assertParamExists('changeLocationOrder', 'locationId', locationId)
-            // verify required parameter 'inlineObject15' is not null or undefined
-            assertParamExists('changeLocationOrder', 'inlineObject15', inlineObject15)
+            // verify required parameter 'inlineObject16' is not null or undefined
+            assertParamExists('changeLocationOrder', 'inlineObject16', inlineObject16)
             const localVarPath = `/v3/location/{locationId}/changeOrder`
                 .replace(`{${"locationId"}}`, encodeURIComponent(String(locationId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -9341,7 +9354,50 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject15, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject16, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} mapId Map ID
+         * @param {InlineObject13} inlineObject13 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        changeMapOrder: async (mapId: string, inlineObject13: InlineObject13, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mapId' is not null or undefined
+            assertParamExists('changeMapOrder', 'mapId', mapId)
+            // verify required parameter 'inlineObject13' is not null or undefined
+            assertParamExists('changeMapOrder', 'inlineObject13', inlineObject13)
+            const localVarPath = `/v3/map/{mapId}/changeOrder`
+                .replace(`{${"mapId"}}`, encodeURIComponent(String(mapId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject13, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -12559,11 +12615,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {string} reservationId Reservation ID to checkin for
-         * @param {InlineObject16} [inlineObject16] 
+         * @param {InlineObject17} [inlineObject17] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        reservationCheckIn: async (reservationId: string, inlineObject16?: InlineObject16, options: any = {}): Promise<RequestArgs> => {
+        reservationCheckIn: async (reservationId: string, inlineObject17?: InlineObject17, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'reservationId' is not null or undefined
             assertParamExists('reservationCheckIn', 'reservationId', reservationId)
             const localVarPath = `/reservation/{reservationId}/checkin`
@@ -12590,7 +12646,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject16, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject17, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -12600,11 +12656,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {string} reservationId Reservation ID to checkout for
-         * @param {InlineObject17} [inlineObject17] 
+         * @param {InlineObject18} [inlineObject18] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        reservationCheckout: async (reservationId: string, inlineObject17?: InlineObject17, options: any = {}): Promise<RequestArgs> => {
+        reservationCheckout: async (reservationId: string, inlineObject18?: InlineObject18, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'reservationId' is not null or undefined
             assertParamExists('reservationCheckout', 'reservationId', reservationId)
             const localVarPath = `/reservation/{reservationId}/checkout`
@@ -12631,7 +12687,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject17, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject18, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -12750,13 +12806,13 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * Send invitations to multiple users
-         * @param {InlineObject13} inlineObject13 
+         * @param {InlineObject14} inlineObject14 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendUsersInvitations: async (inlineObject13: InlineObject13, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'inlineObject13' is not null or undefined
-            assertParamExists('sendUsersInvitations', 'inlineObject13', inlineObject13)
+        sendUsersInvitations: async (inlineObject14: InlineObject14, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'inlineObject14' is not null or undefined
+            assertParamExists('sendUsersInvitations', 'inlineObject14', inlineObject14)
             const localVarPath = `/v3/users/send-invitations`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -12780,7 +12836,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject13, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(inlineObject14, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -13762,23 +13818,34 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @param {InlineObject18} inlineObject18 
+         * @param {InlineObject19} inlineObject19 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async cancelReservation(inlineObject18: InlineObject18, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelReservation(inlineObject18, options);
+        async cancelReservation(inlineObject19: InlineObject19, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelReservation(inlineObject19, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} locationId Location ID
-         * @param {InlineObject15} inlineObject15 
+         * @param {InlineObject16} inlineObject16 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async changeLocationOrder(locationId: string, inlineObject15: InlineObject15, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.changeLocationOrder(locationId, inlineObject15, options);
+        async changeLocationOrder(locationId: string, inlineObject16: InlineObject16, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20026>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.changeLocationOrder(locationId, inlineObject16, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} mapId Map ID
+         * @param {InlineObject13} inlineObject13 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async changeMapOrder(mapId: string, inlineObject13: InlineObject13, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2007>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.changeMapOrder(mapId, inlineObject13, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -14586,23 +14653,23 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} reservationId Reservation ID to checkin for
-         * @param {InlineObject16} [inlineObject16] 
+         * @param {InlineObject17} [inlineObject17] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async reservationCheckIn(reservationId: string, inlineObject16?: InlineObject16, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.reservationCheckIn(reservationId, inlineObject16, options);
+        async reservationCheckIn(reservationId: string, inlineObject17?: InlineObject17, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.reservationCheckIn(reservationId, inlineObject17, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {string} reservationId Reservation ID to checkout for
-         * @param {InlineObject17} [inlineObject17] 
+         * @param {InlineObject18} [inlineObject18] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async reservationCheckout(reservationId: string, inlineObject17?: InlineObject17, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.reservationCheckout(reservationId, inlineObject17, options);
+        async reservationCheckout(reservationId: string, inlineObject18?: InlineObject18, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.reservationCheckout(reservationId, inlineObject18, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -14632,12 +14699,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * Send invitations to multiple users
-         * @param {InlineObject13} inlineObject13 
+         * @param {InlineObject14} inlineObject14 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendUsersInvitations(inlineObject13: InlineObject13, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendUsersInvitations(inlineObject13, options);
+        async sendUsersInvitations(inlineObject14: InlineObject14, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendUsersInvitations(inlineObject14, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -15003,22 +15070,32 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
-         * @param {InlineObject18} inlineObject18 
+         * @param {InlineObject19} inlineObject19 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        cancelReservation(inlineObject18: InlineObject18, options?: any): AxiosPromise<void> {
-            return localVarFp.cancelReservation(inlineObject18, options).then((request) => request(axios, basePath));
+        cancelReservation(inlineObject19: InlineObject19, options?: any): AxiosPromise<void> {
+            return localVarFp.cancelReservation(inlineObject19, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {string} locationId Location ID
-         * @param {InlineObject15} inlineObject15 
+         * @param {InlineObject16} inlineObject16 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        changeLocationOrder(locationId: string, inlineObject15: InlineObject15, options?: any): AxiosPromise<InlineResponse20026> {
-            return localVarFp.changeLocationOrder(locationId, inlineObject15, options).then((request) => request(axios, basePath));
+        changeLocationOrder(locationId: string, inlineObject16: InlineObject16, options?: any): AxiosPromise<InlineResponse20026> {
+            return localVarFp.changeLocationOrder(locationId, inlineObject16, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} mapId Map ID
+         * @param {InlineObject13} inlineObject13 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        changeMapOrder(mapId: string, inlineObject13: InlineObject13, options?: any): AxiosPromise<InlineResponse2007> {
+            return localVarFp.changeMapOrder(mapId, inlineObject13, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -15755,22 +15832,22 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @param {string} reservationId Reservation ID to checkin for
-         * @param {InlineObject16} [inlineObject16] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        reservationCheckIn(reservationId: string, inlineObject16?: InlineObject16, options?: any): AxiosPromise<InlineResponse20043> {
-            return localVarFp.reservationCheckIn(reservationId, inlineObject16, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} reservationId Reservation ID to checkout for
          * @param {InlineObject17} [inlineObject17] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        reservationCheckout(reservationId: string, inlineObject17?: InlineObject17, options?: any): AxiosPromise<void> {
-            return localVarFp.reservationCheckout(reservationId, inlineObject17, options).then((request) => request(axios, basePath));
+        reservationCheckIn(reservationId: string, inlineObject17?: InlineObject17, options?: any): AxiosPromise<InlineResponse20043> {
+            return localVarFp.reservationCheckIn(reservationId, inlineObject17, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} reservationId Reservation ID to checkout for
+         * @param {InlineObject18} [inlineObject18] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        reservationCheckout(reservationId: string, inlineObject18?: InlineObject18, options?: any): AxiosPromise<void> {
+            return localVarFp.reservationCheckout(reservationId, inlineObject18, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -15797,12 +15874,12 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * Send invitations to multiple users
-         * @param {InlineObject13} inlineObject13 
+         * @param {InlineObject14} inlineObject14 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendUsersInvitations(inlineObject13: InlineObject13, options?: any): AxiosPromise<void> {
-            return localVarFp.sendUsersInvitations(inlineObject13, options).then((request) => request(axios, basePath));
+        sendUsersInvitations(inlineObject14: InlineObject14, options?: any): AxiosPromise<void> {
+            return localVarFp.sendUsersInvitations(inlineObject14, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -16183,25 +16260,37 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 
-     * @param {InlineObject18} inlineObject18 
+     * @param {InlineObject19} inlineObject19 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public cancelReservation(inlineObject18: InlineObject18, options?: any) {
-        return DefaultApiFp(this.configuration).cancelReservation(inlineObject18, options).then((request) => request(this.axios, this.basePath));
+    public cancelReservation(inlineObject19: InlineObject19, options?: any) {
+        return DefaultApiFp(this.configuration).cancelReservation(inlineObject19, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {string} locationId Location ID
-     * @param {InlineObject15} inlineObject15 
+     * @param {InlineObject16} inlineObject16 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public changeLocationOrder(locationId: string, inlineObject15: InlineObject15, options?: any) {
-        return DefaultApiFp(this.configuration).changeLocationOrder(locationId, inlineObject15, options).then((request) => request(this.axios, this.basePath));
+    public changeLocationOrder(locationId: string, inlineObject16: InlineObject16, options?: any) {
+        return DefaultApiFp(this.configuration).changeLocationOrder(locationId, inlineObject16, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} mapId Map ID
+     * @param {InlineObject13} inlineObject13 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public changeMapOrder(mapId: string, inlineObject13: InlineObject13, options?: any) {
+        return DefaultApiFp(this.configuration).changeMapOrder(mapId, inlineObject13, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -17079,25 +17168,25 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @param {string} reservationId Reservation ID to checkin for
-     * @param {InlineObject16} [inlineObject16] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DefaultApi
-     */
-    public reservationCheckIn(reservationId: string, inlineObject16?: InlineObject16, options?: any) {
-        return DefaultApiFp(this.configuration).reservationCheckIn(reservationId, inlineObject16, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {string} reservationId Reservation ID to checkout for
      * @param {InlineObject17} [inlineObject17] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public reservationCheckout(reservationId: string, inlineObject17?: InlineObject17, options?: any) {
-        return DefaultApiFp(this.configuration).reservationCheckout(reservationId, inlineObject17, options).then((request) => request(this.axios, this.basePath));
+    public reservationCheckIn(reservationId: string, inlineObject17?: InlineObject17, options?: any) {
+        return DefaultApiFp(this.configuration).reservationCheckIn(reservationId, inlineObject17, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} reservationId Reservation ID to checkout for
+     * @param {InlineObject18} [inlineObject18] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public reservationCheckout(reservationId: string, inlineObject18?: InlineObject18, options?: any) {
+        return DefaultApiFp(this.configuration).reservationCheckout(reservationId, inlineObject18, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -17129,13 +17218,13 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * Send invitations to multiple users
-     * @param {InlineObject13} inlineObject13 
+     * @param {InlineObject14} inlineObject14 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public sendUsersInvitations(inlineObject13: InlineObject13, options?: any) {
-        return DefaultApiFp(this.configuration).sendUsersInvitations(inlineObject13, options).then((request) => request(this.axios, this.basePath));
+    public sendUsersInvitations(inlineObject14: InlineObject14, options?: any) {
+        return DefaultApiFp(this.configuration).sendUsersInvitations(inlineObject14, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
