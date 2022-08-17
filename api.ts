@@ -500,7 +500,7 @@ export interface Company {
      * @type {boolean}
      * @memberof Company
      */
-    forceGeofence: boolean;
+    forceGeofence?: boolean;
     /**
      * 
      * @type {boolean}
@@ -689,10 +689,22 @@ export interface Company {
     billingPricePerCustomer: number;
     /**
      * 
+     * @type {number}
+     * @memberof Company
+     */
+    billingId?: number;
+    /**
+     * 
      * @type {string}
      * @memberof Company
      */
     billingStartDate: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Company
+     */
+    billingEndDate?: string;
     /**
      * 
      * @type {BillingType}
@@ -807,7 +819,7 @@ export interface CompanyBasic {
      * @type {boolean}
      * @memberof CompanyBasic
      */
-    forceGeofence: boolean;
+    forceGeofence?: boolean;
     /**
      * 
      * @type {boolean}
@@ -976,19 +988,19 @@ export interface CompanyBasicProperties {
      * @type {string}
      * @memberof CompanyBasicProperties
      */
-    name: string;
+    name?: string;
     /**
      * 
      * @type {Language}
      * @memberof CompanyBasicProperties
      */
-    language: Language;
+    language?: Language;
     /**
      * 
      * @type {boolean}
      * @memberof CompanyBasicProperties
      */
-    forceGeofence: boolean;
+    forceGeofence?: boolean;
     /**
      * 
      * @type {boolean}
@@ -1181,7 +1193,7 @@ export interface CompanyBasicWithRelations {
      * @type {boolean}
      * @memberof CompanyBasicWithRelations
      */
-    forceGeofence: boolean;
+    forceGeofence?: boolean;
     /**
      * 
      * @type {boolean}
@@ -1375,7 +1387,7 @@ export interface CompanyBasicWithoutId {
      * @type {boolean}
      * @memberof CompanyBasicWithoutId
      */
-    forceGeofence: boolean;
+    forceGeofence?: boolean;
     /**
      * 
      * @type {boolean}
@@ -1569,19 +1581,19 @@ export interface CompanyProperties {
      * @type {string}
      * @memberof CompanyProperties
      */
-    name: string;
+    name?: string;
     /**
      * 
      * @type {Language}
      * @memberof CompanyProperties
      */
-    language: Language;
+    language?: Language;
     /**
      * 
      * @type {boolean}
      * @memberof CompanyProperties
      */
-    forceGeofence: boolean;
+    forceGeofence?: boolean;
     /**
      * 
      * @type {boolean}
@@ -1770,10 +1782,22 @@ export interface CompanyProperties {
     billingPricePerCustomer?: number;
     /**
      * 
+     * @type {number}
+     * @memberof CompanyProperties
+     */
+    billingId?: number;
+    /**
+     * 
      * @type {string}
      * @memberof CompanyProperties
      */
     billingStartDate?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyProperties
+     */
+    billingEndDate?: string;
     /**
      * 
      * @type {BillingType}
@@ -1903,10 +1927,22 @@ export interface CompanyPropertiesAllOf {
     billingPricePerCustomer?: number;
     /**
      * 
+     * @type {number}
+     * @memberof CompanyPropertiesAllOf
+     */
+    billingId?: number;
+    /**
+     * 
      * @type {string}
      * @memberof CompanyPropertiesAllOf
      */
     billingStartDate?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyPropertiesAllOf
+     */
+    billingEndDate?: string;
     /**
      * 
      * @type {BillingType}
@@ -2163,7 +2199,7 @@ export interface CompanyWithCounts {
      * @type {boolean}
      * @memberof CompanyWithCounts
      */
-    forceGeofence: boolean;
+    forceGeofence?: boolean;
     /**
      * 
      * @type {boolean}
@@ -2352,10 +2388,22 @@ export interface CompanyWithCounts {
     billingPricePerCustomer: number;
     /**
      * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    billingId?: number;
+    /**
+     * 
      * @type {string}
      * @memberof CompanyWithCounts
      */
     billingStartDate: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    billingEndDate?: string;
     /**
      * 
      * @type {BillingType}
@@ -2537,7 +2585,7 @@ export interface CompanyWithRelations {
      * @type {boolean}
      * @memberof CompanyWithRelations
      */
-    forceGeofence: boolean;
+    forceGeofence?: boolean;
     /**
      * 
      * @type {boolean}
@@ -2726,10 +2774,22 @@ export interface CompanyWithRelations {
     billingPricePerCustomer: number;
     /**
      * 
+     * @type {number}
+     * @memberof CompanyWithRelations
+     */
+    billingId?: number;
+    /**
+     * 
      * @type {string}
      * @memberof CompanyWithRelations
      */
     billingStartDate: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    billingEndDate?: string;
     /**
      * 
      * @type {BillingType}
@@ -2879,7 +2939,7 @@ export interface CompanyWithoutId {
      * @type {boolean}
      * @memberof CompanyWithoutId
      */
-    forceGeofence: boolean;
+    forceGeofence?: boolean;
     /**
      * 
      * @type {boolean}
@@ -3068,10 +3128,22 @@ export interface CompanyWithoutId {
     billingPricePerCustomer: number;
     /**
      * 
+     * @type {number}
+     * @memberof CompanyWithoutId
+     */
+    billingId?: number;
+    /**
+     * 
      * @type {string}
      * @memberof CompanyWithoutId
      */
     billingStartDate: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithoutId
+     */
+    billingEndDate?: string;
     /**
      * 
      * @type {BillingType}
@@ -3207,10 +3279,22 @@ export interface CompanyWithoutIdAllOf {
     billingPricePerCustomer: number;
     /**
      * 
+     * @type {number}
+     * @memberof CompanyWithoutIdAllOf
+     */
+    billingId?: number;
+    /**
+     * 
      * @type {string}
      * @memberof CompanyWithoutIdAllOf
      */
     billingStartDate: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithoutIdAllOf
+     */
+    billingEndDate?: string;
     /**
      * 
      * @type {BillingType}
@@ -8916,25 +9000,19 @@ export interface Seat {
      * @type {string}
      * @memberof Seat
      */
-    roomId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Seat
-     */
     name: string;
     /**
      * 
      * @type {number}
      * @memberof Seat
      */
-    coordX: number;
+    coordX: number | null;
     /**
      * 
      * @type {number}
      * @memberof Seat
      */
-    coordY: number;
+    coordY: number | null;
     /**
      * 
      * @type {string}
@@ -8953,6 +9031,24 @@ export interface Seat {
      * @memberof Seat
      */
     isActive?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Seat
+     */
+    isZone?: boolean;
+    /**
+     * The maximum number of (concurrent) reservations that can be made for this seat.
+     * @type {number}
+     * @memberof Seat
+     */
+    reservationCapacity?: number;
+    /**
+     * space separated list of x,y coordinates, format from points: https://www.w3schools.com/graphics/svg_polygon.asp
+     * @type {string}
+     * @memberof Seat
+     */
+    zoneCoordinates?: string | null;
     /**
      * this is a seat that can only be booked in the future
      * @type {boolean}
@@ -9021,25 +9117,19 @@ export interface SeatProperties {
      * @type {string}
      * @memberof SeatProperties
      */
-    roomId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SeatProperties
-     */
     name?: string;
     /**
      * 
      * @type {number}
      * @memberof SeatProperties
      */
-    coordX?: number;
+    coordX?: number | null;
     /**
      * 
      * @type {number}
      * @memberof SeatProperties
      */
-    coordY?: number;
+    coordY?: number | null;
     /**
      * 
      * @type {string}
@@ -9058,6 +9148,24 @@ export interface SeatProperties {
      * @memberof SeatProperties
      */
     isActive?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SeatProperties
+     */
+    isZone?: boolean;
+    /**
+     * The maximum number of (concurrent) reservations that can be made for this seat.
+     * @type {number}
+     * @memberof SeatProperties
+     */
+    reservationCapacity?: number;
+    /**
+     * space separated list of x,y coordinates, format from points: https://www.w3schools.com/graphics/svg_polygon.asp
+     * @type {string}
+     * @memberof SeatProperties
+     */
+    zoneCoordinates?: string | null;
     /**
      * this is a seat that can only be booked in the future
      * @type {boolean}
@@ -9095,6 +9203,12 @@ export interface SeatTag {
      * @type {string}
      * @memberof SeatTag
      */
+    icon: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeatTag
+     */
     id: string;
 }
 /**
@@ -9109,6 +9223,12 @@ export interface SeatTagProperties {
      * @memberof SeatTagProperties
      */
     label?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeatTagProperties
+     */
+    icon?: string | null;
 }
 /**
  * 
@@ -9122,6 +9242,12 @@ export interface SeatTagWithoutId {
      * @memberof SeatTagWithoutId
      */
     label: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeatTagWithoutId
+     */
+    icon: string | null;
 }
 /**
  * 
@@ -9135,6 +9261,12 @@ export interface SeatTagWithoutIdAllOf {
      * @memberof SeatTagWithoutIdAllOf
      */
     label: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeatTagWithoutIdAllOf
+     */
+    icon: string | null;
 }
 /**
  * 
@@ -9189,25 +9321,19 @@ export interface SeatUpdate {
      * @type {string}
      * @memberof SeatUpdate
      */
-    roomId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SeatUpdate
-     */
     name?: string;
     /**
      * 
      * @type {number}
      * @memberof SeatUpdate
      */
-    coordX?: number;
+    coordX?: number | null;
     /**
      * 
      * @type {number}
      * @memberof SeatUpdate
      */
-    coordY?: number;
+    coordY?: number | null;
     /**
      * 
      * @type {string}
@@ -9226,6 +9352,24 @@ export interface SeatUpdate {
      * @memberof SeatUpdate
      */
     isActive?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SeatUpdate
+     */
+    isZone?: boolean;
+    /**
+     * The maximum number of (concurrent) reservations that can be made for this seat.
+     * @type {number}
+     * @memberof SeatUpdate
+     */
+    reservationCapacity?: number;
+    /**
+     * space separated list of x,y coordinates, format from points: https://www.w3schools.com/graphics/svg_polygon.asp
+     * @type {string}
+     * @memberof SeatUpdate
+     */
+    zoneCoordinates?: string | null;
     /**
      * this is a seat that can only be booked in the future
      * @type {boolean}
@@ -9337,25 +9481,19 @@ export interface SeatWithRelations {
      * @type {string}
      * @memberof SeatWithRelations
      */
-    roomId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SeatWithRelations
-     */
     name: string;
     /**
      * 
      * @type {number}
      * @memberof SeatWithRelations
      */
-    coordX: number;
+    coordX: number | null;
     /**
      * 
      * @type {number}
      * @memberof SeatWithRelations
      */
-    coordY: number;
+    coordY: number | null;
     /**
      * 
      * @type {string}
@@ -9374,6 +9512,24 @@ export interface SeatWithRelations {
      * @memberof SeatWithRelations
      */
     isActive?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SeatWithRelations
+     */
+    isZone?: boolean;
+    /**
+     * The maximum number of (concurrent) reservations that can be made for this seat.
+     * @type {number}
+     * @memberof SeatWithRelations
+     */
+    reservationCapacity?: number;
+    /**
+     * space separated list of x,y coordinates, format from points: https://www.w3schools.com/graphics/svg_polygon.asp
+     * @type {string}
+     * @memberof SeatWithRelations
+     */
+    zoneCoordinates?: string | null;
     /**
      * this is a seat that can only be booked in the future
      * @type {boolean}
@@ -9435,25 +9591,19 @@ export interface SeatWithoutId {
      * @type {string}
      * @memberof SeatWithoutId
      */
-    roomId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SeatWithoutId
-     */
     name: string;
     /**
      * 
      * @type {number}
      * @memberof SeatWithoutId
      */
-    coordX: number;
+    coordX: number | null;
     /**
      * 
      * @type {number}
      * @memberof SeatWithoutId
      */
-    coordY: number;
+    coordY: number | null;
     /**
      * 
      * @type {string}
@@ -9472,6 +9622,24 @@ export interface SeatWithoutId {
      * @memberof SeatWithoutId
      */
     isActive?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SeatWithoutId
+     */
+    isZone?: boolean;
+    /**
+     * The maximum number of (concurrent) reservations that can be made for this seat.
+     * @type {number}
+     * @memberof SeatWithoutId
+     */
+    reservationCapacity?: number;
+    /**
+     * space separated list of x,y coordinates, format from points: https://www.w3schools.com/graphics/svg_polygon.asp
+     * @type {string}
+     * @memberof SeatWithoutId
+     */
+    zoneCoordinates?: string | null;
     /**
      * this is a seat that can only be booked in the future
      * @type {boolean}
@@ -9514,13 +9682,31 @@ export interface SeatWithoutIdAllOf {
      * @type {number}
      * @memberof SeatWithoutIdAllOf
      */
-    coordX: number;
+    coordX: number | null;
     /**
      * 
      * @type {number}
      * @memberof SeatWithoutIdAllOf
      */
-    coordY: number;
+    coordY: number | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SeatWithoutIdAllOf
+     */
+    isZone?: boolean;
+    /**
+     * The maximum number of (concurrent) reservations that can be made for this seat.
+     * @type {number}
+     * @memberof SeatWithoutIdAllOf
+     */
+    reservationCapacity?: number;
+    /**
+     * space separated list of x,y coordinates, format from points: https://www.w3schools.com/graphics/svg_polygon.asp
+     * @type {string}
+     * @memberof SeatWithoutIdAllOf
+     */
+    zoneCoordinates?: string | null;
     /**
      * 
      * @type {SeatType}
@@ -9718,25 +9904,19 @@ export interface UsedSeat {
      * @type {string}
      * @memberof UsedSeat
      */
-    roomId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UsedSeat
-     */
     name: string;
     /**
      * 
      * @type {number}
      * @memberof UsedSeat
      */
-    coordX: number;
+    coordX: number | null;
     /**
      * 
      * @type {number}
      * @memberof UsedSeat
      */
-    coordY: number;
+    coordY: number | null;
     /**
      * 
      * @type {string}
@@ -9755,6 +9935,24 @@ export interface UsedSeat {
      * @memberof UsedSeat
      */
     isActive?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UsedSeat
+     */
+    isZone?: boolean;
+    /**
+     * The maximum number of (concurrent) reservations that can be made for this seat.
+     * @type {number}
+     * @memberof UsedSeat
+     */
+    reservationCapacity?: number;
+    /**
+     * space separated list of x,y coordinates, format from points: https://www.w3schools.com/graphics/svg_polygon.asp
+     * @type {string}
+     * @memberof UsedSeat
+     */
+    zoneCoordinates?: string | null;
     /**
      * this is a seat that can only be booked in the future
      * @type {boolean}
@@ -9983,6 +10181,12 @@ export interface UserGroup {
      */
     reservationWindowLength?: number | null;
     /**
+     * If true, the users in this group are emergency response officer (BHV\'er).
+     * @type {boolean}
+     * @memberof UserGroup
+     */
+    isEmergencyResponseOfficer?: boolean;
+    /**
      * 
      * @type {string}
      * @memberof UserGroup
@@ -10033,6 +10237,12 @@ export interface UserGroupProperties {
      * @memberof UserGroupProperties
      */
     reservationWindowLength?: number | null;
+    /**
+     * If true, the users in this group are emergency response officer (BHV\'er).
+     * @type {boolean}
+     * @memberof UserGroupProperties
+     */
+    isEmergencyResponseOfficer?: boolean;
 }
 /**
  * 
@@ -10052,6 +10262,12 @@ export interface UserGroupWithoutId {
      * @memberof UserGroupWithoutId
      */
     reservationWindowLength?: number | null;
+    /**
+     * If true, the users in this group are emergency response officer (BHV\'er).
+     * @type {boolean}
+     * @memberof UserGroupWithoutId
+     */
+    isEmergencyResponseOfficer?: boolean;
 }
 /**
  * 
@@ -14399,6 +14615,9 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} companyId Company ID
          * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language'} [sortField] field to sort on
          * @param {boolean} [inviteSent] filter on whether an invite has been sent
+         * @param {UserStatus} [status] filter on status
+         * @param {Language} [language] filter on language
+         * @param {string} [userGroupId] filter on userGroup
          * @param {'asc' | 'desc'} [sortDirection] direction to sort to
          * @param {string} [filter] value to filter with
          * @param {number} [take] Amount of items to take
@@ -14406,7 +14625,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsers: async (companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options: any = {}): Promise<RequestArgs> => {
+        listUsers: async (companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'companyId' is not null or undefined
             assertParamExists('listUsers', 'companyId', companyId)
             const localVarPath = `/v3/users`;
@@ -14431,6 +14650,18 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (inviteSent !== undefined) {
                 localVarQueryParameter['inviteSent'] = inviteSent;
+            }
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+            if (language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
+
+            if (userGroupId !== undefined) {
+                localVarQueryParameter['userGroupId'] = userGroupId;
             }
 
             if (sortDirection !== undefined) {
@@ -17359,6 +17590,9 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {string} companyId Company ID
          * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language'} [sortField] field to sort on
          * @param {boolean} [inviteSent] filter on whether an invite has been sent
+         * @param {UserStatus} [status] filter on status
+         * @param {Language} [language] filter on language
+         * @param {string} [userGroupId] filter on userGroup
          * @param {'asc' | 'desc'} [sortDirection] direction to sort to
          * @param {string} [filter] value to filter with
          * @param {number} [take] Amount of items to take
@@ -17366,8 +17600,8 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20022>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listUsers(companyId, sortField, inviteSent, sortDirection, filter, take, skip, options);
+        async listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20022>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUsers(companyId, sortField, inviteSent, status, language, userGroupId, sortDirection, filter, take, skip, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -18727,6 +18961,9 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {string} companyId Company ID
          * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language'} [sortField] field to sort on
          * @param {boolean} [inviteSent] filter on whether an invite has been sent
+         * @param {UserStatus} [status] filter on status
+         * @param {Language} [language] filter on language
+         * @param {string} [userGroupId] filter on userGroup
          * @param {'asc' | 'desc'} [sortDirection] direction to sort to
          * @param {string} [filter] value to filter with
          * @param {number} [take] Amount of items to take
@@ -18734,8 +18971,8 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20022> {
-            return localVarFp.listUsers(companyId, sortField, inviteSent, sortDirection, filter, take, skip, options).then((request) => request(axios, basePath));
+        listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20022> {
+            return localVarFp.listUsers(companyId, sortField, inviteSent, status, language, userGroupId, sortDirection, filter, take, skip, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -20220,6 +20457,9 @@ export class DefaultApi extends BaseAPI {
      * @param {string} companyId Company ID
      * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language'} [sortField] field to sort on
      * @param {boolean} [inviteSent] filter on whether an invite has been sent
+     * @param {UserStatus} [status] filter on status
+     * @param {Language} [language] filter on language
+     * @param {string} [userGroupId] filter on userGroup
      * @param {'asc' | 'desc'} [sortDirection] direction to sort to
      * @param {string} [filter] value to filter with
      * @param {number} [take] Amount of items to take
@@ -20228,8 +20468,8 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any) {
-        return DefaultApiFp(this.configuration).listUsers(companyId, sortField, inviteSent, sortDirection, filter, take, skip, options).then((request) => request(this.axios, this.basePath));
+    public listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any) {
+        return DefaultApiFp(this.configuration).listUsers(companyId, sortField, inviteSent, status, language, userGroupId, sortDirection, filter, take, skip, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
