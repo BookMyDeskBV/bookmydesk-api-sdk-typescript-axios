@@ -4485,7 +4485,7 @@ export interface InlineResponse20013Result {
      * @type {MicrosoftGroup}
      * @memberof InlineResponse20013Result
      */
-    company?: MicrosoftGroup;
+    group?: MicrosoftGroup;
 }
 /**
  * 
@@ -4517,7 +4517,7 @@ export interface InlineResponse20014Result {
      * @type {Array<MicrosoftGroup>}
      * @memberof InlineResponse20014Result
      */
-    groups?: Array<MicrosoftGroup>;
+    groups: Array<MicrosoftGroup>;
 }
 /**
  * 
