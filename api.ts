@@ -3916,6 +3916,12 @@ export interface InlineObject21 {
     lastName?: string | null;
     /**
      * 
+     * @type {string}
+     * @memberof InlineObject21
+     */
+    title?: string | null;
+    /**
+     * 
      * @type {Language}
      * @memberof InlineObject21
      */
@@ -8042,17 +8048,24 @@ export interface MeUser {
      */
     firstName: string;
     /**
-     * 
+     * Depricated, part of lastName now
      * @type {string}
      * @memberof MeUser
+     * @deprecated
      */
-    infix: string;
+    infix?: string;
     /**
      * 
      * @type {string}
      * @memberof MeUser
      */
     lastName: string;
+    /**
+     * (job) Title of the user
+     * @type {string}
+     * @memberof MeUser
+     */
+    title: string | null;
     /**
      * 
      * @type {Language}
@@ -10034,7 +10047,7 @@ export interface SeatTag {
      * @type {string}
      * @memberof SeatTag
      */
-    icon: string | null;
+    icon?: string | null;
     /**
      * 
      * @type {string}
@@ -10078,7 +10091,7 @@ export interface SeatTagWithoutId {
      * @type {string}
      * @memberof SeatTagWithoutId
      */
-    icon: string | null;
+    icon?: string | null;
 }
 /**
  * 
@@ -10097,7 +10110,7 @@ export interface SeatTagWithoutIdAllOf {
      * @type {string}
      * @memberof SeatTagWithoutIdAllOf
      */
-    icon: string | null;
+    icon?: string | null;
 }
 /**
  * 
@@ -10845,6 +10858,12 @@ export interface User {
      * @type {string}
      * @memberof User
      */
+    title?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof User
+     */
     lastName: string | null;
     /**
      * 
@@ -10943,7 +10962,7 @@ export interface UserCreate {
      * @type {string}
      * @memberof UserCreate
      */
-    infix?: string;
+    title?: string;
     /**
      * 
      * @type {string}
@@ -11211,6 +11230,12 @@ export interface UserProperties {
      * @type {string}
      * @memberof UserProperties
      */
+    title?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserProperties
+     */
     lastName?: string | null;
     /**
      * 
@@ -11294,7 +11319,7 @@ export interface UserUpdate {
      * @type {string}
      * @memberof UserUpdate
      */
-    infix?: string;
+    title?: string;
     /**
      * 
      * @type {string}
@@ -11362,6 +11387,12 @@ export interface UserWithRelations {
      * @memberof UserWithRelations
      */
     infix?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserWithRelations
+     */
+    title?: string | null;
     /**
      * 
      * @type {string}
@@ -11500,6 +11531,12 @@ export interface UserWithoutId {
      * @memberof UserWithoutId
      */
     infix?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof UserWithoutId
+     */
+    title?: string | null;
     /**
      * 
      * @type {string}
@@ -15810,10 +15847,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {string} [scope] Scope of the gotten access
          * @param {string} [error] MS error Code
          * @param {string} [errorDescription] error description by microsoft
+         * @param {string} [errorUri] error description by microsoft
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mSAdminCallback: async (adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, options: any = {}): Promise<RequestArgs> => {
+        mSAdminCallback: async (adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, errorUri?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v3/auth/microsoft/adminCallback`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -15848,6 +15886,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (errorDescription !== undefined) {
                 localVarQueryParameter['error_description'] = errorDescription;
+            }
+
+            if (errorUri !== undefined) {
+                localVarQueryParameter['error_uri'] = errorUri;
             }
 
 
@@ -18695,11 +18737,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {string} [scope] Scope of the gotten access
          * @param {string} [error] MS error Code
          * @param {string} [errorDescription] error description by microsoft
+         * @param {string} [errorUri] error description by microsoft
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async mSAdminCallback(adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.mSAdminCallback(adminConsent, state, tenant, scope, error, errorDescription, options);
+        async mSAdminCallback(adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, errorUri?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.mSAdminCallback(adminConsent, state, tenant, scope, error, errorDescription, errorUri, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -20091,11 +20134,12 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {string} [scope] Scope of the gotten access
          * @param {string} [error] MS error Code
          * @param {string} [errorDescription] error description by microsoft
+         * @param {string} [errorUri] error description by microsoft
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mSAdminCallback(adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, options?: any): AxiosPromise<void> {
-            return localVarFp.mSAdminCallback(adminConsent, state, tenant, scope, error, errorDescription, options).then((request) => request(axios, basePath));
+        mSAdminCallback(adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, errorUri?: string, options?: any): AxiosPromise<void> {
+            return localVarFp.mSAdminCallback(adminConsent, state, tenant, scope, error, errorDescription, errorUri, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -21627,12 +21671,13 @@ export class DefaultApi extends BaseAPI {
      * @param {string} [scope] Scope of the gotten access
      * @param {string} [error] MS error Code
      * @param {string} [errorDescription] error description by microsoft
+     * @param {string} [errorUri] error description by microsoft
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public mSAdminCallback(adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, options?: any) {
-        return DefaultApiFp(this.configuration).mSAdminCallback(adminConsent, state, tenant, scope, error, errorDescription, options).then((request) => request(this.axios, this.basePath));
+    public mSAdminCallback(adminConsent?: string, state?: string, tenant?: string, scope?: string, error?: string, errorDescription?: string, errorUri?: string, options?: any) {
+        return DefaultApiFp(this.configuration).mSAdminCallback(adminConsent, state, tenant, scope, error, errorDescription, errorUri, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
