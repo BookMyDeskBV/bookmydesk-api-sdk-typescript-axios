@@ -10006,6 +10006,12 @@ export interface Seat {
     notFutureReservable?: boolean;
     /**
      * 
+     * @type {string}
+     * @memberof Seat
+     */
+    microsoftId?: string | null;
+    /**
+     * 
      * @type {Array<SeatUserGroup>}
      * @memberof Seat
      */
@@ -10121,6 +10127,12 @@ export interface SeatProperties {
      * @memberof SeatProperties
      */
     notFutureReservable?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeatProperties
+     */
+    microsoftId?: string | null;
 }
 /**
  * 
@@ -10327,6 +10339,12 @@ export interface SeatUpdate {
     notFutureReservable?: boolean;
     /**
      * 
+     * @type {string}
+     * @memberof SeatUpdate
+     */
+    microsoftId?: string | null;
+    /**
+     * 
      * @type {Array<SeatUserGroup>}
      * @memberof SeatUpdate
      */
@@ -10487,6 +10505,12 @@ export interface SeatWithRelations {
     notFutureReservable?: boolean;
     /**
      * 
+     * @type {string}
+     * @memberof SeatWithRelations
+     */
+    microsoftId?: string | null;
+    /**
+     * 
      * @type {Array<SeatUserGroup>}
      * @memberof SeatWithRelations
      */
@@ -10597,6 +10621,12 @@ export interface SeatWithoutId {
     notFutureReservable?: boolean;
     /**
      * 
+     * @type {string}
+     * @memberof SeatWithoutId
+     */
+    microsoftId?: string | null;
+    /**
+     * 
      * @type {Array<SeatUserGroup>}
      * @memberof SeatWithoutId
      */
@@ -10620,6 +10650,12 @@ export interface SeatWithoutIdAllOf {
      * @memberof SeatWithoutIdAllOf
      */
     mapId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SeatWithoutIdAllOf
+     */
+    microsoftId?: string | null;
     /**
      * 
      * @type {string}
@@ -10908,6 +10944,12 @@ export interface UsedSeat {
      * @memberof UsedSeat
      */
     notFutureReservable?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof UsedSeat
+     */
+    microsoftId?: string | null;
     /**
      * 
      * @type {Array<SeatUserGroup>}
