@@ -469,7 +469,8 @@ export enum BillingType {
     Free = 'free',
     Year = 'year',
     Month = 'month',
-    ContactForm = 'contact-form'
+    ContactForm = 'contact-form',
+    Stopped = 'stopped'
 }
 
 /**
@@ -824,13 +825,13 @@ export interface Company {
      * @type {number}
      * @memberof Company
      */
-    visitorAnonymousDays?: number;
+    visitorAnonymousDays?: number | null;
     /**
      * Make reservations anonymous after X days
      * @type {number}
      * @memberof Company
      */
-    reservationAnonymousDays?: number;
+    reservationAnonymousDays?: number | null;
 }
 /**
  * 
@@ -2073,13 +2074,13 @@ export interface CompanyProperties {
      * @type {number}
      * @memberof CompanyProperties
      */
-    visitorAnonymousDays?: number;
+    visitorAnonymousDays?: number | null;
     /**
      * Make reservations anonymous after X days
      * @type {number}
      * @memberof CompanyProperties
      */
-    reservationAnonymousDays?: number;
+    reservationAnonymousDays?: number | null;
 }
 /**
  * 
@@ -2218,14 +2219,24 @@ export interface CompanyPropertiesAllOf {
      * @type {number}
      * @memberof CompanyPropertiesAllOf
      */
-    visitorAnonymousDays?: number;
+    visitorAnonymousDays?: number | null;
     /**
      * Make reservations anonymous after X days
      * @type {number}
      * @memberof CompanyPropertiesAllOf
      */
-    reservationAnonymousDays?: number;
+    reservationAnonymousDays?: number | null;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum CompanyTokenType {
+    Admin = 'microsoft_graph_admin',
+    Rooms = 'microsoft_graph_rooms'
+}
+
 /**
  * 
  * @export
@@ -2709,13 +2720,13 @@ export interface CompanyWithCounts {
      * @type {number}
      * @memberof CompanyWithCounts
      */
-    visitorAnonymousDays?: number;
+    visitorAnonymousDays?: number | null;
     /**
      * Make reservations anonymous after X days
      * @type {number}
      * @memberof CompanyWithCounts
      */
-    reservationAnonymousDays?: number;
+    reservationAnonymousDays?: number | null;
     /**
      * 
      * @type {number}
@@ -2734,6 +2745,12 @@ export interface CompanyWithCounts {
      * @memberof CompanyWithCounts
      */
     userCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    activeUserCount: number;
     /**
      * 
      * @type {number}
@@ -2765,6 +2782,12 @@ export interface CompanyWithCountsAllOf {
      * @memberof CompanyWithCountsAllOf
      */
     userCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof CompanyWithCountsAllOf
+     */
+    activeUserCount: number;
     /**
      * 
      * @type {number}
@@ -3125,13 +3148,13 @@ export interface CompanyWithRelations {
      * @type {number}
      * @memberof CompanyWithRelations
      */
-    visitorAnonymousDays?: number;
+    visitorAnonymousDays?: number | null;
     /**
      * Make reservations anonymous after X days
      * @type {number}
      * @memberof CompanyWithRelations
      */
-    reservationAnonymousDays?: number;
+    reservationAnonymousDays?: number | null;
 }
 /**
  * 
@@ -3160,21 +3183,11 @@ export interface CompanyWithRelationsAllOf {
 export interface CompanyWithRelationsAllOfTokens {
     /**
      * 
-     * @type {string}
+     * @type {CompanyTokenType}
      * @memberof CompanyWithRelationsAllOfTokens
      */
-    token_type: CompanyWithRelationsAllOfTokensTokenTypeEnum;
+    token_type: CompanyTokenType;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum CompanyWithRelationsAllOfTokensTokenTypeEnum {
-    Admin = 'microsoft_graph_admin',
-    Rooms = 'microsoft_graph_rooms'
-}
-
 /**
  * 
  * @export
@@ -3510,13 +3523,13 @@ export interface CompanyWithoutId {
      * @type {number}
      * @memberof CompanyWithoutId
      */
-    visitorAnonymousDays?: number;
+    visitorAnonymousDays?: number | null;
     /**
      * Make reservations anonymous after X days
      * @type {number}
      * @memberof CompanyWithoutId
      */
-    reservationAnonymousDays?: number;
+    reservationAnonymousDays?: number | null;
 }
 /**
  * 
@@ -8864,6 +8877,18 @@ export interface Reservation {
      */
     microsoftId?: string | null;
     /**
+     * Reservation title
+     * @type {string}
+     * @memberof Reservation
+     */
+    title?: string | null;
+    /**
+     * Reservation description
+     * @type {string}
+     * @memberof Reservation
+     */
+    description?: string | null;
+    /**
      * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
      * @type {string}
      * @memberof Reservation
@@ -8956,13 +8981,13 @@ export interface ReservationAdd {
      * @type {string}
      * @memberof ReservationAdd
      */
-    title?: string;
+    title?: string | null;
     /**
      * 
      * @type {string}
      * @memberof ReservationAdd
      */
-    description?: string;
+    description?: string | null;
     /**
      * 
      * @type {string}
@@ -9249,6 +9274,18 @@ export interface ReservationProperties {
      * @memberof ReservationProperties
      */
     microsoftId?: string | null;
+    /**
+     * Reservation title
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    title?: string | null;
+    /**
+     * Reservation description
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    description?: string | null;
 }
 /**
  * 
@@ -9360,13 +9397,13 @@ export interface ReservationUpdate {
      * @type {string}
      * @memberof ReservationUpdate
      */
-    title?: string;
+    title?: string | null;
     /**
      * 
      * @type {string}
      * @memberof ReservationUpdate
      */
-    description?: string;
+    description?: string | null;
 }
 /**
  * 
@@ -9442,6 +9479,18 @@ export interface ReservationUpdateReoccurring {
      * @memberof ReservationUpdateReoccurring
      */
     companyTransportOptionId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationUpdateReoccurring
+     */
+    title?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationUpdateReoccurring
+     */
+    description?: string | null;
 }
 /**
  * 
@@ -9584,6 +9633,18 @@ export interface ReservationWithRelations {
      * @memberof ReservationWithRelations
      */
     microsoftId?: string | null;
+    /**
+     * Reservation title
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    title?: string | null;
+    /**
+     * Reservation description
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    description?: string | null;
     /**
      * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
      * @type {string}
@@ -9775,6 +9836,18 @@ export interface ReservationWithoutId {
      * @memberof ReservationWithoutId
      */
     microsoftId?: string | null;
+    /**
+     * Reservation title
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    title?: string | null;
+    /**
+     * Reservation description
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    description?: string | null;
     /**
      * https://datatracker.ietf.org/doc/html/rfc3339#section-5.6
      * @type {string}
@@ -10000,12 +10073,6 @@ export interface Seat {
     notFutureReservable?: boolean;
     /**
      * 
-     * @type {string}
-     * @memberof Seat
-     */
-    microsoftId?: string | null;
-    /**
-     * 
      * @type {Array<SeatUserGroup>}
      * @memberof Seat
      */
@@ -10016,6 +10083,12 @@ export interface Seat {
      * @memberof Seat
      */
     seatTags?: Array<SeatSeatTag>;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof Seat
+     */
+    barcodes?: Array<object>;
     /**
      * 
      * @type {Array<SeatExternal>}
@@ -10146,12 +10219,6 @@ export interface SeatProperties {
      * @memberof SeatProperties
      */
     notFutureReservable?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof SeatProperties
-     */
-    microsoftId?: string | null;
 }
 /**
  * 
@@ -10358,12 +10425,6 @@ export interface SeatUpdate {
     notFutureReservable?: boolean;
     /**
      * 
-     * @type {string}
-     * @memberof SeatUpdate
-     */
-    microsoftId?: string | null;
-    /**
-     * 
      * @type {Array<SeatUserGroup>}
      * @memberof SeatUpdate
      */
@@ -10380,6 +10441,12 @@ export interface SeatUpdate {
      * @memberof SeatUpdate
      */
     seatTags?: Array<SeatSeatTag>;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof SeatUpdate
+     */
+    barcodes?: Array<object>;
 }
 /**
  * 
@@ -10411,6 +10478,12 @@ export interface SeatUpdateAllOf {
      * @memberof SeatUpdateAllOf
      */
     seatTags?: Array<SeatSeatTag>;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof SeatUpdateAllOf
+     */
+    barcodes?: Array<object>;
 }
 /**
  * 
@@ -10536,12 +10609,6 @@ export interface SeatWithRelations {
     notFutureReservable?: boolean;
     /**
      * 
-     * @type {string}
-     * @memberof SeatWithRelations
-     */
-    microsoftId?: string | null;
-    /**
-     * 
      * @type {Array<SeatUserGroup>}
      * @memberof SeatWithRelations
      */
@@ -10554,6 +10621,12 @@ export interface SeatWithRelations {
     seatTags: Array<SeatTag>;
     /**
      * 
+     * @type {Array<SeatWithRelationsAllOfBarcodes>}
+     * @memberof SeatWithRelations
+     */
+    barcodes: Array<SeatWithRelationsAllOfBarcodes>;
+    /**
+     * 
      * @type {Array<SeatExternal>}
      * @memberof SeatWithRelations
      */
@@ -10564,12 +10637,6 @@ export interface SeatWithRelations {
      * @memberof SeatWithRelations
      */
     _operations?: SeatOperationsOperations;
-    /**
-     * 
-     * @type {Array<SeatWithRelationsAllOfBarcodes>}
-     * @memberof SeatWithRelations
-     */
-    barcodes: Array<SeatWithRelationsAllOfBarcodes>;
 }
 /**
  * 
@@ -10695,12 +10762,6 @@ export interface SeatWithoutId {
     notFutureReservable?: boolean;
     /**
      * 
-     * @type {string}
-     * @memberof SeatWithoutId
-     */
-    microsoftId?: string | null;
-    /**
-     * 
      * @type {Array<SeatUserGroup>}
      * @memberof SeatWithoutId
      */
@@ -10711,6 +10772,12 @@ export interface SeatWithoutId {
      * @memberof SeatWithoutId
      */
     seatTags?: Array<SeatSeatTag>;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof SeatWithoutId
+     */
+    barcodes?: Array<object>;
     /**
      * 
      * @type {Array<SeatExternal>}
@@ -10730,12 +10797,6 @@ export interface SeatWithoutIdAllOf {
      * @memberof SeatWithoutIdAllOf
      */
     mapId: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SeatWithoutIdAllOf
-     */
-    microsoftId?: string | null;
     /**
      * 
      * @type {string}
@@ -10790,6 +10851,12 @@ export interface SeatWithoutIdAllOf {
      * @memberof SeatWithoutIdAllOf
      */
     seatTags?: Array<SeatSeatTag>;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof SeatWithoutIdAllOf
+     */
+    barcodes?: Array<object>;
     /**
      * 
      * @type {Array<SeatExternal>}
@@ -11032,12 +11099,6 @@ export interface UsedSeat {
     notFutureReservable?: boolean;
     /**
      * 
-     * @type {string}
-     * @memberof UsedSeat
-     */
-    microsoftId?: string | null;
-    /**
-     * 
      * @type {Array<SeatUserGroup>}
      * @memberof UsedSeat
      */
@@ -11048,6 +11109,12 @@ export interface UsedSeat {
      * @memberof UsedSeat
      */
     seatTags?: Array<SeatSeatTag>;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof UsedSeat
+     */
+    barcodes?: Array<object>;
     /**
      * 
      * @type {Array<SeatExternal>}
@@ -11785,7 +11852,8 @@ export interface UserWithRelationsAllOfSsoProviders {
     * @enum {string}
     */
 export enum UserWithRelationsAllOfSsoProvidersProviderEnum {
-    MicrosoftGraph = 'microsoft_graph'
+    MicrosoftGraph = 'microsoft_graph',
+    Surfconext = 'surfconext'
 }
 
 /**
@@ -12039,6 +12107,35 @@ export interface V2MeUserOperations {
  */
 export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * Verify the SAML response and redirect to frontend url with OTP
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        acsPost: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/acs`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * 
          * @param {AdminUserCreate} adminUserCreate 
@@ -15954,7 +16051,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {string} companyId Company ID
-         * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language'} [sortField] field to sort on
+         * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language' | 'status'} [sortField] field to sort on
          * @param {boolean} [inviteSent] filter on whether an invite has been sent
          * @param {UserStatus} [status] filter on status
          * @param {Language} [language] filter on language
@@ -15966,7 +16063,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsers: async (companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options: any = {}): Promise<RequestArgs> => {
+        listUsers: async (companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language' | 'status', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'companyId' is not null or undefined
             assertParamExists('listUsers', 'companyId', companyId)
             const localVarPath = `/v3/users`;
@@ -16263,6 +16360,35 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             if (errorDescription !== undefined) {
                 localVarQueryParameter['error_description'] = errorDescription;
             }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Show the saml SP metadat
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        metadataGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/metadata`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
 
 
     
@@ -16644,12 +16770,15 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {string} companyId Company ID
+         * @param {CompanyTokenType} tokenType type of token
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeCompanyTokens: async (companyId: string, options: any = {}): Promise<RequestArgs> => {
+        removeCompanyTokens: async (companyId: string, tokenType: CompanyTokenType, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'companyId' is not null or undefined
             assertParamExists('removeCompanyTokens', 'companyId', companyId)
+            // verify required parameter 'tokenType' is not null or undefined
+            assertParamExists('removeCompanyTokens', 'tokenType', tokenType)
             const localVarPath = `/v3/company/removeCompanyTokens`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -16668,6 +16797,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (companyId !== undefined) {
                 localVarQueryParameter['companyId'] = companyId;
+            }
+
+            if (tokenType !== undefined) {
+                localVarQueryParameter['tokenType'] = tokenType;
             }
 
 
@@ -16948,6 +17081,35 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(inlineObject1, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Redirect the browser to the SAML IDP
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        samlRedirectGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/saml-redirect`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -17938,6 +18100,35 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Copy of saml-redirect
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        v3AuthSurfconextGet: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v3/auth/surfconext`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Client compatibility
          * @param {string} clientId The oAuth client identifier
          * @param {string} version The current version of the client application
@@ -18087,6 +18278,15 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 export const DefaultApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration)
     return {
+        /**
+         * Verify the SAML response and redirect to frontend url with OTP
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async acsPost(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.acsPost(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
         /**
          * 
          * @param {AdminUserCreate} adminUserCreate 
@@ -19056,7 +19256,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} companyId Company ID
-         * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language'} [sortField] field to sort on
+         * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language' | 'status'} [sortField] field to sort on
          * @param {boolean} [inviteSent] filter on whether an invite has been sent
          * @param {UserStatus} [status] filter on status
          * @param {Language} [language] filter on language
@@ -19068,7 +19268,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20024>> {
+        async listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language' | 'status', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20024>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listUsers(companyId, sortField, inviteSent, status, language, userGroupId, sortDirection, filter, take, skip, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19131,6 +19331,15 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          */
         async mSCallback(code?: string, state?: string, sessionState?: string, error?: string, errorDescription?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.mSCallback(code, state, sessionState, error, errorDescription, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Show the saml SP metadat
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async metadataGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.metadataGet(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -19237,11 +19446,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} companyId Company ID
+         * @param {CompanyTokenType} tokenType type of token
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeCompanyTokens(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeCompanyTokens(companyId, options);
+        async removeCompanyTokens(companyId: string, tokenType: CompanyTokenType, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeCompanyTokens(companyId, tokenType, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -19311,6 +19521,15 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          */
         async resetPassword(inlineObject1: InlineObject1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.resetPassword(inlineObject1, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Redirect the browser to the SAML IDP
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async samlRedirectGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.samlRedirectGet(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -19554,6 +19773,15 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Copy of saml-redirect
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async v3AuthSurfconextGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.v3AuthSurfconextGet(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Client compatibility
          * @param {string} clientId The oAuth client identifier
          * @param {string} version The current version of the client application
@@ -19597,6 +19825,14 @@ export const DefaultApiFp = function(configuration?: Configuration) {
 export const DefaultApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = DefaultApiFp(configuration)
     return {
+        /**
+         * Verify the SAML response and redirect to frontend url with OTP
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        acsPost(options?: any): AxiosPromise<void> {
+            return localVarFp.acsPost(options).then((request) => request(axios, basePath));
+        },
         /**
          * 
          * @param {AdminUserCreate} adminUserCreate 
@@ -20478,7 +20714,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @param {string} companyId Company ID
-         * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language'} [sortField] field to sort on
+         * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language' | 'status'} [sortField] field to sort on
          * @param {boolean} [inviteSent] filter on whether an invite has been sent
          * @param {UserStatus} [status] filter on status
          * @param {Language} [language] filter on language
@@ -20490,7 +20726,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20024> {
+        listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language' | 'status', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20024> {
             return localVarFp.listUsers(companyId, sortField, inviteSent, status, language, userGroupId, sortDirection, filter, take, skip, options).then((request) => request(axios, basePath));
         },
         /**
@@ -20548,6 +20784,14 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         mSCallback(code?: string, state?: string, sessionState?: string, error?: string, errorDescription?: string, options?: any): AxiosPromise<void> {
             return localVarFp.mSCallback(code, state, sessionState, error, errorDescription, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Show the saml SP metadat
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        metadataGet(options?: any): AxiosPromise<void> {
+            return localVarFp.metadataGet(options).then((request) => request(axios, basePath));
         },
         /**
          * Basic API metrics
@@ -20644,11 +20888,12 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         /**
          * 
          * @param {string} companyId Company ID
+         * @param {CompanyTokenType} tokenType type of token
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeCompanyTokens(companyId: string, options?: any): AxiosPromise<void> {
-            return localVarFp.removeCompanyTokens(companyId, options).then((request) => request(axios, basePath));
+        removeCompanyTokens(companyId: string, tokenType: CompanyTokenType, options?: any): AxiosPromise<void> {
+            return localVarFp.removeCompanyTokens(companyId, tokenType, options).then((request) => request(axios, basePath));
         },
         /**
          * Request login by post\'ing email for user
@@ -20712,6 +20957,14 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         resetPassword(inlineObject1: InlineObject1, options?: any): AxiosPromise<void> {
             return localVarFp.resetPassword(inlineObject1, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Redirect the browser to the SAML IDP
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        samlRedirectGet(options?: any): AxiosPromise<void> {
+            return localVarFp.samlRedirectGet(options).then((request) => request(axios, basePath));
         },
         /**
          * Send invitations to multiple users
@@ -20932,6 +21185,14 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.v2UpdateMe(inlineObject6, options).then((request) => request(axios, basePath));
         },
         /**
+         * Copy of saml-redirect
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        v3AuthSurfconextGet(options?: any): AxiosPromise<void> {
+            return localVarFp.v3AuthSurfconextGet(options).then((request) => request(axios, basePath));
+        },
+        /**
          * Client compatibility
          * @param {string} clientId The oAuth client identifier
          * @param {string} version The current version of the client application
@@ -20972,6 +21233,16 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
  * @extends {BaseAPI}
  */
 export class DefaultApi extends BaseAPI {
+    /**
+     * Verify the SAML response and redirect to frontend url with OTP
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public acsPost(options?: any) {
+        return DefaultApiFp(this.configuration).acsPost(options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @param {AdminUserCreate} adminUserCreate 
@@ -22029,7 +22300,7 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @param {string} companyId Company ID
-     * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language'} [sortField] field to sort on
+     * @param {'firstName' | 'infix' | 'lastName' | 'email' | 'language' | 'status'} [sortField] field to sort on
      * @param {boolean} [inviteSent] filter on whether an invite has been sent
      * @param {UserStatus} [status] filter on status
      * @param {Language} [language] filter on language
@@ -22042,7 +22313,7 @@ export class DefaultApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any) {
+    public listUsers(companyId: string, sortField?: 'firstName' | 'infix' | 'lastName' | 'email' | 'language' | 'status', inviteSent?: boolean, status?: UserStatus, language?: Language, userGroupId?: string, sortDirection?: 'asc' | 'desc', filter?: string, take?: number, skip?: number, options?: any) {
         return DefaultApiFp(this.configuration).listUsers(companyId, sortField, inviteSent, status, language, userGroupId, sortDirection, filter, take, skip, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -22110,6 +22381,16 @@ export class DefaultApi extends BaseAPI {
      */
     public mSCallback(code?: string, state?: string, sessionState?: string, error?: string, errorDescription?: string, options?: any) {
         return DefaultApiFp(this.configuration).mSCallback(code, state, sessionState, error, errorDescription, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Show the saml SP metadat
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public metadataGet(options?: any) {
+        return DefaultApiFp(this.configuration).metadataGet(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -22225,12 +22506,13 @@ export class DefaultApi extends BaseAPI {
     /**
      * 
      * @param {string} companyId Company ID
+     * @param {CompanyTokenType} tokenType type of token
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public removeCompanyTokens(companyId: string, options?: any) {
-        return DefaultApiFp(this.configuration).removeCompanyTokens(companyId, options).then((request) => request(this.axios, this.basePath));
+    public removeCompanyTokens(companyId: string, tokenType: CompanyTokenType, options?: any) {
+        return DefaultApiFp(this.configuration).removeCompanyTokens(companyId, tokenType, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -22306,6 +22588,16 @@ export class DefaultApi extends BaseAPI {
      */
     public resetPassword(inlineObject1: InlineObject1, options?: any) {
         return DefaultApiFp(this.configuration).resetPassword(inlineObject1, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Redirect the browser to the SAML IDP
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public samlRedirectGet(options?: any) {
+        return DefaultApiFp(this.configuration).samlRedirectGet(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -22568,6 +22860,16 @@ export class DefaultApi extends BaseAPI {
      */
     public v2UpdateMe(inlineObject6: InlineObject6, options?: any) {
         return DefaultApiFp(this.configuration).v2UpdateMe(inlineObject6, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Copy of saml-redirect
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public v3AuthSurfconextGet(options?: any) {
+        return DefaultApiFp(this.configuration).v3AuthSurfconextGet(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
