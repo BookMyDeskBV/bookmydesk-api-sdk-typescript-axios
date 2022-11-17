@@ -832,6 +832,18 @@ export interface Company {
      * @memberof Company
      */
     reservationAnonymousDays?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Company
+     */
+    ssoDomain?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Company
+     */
+    surfconextSsoEnabled?: boolean;
 }
 /**
  * 
@@ -2081,6 +2093,18 @@ export interface CompanyProperties {
      * @memberof CompanyProperties
      */
     reservationAnonymousDays?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyProperties
+     */
+    ssoDomain?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyProperties
+     */
+    surfconextSsoEnabled?: boolean;
 }
 /**
  * 
@@ -2226,6 +2250,18 @@ export interface CompanyPropertiesAllOf {
      * @memberof CompanyPropertiesAllOf
      */
     reservationAnonymousDays?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyPropertiesAllOf
+     */
+    ssoDomain?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyPropertiesAllOf
+     */
+    surfconextSsoEnabled?: boolean;
 }
 /**
  * 
@@ -2729,6 +2765,18 @@ export interface CompanyWithCounts {
     reservationAnonymousDays?: number | null;
     /**
      * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    ssoDomain?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    surfconextSsoEnabled?: boolean;
+    /**
+     * 
      * @type {number}
      * @memberof CompanyWithCounts
      */
@@ -3155,6 +3203,18 @@ export interface CompanyWithRelations {
      * @memberof CompanyWithRelations
      */
     reservationAnonymousDays?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    ssoDomain?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    surfconextSsoEnabled?: boolean;
 }
 /**
  * 
@@ -3530,6 +3590,18 @@ export interface CompanyWithoutId {
      * @memberof CompanyWithoutId
      */
     reservationAnonymousDays?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithoutId
+     */
+    ssoDomain?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithoutId
+     */
+    surfconextSsoEnabled?: boolean;
 }
 /**
  * 
@@ -15669,10 +15741,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * @param {SeatType} [seatType] ReservationSeatType
          * @param {ReservationType} [type] ReservationType
          * @param {boolean} [includeAnonymous] includeAnonymous in reservations
+         * @param {string} [userGroupId] Filter reservations by user group
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listReservations: async (companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options: any = {}): Promise<RequestArgs> => {
+        listReservations: async (companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, userGroupId?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'companyId' is not null or undefined
             assertParamExists('listReservations', 'companyId', companyId)
             const localVarPath = `/v3/reservations`;
@@ -15761,6 +15834,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (includeAnonymous !== undefined) {
                 localVarQueryParameter['includeAnonymous'] = includeAnonymous;
+            }
+
+            if (userGroupId !== undefined) {
+                localVarQueryParameter['userGroupId'] = userGroupId;
             }
 
 
@@ -16373,7 +16450,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Show the saml SP metadat
+         * SAML2 metadata
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -18101,10 +18178,11 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * Copy of saml-redirect
+         * @param {string} [clientId] Not needed, but exists in frontend
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        v3AuthSurfconextGet: async (options: any = {}): Promise<RequestArgs> => {
+        v3AuthSurfconextGet: async (clientId?: string, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/v3/auth/surfconext`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -18116,6 +18194,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (clientId !== undefined) {
+                localVarQueryParameter['client_id'] = clientId;
+            }
 
 
     
@@ -19182,11 +19264,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {SeatType} [seatType] ReservationSeatType
          * @param {ReservationType} [type] ReservationType
          * @param {boolean} [includeAnonymous] includeAnonymous in reservations
+         * @param {string} [userGroupId] Filter reservations by user group
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20052>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, options);
+        async listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, userGroupId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20052>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, userGroupId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -19334,11 +19417,11 @@ export const DefaultApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Show the saml SP metadat
+         * SAML2 metadata
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async metadataGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async metadataGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.metadataGet(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19774,11 +19857,12 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * Copy of saml-redirect
+         * @param {string} [clientId] Not needed, but exists in frontend
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async v3AuthSurfconextGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.v3AuthSurfconextGet(options);
+        async v3AuthSurfconextGet(clientId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.v3AuthSurfconextGet(clientId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -20646,11 +20730,12 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {SeatType} [seatType] ReservationSeatType
          * @param {ReservationType} [type] ReservationType
          * @param {boolean} [includeAnonymous] includeAnonymous in reservations
+         * @param {string} [userGroupId] Filter reservations by user group
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options?: any): AxiosPromise<InlineResponse20052> {
-            return localVarFp.listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, options).then((request) => request(axios, basePath));
+        listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, userGroupId?: string, options?: any): AxiosPromise<InlineResponse20052> {
+            return localVarFp.listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, userGroupId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -20786,11 +20871,11 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.mSCallback(code, state, sessionState, error, errorDescription, options).then((request) => request(axios, basePath));
         },
         /**
-         * Show the saml SP metadat
+         * SAML2 metadata
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        metadataGet(options?: any): AxiosPromise<void> {
+        metadataGet(options?: any): AxiosPromise<string> {
             return localVarFp.metadataGet(options).then((request) => request(axios, basePath));
         },
         /**
@@ -21186,11 +21271,12 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * Copy of saml-redirect
+         * @param {string} [clientId] Not needed, but exists in frontend
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        v3AuthSurfconextGet(options?: any): AxiosPromise<void> {
-            return localVarFp.v3AuthSurfconextGet(options).then((request) => request(axios, basePath));
+        v3AuthSurfconextGet(clientId?: string, options?: any): AxiosPromise<void> {
+            return localVarFp.v3AuthSurfconextGet(clientId, options).then((request) => request(axios, basePath));
         },
         /**
          * Client compatibility
@@ -22220,12 +22306,13 @@ export class DefaultApi extends BaseAPI {
      * @param {SeatType} [seatType] ReservationSeatType
      * @param {ReservationType} [type] ReservationType
      * @param {boolean} [includeAnonymous] includeAnonymous in reservations
+     * @param {string} [userGroupId] Filter reservations by user group
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, options?: any) {
-        return DefaultApiFp(this.configuration).listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, options).then((request) => request(this.axios, this.basePath));
+    public listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, userGroupId?: string, options?: any) {
+        return DefaultApiFp(this.configuration).listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, userGroupId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -22384,7 +22471,7 @@ export class DefaultApi extends BaseAPI {
     }
 
     /**
-     * Show the saml SP metadat
+     * SAML2 metadata
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
@@ -22864,12 +22951,13 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * Copy of saml-redirect
+     * @param {string} [clientId] Not needed, but exists in frontend
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public v3AuthSurfconextGet(options?: any) {
-        return DefaultApiFp(this.configuration).v3AuthSurfconextGet(options).then((request) => request(this.axios, this.basePath));
+    public v3AuthSurfconextGet(clientId?: string, options?: any) {
+        return DefaultApiFp(this.configuration).v3AuthSurfconextGet(clientId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
