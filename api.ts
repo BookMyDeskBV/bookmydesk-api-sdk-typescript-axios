@@ -6873,6 +6873,18 @@ export interface Location {
      * @type {string}
      * @memberof Location
      */
+    startTime?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Location
+     */
+    endTime?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Location
+     */
     timezone: string;
     /**
      * 
@@ -7001,6 +7013,18 @@ export interface LocationProperties {
      * @type {string}
      * @memberof LocationProperties
      */
+    startTime?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationProperties
+     */
+    endTime?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationProperties
+     */
     timezone?: string;
 }
 /**
@@ -7075,6 +7099,18 @@ export interface LocationWithoutId {
      * @memberof LocationWithoutId
      */
     proximityRadius?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationWithoutId
+     */
+    startTime?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationWithoutId
+     */
+    endTime?: string | null;
     /**
      * 
      * @type {string}
@@ -8949,6 +8985,12 @@ export interface Reservation {
      */
     microsoftId?: string | null;
     /**
+     * 
+     * @type {string}
+     * @memberof Reservation
+     */
+    reoccurMicrosoftId?: string | null;
+    /**
      * Reservation title
      * @type {string}
      * @memberof Reservation
@@ -9347,6 +9389,12 @@ export interface ReservationProperties {
      */
     microsoftId?: string | null;
     /**
+     * 
+     * @type {string}
+     * @memberof ReservationProperties
+     */
+    reoccurMicrosoftId?: string | null;
+    /**
      * Reservation title
      * @type {string}
      * @memberof ReservationProperties
@@ -9706,6 +9754,12 @@ export interface ReservationWithRelations {
      */
     microsoftId?: string | null;
     /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithRelations
+     */
+    reoccurMicrosoftId?: string | null;
+    /**
      * Reservation title
      * @type {string}
      * @memberof ReservationWithRelations
@@ -9908,6 +9962,12 @@ export interface ReservationWithoutId {
      * @memberof ReservationWithoutId
      */
     microsoftId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ReservationWithoutId
+     */
+    reoccurMicrosoftId?: string | null;
     /**
      * Reservation title
      * @type {string}
@@ -14454,6 +14514,46 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {string} companyId Company ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDataExport: async (companyId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'companyId' is not null or undefined
+            assertParamExists('getDataExport', 'companyId', companyId)
+            const localVarPath = `/v4/data-export`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (companyId !== undefined) {
+                localVarQueryParameter['companyId'] = companyId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} companyId Company ID
          * @param {'created'} [sortField] field to sort on
          * @param {'asc' | 'desc'} [sortDirection] direction to sort to
          * @param {number} [take] Amount of items to take
@@ -18934,6 +19034,16 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @param {string} companyId Company ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDataExport(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDataExport(companyId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} companyId Company ID
          * @param {'created'} [sortField] field to sort on
          * @param {'asc' | 'desc'} [sortDirection] direction to sort to
          * @param {number} [take] Amount of items to take
@@ -20424,6 +20534,15 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         getCompanyTransportOptions(companyId: string, options?: any): AxiosPromise<InlineResponse20061> {
             return localVarFp.getCompanyTransportOptions(companyId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} companyId Company ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDataExport(companyId: string, options?: any): AxiosPromise<object> {
+            return localVarFp.getDataExport(companyId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -21943,6 +22062,17 @@ export class DefaultApi extends BaseAPI {
      */
     public getCompanyTransportOptions(companyId: string, options?: any) {
         return DefaultApiFp(this.configuration).getCompanyTransportOptions(companyId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} companyId Company ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public getDataExport(companyId: string, options?: any) {
+        return DefaultApiFp(this.configuration).getDataExport(companyId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
