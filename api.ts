@@ -6873,18 +6873,6 @@ export interface Location {
      * @type {string}
      * @memberof Location
      */
-    startTime?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Location
-     */
-    endTime?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof Location
-     */
     timezone: string;
     /**
      * 
@@ -6892,6 +6880,12 @@ export interface Location {
      * @memberof Location
      */
     id: string;
+    /**
+     * 
+     * @type {LocationHours}
+     * @memberof Location
+     */
+    businessHours?: LocationHours;
 }
 /**
  * 
@@ -6935,6 +6929,130 @@ export interface LocationAddress {
      * @memberof LocationAddress
      */
     countryCode?: string;
+}
+/**
+ * 
+ * @export
+ * @interface LocationAllOf
+ */
+export interface LocationAllOf {
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationAllOf
+     */
+    id: string;
+    /**
+     * 
+     * @type {LocationHours}
+     * @memberof LocationAllOf
+     */
+    businessHours?: LocationHours;
+}
+/**
+ * 
+ * @export
+ * @interface LocationHours
+ */
+export interface LocationHours {
+    /**
+     * 
+     * @type {LocationHoursMonday}
+     * @memberof LocationHours
+     */
+    monday?: LocationHoursMonday;
+    /**
+     * 
+     * @type {LocationHoursMonday}
+     * @memberof LocationHours
+     */
+    tuesday?: LocationHoursMonday;
+    /**
+     * 
+     * @type {LocationHoursMonday}
+     * @memberof LocationHours
+     */
+    wednesday?: LocationHoursMonday;
+    /**
+     * 
+     * @type {LocationHoursMonday}
+     * @memberof LocationHours
+     */
+    thursday?: LocationHoursMonday;
+    /**
+     * 
+     * @type {LocationHoursMonday}
+     * @memberof LocationHours
+     */
+    friday?: LocationHoursMonday;
+    /**
+     * 
+     * @type {LocationHoursMonday}
+     * @memberof LocationHours
+     */
+    saturday?: LocationHoursMonday;
+    /**
+     * 
+     * @type {LocationHoursMonday}
+     * @memberof LocationHours
+     */
+    sunday?: LocationHoursMonday;
+    /**
+     * 
+     * @type {Array<LocationHoursException>}
+     * @memberof LocationHours
+     */
+    exceptions?: Array<LocationHoursException> | null;
+}
+/**
+ * 
+ * @export
+ * @interface LocationHoursException
+ */
+export interface LocationHoursException {
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationHoursException
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationHoursException
+     */
+    date?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationHoursException
+     */
+    start?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationHoursException
+     */
+    end?: string;
+}
+/**
+ * 
+ * @export
+ * @interface LocationHoursMonday
+ */
+export interface LocationHoursMonday {
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationHoursMonday
+     */
+    start?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof LocationHoursMonday
+     */
+    end?: string | null;
 }
 /**
  * 
@@ -7008,18 +7126,6 @@ export interface LocationProperties {
      * @memberof LocationProperties
      */
     proximityRadius?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationProperties
-     */
-    startTime?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationProperties
-     */
-    endTime?: string | null;
     /**
      * 
      * @type {string}
@@ -7099,18 +7205,6 @@ export interface LocationWithoutId {
      * @memberof LocationWithoutId
      */
     proximityRadius?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationWithoutId
-     */
-    startTime?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof LocationWithoutId
-     */
-    endTime?: string | null;
     /**
      * 
      * @type {string}
@@ -17614,6 +17708,49 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @param {string} locationId Location ID
+         * @param {LocationHours} locationHours 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateLocationHours: async (locationId: string, locationHours: LocationHours, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'locationId' is not null or undefined
+            assertParamExists('updateLocationHours', 'locationId', locationId)
+            // verify required parameter 'locationHours' is not null or undefined
+            assertParamExists('updateLocationHours', 'locationHours', locationHours)
+            const localVarPath = `/v4/location/{locationId}/hours`
+                .replace(`{${"locationId"}}`, encodeURIComponent(String(locationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(locationHours, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {string} mapId Map ID
          * @param {MapProperties} mapProperties 
          * @param {*} [options] Override http request option.
@@ -19804,6 +19941,17 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} locationId Location ID
+         * @param {LocationHours} locationHours 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateLocationHours(locationId: string, locationHours: LocationHours, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20029>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateLocationHours(locationId, locationHours, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {string} mapId Map ID
          * @param {MapProperties} mapProperties 
          * @param {*} [options] Override http request option.
@@ -21239,6 +21387,16 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          */
         updateLocation(locationId: string, locationProperties: LocationProperties, options?: any): AxiosPromise<object> {
             return localVarFp.updateLocation(locationId, locationProperties, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} locationId Location ID
+         * @param {LocationHours} locationHours 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateLocationHours(locationId: string, locationHours: LocationHours, options?: any): AxiosPromise<InlineResponse20029> {
+            return localVarFp.updateLocationHours(locationId, locationHours, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -22899,6 +23057,18 @@ export class DefaultApi extends BaseAPI {
      */
     public updateLocation(locationId: string, locationProperties: LocationProperties, options?: any) {
         return DefaultApiFp(this.configuration).updateLocation(locationId, locationProperties, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} locationId Location ID
+     * @param {LocationHours} locationHours 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public updateLocationHours(locationId: string, locationHours: LocationHours, options?: any) {
+        return DefaultApiFp(this.configuration).updateLocationHours(locationId, locationHours, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
