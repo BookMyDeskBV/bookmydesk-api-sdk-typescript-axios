@@ -747,7 +747,7 @@ export interface Company {
      * @type {string}
      * @memberof Company
      */
-    billingEndDate?: string;
+    billingEndDate?: string | null;
     /**
      * 
      * @type {BillingType}
@@ -2008,7 +2008,7 @@ export interface CompanyProperties {
      * @type {string}
      * @memberof CompanyProperties
      */
-    billingEndDate?: string;
+    billingEndDate?: string | null;
     /**
      * 
      * @type {BillingType}
@@ -2165,7 +2165,7 @@ export interface CompanyPropertiesAllOf {
      * @type {string}
      * @memberof CompanyPropertiesAllOf
      */
-    billingEndDate?: string;
+    billingEndDate?: string | null;
     /**
      * 
      * @type {BillingType}
@@ -2678,7 +2678,7 @@ export interface CompanyWithCounts {
      * @type {string}
      * @memberof CompanyWithCounts
      */
-    billingEndDate?: string;
+    billingEndDate?: string | null;
     /**
      * 
      * @type {BillingType}
@@ -3118,7 +3118,7 @@ export interface CompanyWithRelations {
      * @type {string}
      * @memberof CompanyWithRelations
      */
-    billingEndDate?: string;
+    billingEndDate?: string | null;
     /**
      * 
      * @type {BillingType}
@@ -3505,7 +3505,7 @@ export interface CompanyWithoutId {
      * @type {string}
      * @memberof CompanyWithoutId
      */
-    billingEndDate?: string;
+    billingEndDate?: string | null;
     /**
      * 
      * @type {BillingType}
@@ -3668,7 +3668,7 @@ export interface CompanyWithoutIdAllOf {
      * @type {string}
      * @memberof CompanyWithoutIdAllOf
      */
-    billingEndDate?: string;
+    billingEndDate?: string | null;
     /**
      * 
      * @type {BillingType}
@@ -4054,6 +4054,12 @@ export interface InlineObject21 {
      * @memberof InlineObject21
      */
     defaultIncludeParking?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineObject21
+     */
+    iCalId?: string;
     /**
      * 
      * @type {string}
@@ -6086,6 +6092,37 @@ export interface InlineResponse20053ResultItems {
      * @memberof InlineResponse20053ResultItems
      */
     parkingSpotsClaimed: number;
+    /**
+     * 
+     * @type {Array<InlineResponse20053ResultSeatTagLeaderboard>}
+     * @memberof InlineResponse20053ResultItems
+     */
+    seatTagLeaderboard: Array<InlineResponse20053ResultSeatTagLeaderboard>;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20053ResultSeatTagLeaderboard
+ */
+export interface InlineResponse20053ResultSeatTagLeaderboard {
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20053ResultSeatTagLeaderboard
+     */
+    label: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20053ResultSeatTagLeaderboard
+     */
+    percentage: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof InlineResponse20053ResultSeatTagLeaderboard
+     */
+    active: boolean;
 }
 /**
  * 
@@ -6345,10 +6382,10 @@ export interface InlineResponse20058 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {MeUser | MeAdmin}
+     * @type {string}
      * @memberof InlineResponse20058
      */
-    result: MeUser | MeAdmin;
+    result: string;
 }
 /**
  * 
@@ -6364,10 +6401,10 @@ export interface InlineResponse20059 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {MeUser}
+     * @type {MeUser | MeAdmin}
      * @memberof InlineResponse20059
      */
-    result: MeUser;
+    result: MeUser | MeAdmin;
 }
 /**
  * 
@@ -6421,23 +6458,10 @@ export interface InlineResponse20060 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {InlineResponse20060Result}
+     * @type {MeUser}
      * @memberof InlineResponse20060
      */
-    result: InlineResponse20060Result;
-}
-/**
- * 
- * @export
- * @interface InlineResponse20060Result
- */
-export interface InlineResponse20060Result {
-    /**
-     * 
-     * @type {CompanyTransportOption}
-     * @memberof InlineResponse20060Result
-     */
-    companyTransportOption: CompanyTransportOption;
+    result: MeUser;
 }
 /**
  * 
@@ -6466,10 +6490,10 @@ export interface InlineResponse20061 {
 export interface InlineResponse20061Result {
     /**
      * 
-     * @type {Array<CompanyTransportOption>}
+     * @type {CompanyTransportOption}
      * @memberof InlineResponse20061Result
      */
-    items: Array<CompanyTransportOption>;
+    companyTransportOption: CompanyTransportOption;
 }
 /**
  * 
@@ -6498,8 +6522,40 @@ export interface InlineResponse20062 {
 export interface InlineResponse20062Result {
     /**
      * 
-     * @type {Array<ExportFile>}
+     * @type {Array<CompanyTransportOption>}
      * @memberof InlineResponse20062Result
+     */
+    items: Array<CompanyTransportOption>;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20063
+ */
+export interface InlineResponse20063 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20063
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {InlineResponse20063Result}
+     * @memberof InlineResponse20063
+     */
+    result: InlineResponse20063Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20063Result
+ */
+export interface InlineResponse20063Result {
+    /**
+     * 
+     * @type {Array<ExportFile>}
+     * @memberof InlineResponse20063Result
      */
     items: Array<ExportFile>;
 }
@@ -8135,6 +8191,12 @@ export interface MeAdminOperations {
      * @type {boolean}
      * @memberof MeAdminOperations
      */
+    canListICal?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof MeAdminOperations
+     */
     canListUsers?: boolean;
     /**
      * 
@@ -8355,6 +8417,12 @@ export interface MeUser {
      * @memberof MeUser
      */
     defaultIncludeParking: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof MeUser
+     */
+    iCalId: string;
     /**
      * 
      * @type {string}
@@ -14706,6 +14774,42 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Get me iCal
+         * @param {string} icalUuid UUID of the ical
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIcal: async (icalUuid: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'icalUuid' is not null or undefined
+            assertParamExists('getIcal', 'icalUuid', icalUuid)
+            const localVarPath = `/v3/ical`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (icalUuid !== undefined) {
+                localVarQueryParameter['ical_uuid'] = icalUuid;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * 
          * @param {string} locationId Location ID
          * @param {*} [options] Override http request option.
@@ -18632,7 +18736,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addCompanyTransportOption(companyTransportOptionWithoutId: CompanyTransportOptionWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20060>> {
+        async addCompanyTransportOption(companyTransportOptionWithoutId: CompanyTransportOptionWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20061>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addCompanyTransportOption(companyTransportOptionWithoutId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -18704,7 +18808,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addProfileImage(file: any, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20059>> {
+        async addProfileImage(file: any, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20060>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addProfileImage(file, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19154,7 +19258,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCompanyTransportOption(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20060>> {
+        async getCompanyTransportOption(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20061>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCompanyTransportOption(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19164,7 +19268,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCompanyTransportOptions(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20061>> {
+        async getCompanyTransportOptions(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20062>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCompanyTransportOptions(companyId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19188,8 +19292,18 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getExportFiles(companyId: string, sortField?: 'created', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20062>> {
+        async getExportFiles(companyId: string, sortField?: 'created', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20063>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getExportFiles(companyId, sortField, sortDirection, take, skip, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get me iCal
+         * @param {string} icalUuid UUID of the ical
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getIcal(icalUuid: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20058>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIcal(icalUuid, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -19272,7 +19386,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMe_1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20058>> {
+        async getMe_1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20059>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMe_1(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19924,7 +20038,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCompanyTransportOption(id: string, companyTransportOptionProperties: CompanyTransportOptionProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20060>> {
+        async updateCompanyTransportOption(id: string, companyTransportOptionProperties: CompanyTransportOptionProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20061>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateCompanyTransportOption(id, companyTransportOptionProperties, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19978,7 +20092,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMe(inlineObject21: InlineObject21, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20059>> {
+        async updateMe(inlineObject21: InlineObject21, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20060>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateMe(inlineObject21, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20199,7 +20313,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addCompanyTransportOption(companyTransportOptionWithoutId: CompanyTransportOptionWithoutId, options?: any): AxiosPromise<InlineResponse20060> {
+        addCompanyTransportOption(companyTransportOptionWithoutId: CompanyTransportOptionWithoutId, options?: any): AxiosPromise<InlineResponse20061> {
             return localVarFp.addCompanyTransportOption(companyTransportOptionWithoutId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -20264,7 +20378,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addProfileImage(file: any, options?: any): AxiosPromise<InlineResponse20059> {
+        addProfileImage(file: any, options?: any): AxiosPromise<InlineResponse20060> {
             return localVarFp.addProfileImage(file, options).then((request) => request(axios, basePath));
         },
         /**
@@ -20671,7 +20785,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCompanyTransportOption(id: string, options?: any): AxiosPromise<InlineResponse20060> {
+        getCompanyTransportOption(id: string, options?: any): AxiosPromise<InlineResponse20061> {
             return localVarFp.getCompanyTransportOption(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -20680,7 +20794,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCompanyTransportOptions(companyId: string, options?: any): AxiosPromise<InlineResponse20061> {
+        getCompanyTransportOptions(companyId: string, options?: any): AxiosPromise<InlineResponse20062> {
             return localVarFp.getCompanyTransportOptions(companyId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -20702,8 +20816,17 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getExportFiles(companyId: string, sortField?: 'created', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20062> {
+        getExportFiles(companyId: string, sortField?: 'created', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20063> {
             return localVarFp.getExportFiles(companyId, sortField, sortDirection, take, skip, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get me iCal
+         * @param {string} icalUuid UUID of the ical
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIcal(icalUuid: string, options?: any): AxiosPromise<InlineResponse20058> {
+            return localVarFp.getIcal(icalUuid, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -20778,7 +20901,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMe_1(options?: any): AxiosPromise<InlineResponse20058> {
+        getMe_1(options?: any): AxiosPromise<InlineResponse20059> {
             return localVarFp.getMe_1(options).then((request) => request(axios, basePath));
         },
         /**
@@ -21375,7 +21498,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCompanyTransportOption(id: string, companyTransportOptionProperties: CompanyTransportOptionProperties, options?: any): AxiosPromise<InlineResponse20060> {
+        updateCompanyTransportOption(id: string, companyTransportOptionProperties: CompanyTransportOptionProperties, options?: any): AxiosPromise<InlineResponse20061> {
             return localVarFp.updateCompanyTransportOption(id, companyTransportOptionProperties, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21424,7 +21547,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateMe(inlineObject21: InlineObject21, options?: any): AxiosPromise<InlineResponse20059> {
+        updateMe(inlineObject21: InlineObject21, options?: any): AxiosPromise<InlineResponse20060> {
             return localVarFp.updateMe(inlineObject21, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22246,6 +22369,17 @@ export class DefaultApi extends BaseAPI {
      */
     public getExportFiles(companyId: string, sortField?: 'created', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any) {
         return DefaultApiFp(this.configuration).getExportFiles(companyId, sortField, sortDirection, take, skip, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get me iCal
+     * @param {string} icalUuid UUID of the ical
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public getIcal(icalUuid: string, options?: any) {
+        return DefaultApiFp(this.configuration).getIcal(icalUuid, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
