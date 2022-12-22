@@ -461,6 +461,38 @@ export interface AdminUserWithoutIdAllOf {
 /**
  * 
  * @export
+ * @interface Analytics
+ */
+export interface Analytics {
+    /**
+     * 
+     * @type {AnalyticsInsights}
+     * @memberof Analytics
+     */
+    insights: AnalyticsInsights;
+}
+/**
+ * 
+ * @export
+ * @interface AnalyticsInsights
+ */
+export interface AnalyticsInsights {
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsInsights
+     */
+    active_check_ins: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AnalyticsInsights
+     */
+    missed_check_ins: number;
+}
+/**
+ * 
+ * @export
  * @enum {string}
  */
 export enum BillingType {
@@ -6558,6 +6590,25 @@ export interface InlineResponse20063Result {
      * @memberof InlineResponse20063Result
      */
     items: Array<ExportFile>;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20064
+ */
+export interface InlineResponse20064 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20064
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {Analytics}
+     * @memberof InlineResponse20064
+     */
+    result: Analytics;
 }
 /**
  * 
@@ -14308,6 +14359,83 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @param {string} companyId Company ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAnalytics: async (companyId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'companyId' is not null or undefined
+            assertParamExists('getAnalytics', 'companyId', companyId)
+            const localVarPath = `/v4/analytics`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (companyId !== undefined) {
+                localVarQueryParameter['companyId'] = companyId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} locationId Location ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAnalyticsForLocation: async (locationId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'locationId' is not null or undefined
+            assertParamExists('getAnalyticsForLocation', 'locationId', locationId)
+            const localVarPath = `/v4/analytics/{locationId}`
+                .replace(`{${"locationId"}}`, encodeURIComponent(String(locationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -19181,6 +19309,26 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} companyId Company ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAnalytics(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20064>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAnalytics(companyId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} locationId Location ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAnalyticsForLocation(locationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20064>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAnalyticsForLocation(locationId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -20715,6 +20863,24 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
+         * @param {string} companyId Company ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAnalytics(companyId: string, options?: any): AxiosPromise<InlineResponse20064> {
+            return localVarFp.getAnalytics(companyId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} locationId Location ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAnalyticsForLocation(locationId: string, options?: any): AxiosPromise<InlineResponse20064> {
+            return localVarFp.getAnalyticsForLocation(locationId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -22241,6 +22407,28 @@ export class DefaultApi extends BaseAPI {
      */
     public getAdminUser(userId: number, options?: any) {
         return DefaultApiFp(this.configuration).getAdminUser(userId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} companyId Company ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public getAnalytics(companyId: string, options?: any) {
+        return DefaultApiFp(this.configuration).getAnalytics(companyId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} locationId Location ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public getAnalyticsForLocation(locationId: string, options?: any) {
+        return DefaultApiFp(this.configuration).getAnalyticsForLocation(locationId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
