@@ -878,10 +878,28 @@ export interface Company {
     surfconextSsoEnabled?: boolean;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof Company
      */
-    saltoEnabled?: boolean;
+    saltoClientId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Company
+     */
+    saltoClientSecret?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Company
+     */
+    saltoUsername?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Company
+     */
+    saltoPassword?: string | null;
 }
 /**
  * 
@@ -2145,10 +2163,28 @@ export interface CompanyProperties {
     surfconextSsoEnabled?: boolean;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof CompanyProperties
      */
-    saltoEnabled?: boolean;
+    saltoClientId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyProperties
+     */
+    saltoClientSecret?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyProperties
+     */
+    saltoUsername?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyProperties
+     */
+    saltoPassword?: string | null;
 }
 /**
  * 
@@ -2308,10 +2344,28 @@ export interface CompanyPropertiesAllOf {
     surfconextSsoEnabled?: boolean;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof CompanyPropertiesAllOf
      */
-    saltoEnabled?: boolean;
+    saltoClientId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyPropertiesAllOf
+     */
+    saltoClientSecret?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyPropertiesAllOf
+     */
+    saltoUsername?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyPropertiesAllOf
+     */
+    saltoPassword?: string | null;
 }
 /**
  * 
@@ -2827,10 +2881,28 @@ export interface CompanyWithCounts {
     surfconextSsoEnabled?: boolean;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof CompanyWithCounts
      */
-    saltoEnabled?: boolean;
+    saltoClientId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    saltoClientSecret?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    saltoUsername?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithCounts
+     */
+    saltoPassword?: string | null;
     /**
      * 
      * @type {number}
@@ -3273,10 +3345,28 @@ export interface CompanyWithRelations {
     surfconextSsoEnabled?: boolean;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof CompanyWithRelations
      */
-    saltoEnabled?: boolean;
+    saltoClientId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    saltoClientSecret?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    saltoUsername?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithRelations
+     */
+    saltoPassword?: string | null;
 }
 /**
  * 
@@ -3666,10 +3756,28 @@ export interface CompanyWithoutId {
     surfconextSsoEnabled?: boolean;
     /**
      * 
-     * @type {boolean}
+     * @type {string}
      * @memberof CompanyWithoutId
      */
-    saltoEnabled?: boolean;
+    saltoClientId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithoutId
+     */
+    saltoClientSecret?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithoutId
+     */
+    saltoUsername?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CompanyWithoutId
+     */
+    saltoPassword?: string | null;
 }
 /**
  * 
