@@ -554,6 +554,12 @@ export interface Company {
     mandatoryCheckIn?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof Company
+     */
+    parkingSpotsAsResourceEnabled: boolean;
+    /**
+     * 
      * @type {number}
      * @memberof Company
      */
@@ -582,6 +588,12 @@ export interface Company {
      * @memberof Company
      */
     reservationWindowLengthVisitor?: number;
+    /**
+     * The length of the reservation window in days for resource reservations. Can be overwritten for users with the property in the userGroup
+     * @type {number}
+     * @memberof Company
+     */
+    reservationWindowLengthResource?: number;
     /**
      * 
      * @type {boolean}
@@ -642,6 +654,12 @@ export interface Company {
      * @memberof Company
      */
     presentpaneEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Company
+     */
+    multiSelectResourceEnabled?: boolean;
     /**
      * 
      * @type {boolean}
@@ -938,7 +956,13 @@ export interface CompanyBasic {
      */
     mandatoryCheckIn?: boolean;
     /**
-     * Deprecated. Use reservationWindowLengthDesk, reservationWindowLengthLunch, reservationWindowLengthMeeting and reservationWindowLengthVisitor in user object instead
+     * 
+     * @type {boolean}
+     * @memberof CompanyBasic
+     */
+    parkingSpotsAsResourceEnabled: boolean;
+    /**
+     * Deprecated. Use reservationWindowLengthDesk, reservationWindowLengthLunch, reservationWindowLengthMeeting, reservationWindowLengthVisitor and reservationWindowLengthResource in user object instead
      * @type {number}
      * @memberof CompanyBasic
      * @deprecated
@@ -968,6 +992,12 @@ export interface CompanyBasic {
      * @memberof CompanyBasic
      */
     reservationWindowLengthVisitor?: number;
+    /**
+     * The length of the reservation window in days for resource reservations. Can be overwritten for users with the property in the userGroup
+     * @type {number}
+     * @memberof CompanyBasic
+     */
+    reservationWindowLengthResource?: number;
     /**
      * 
      * @type {boolean}
@@ -1028,6 +1058,12 @@ export interface CompanyBasic {
      * @memberof CompanyBasic
      */
     presentpaneEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyBasic
+     */
+    multiSelectResourceEnabled?: boolean;
     /**
      * 
      * @type {boolean}
@@ -1150,6 +1186,12 @@ export interface CompanyBasicProperties {
      */
     mandatoryCheckIn?: boolean;
     /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyBasicProperties
+     */
+    parkingSpotsAsResourceEnabled?: boolean;
+    /**
      * This field is deprecated. Use the reservationWindowLength(desk/meeting/lunch/visitor) properties of the User instead.
      * @type {number}
      * @memberof CompanyBasicProperties
@@ -1180,6 +1222,12 @@ export interface CompanyBasicProperties {
      * @memberof CompanyBasicProperties
      */
     reservationWindowLengthVisitor?: number;
+    /**
+     * The length of the reservation window in days for resource reservations. Can be overwritten for users with the property in the userGroup
+     * @type {number}
+     * @memberof CompanyBasicProperties
+     */
+    reservationWindowLengthResource?: number;
     /**
      * 
      * @type {boolean}
@@ -1240,6 +1288,12 @@ export interface CompanyBasicProperties {
      * @memberof CompanyBasicProperties
      */
     presentpaneEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyBasicProperties
+     */
+    multiSelectResourceEnabled?: boolean;
     /**
      * 
      * @type {boolean}
@@ -1374,7 +1428,13 @@ export interface CompanyBasicWithRelations {
      */
     mandatoryCheckIn?: boolean;
     /**
-     * Deprecated. Use reservationWindowLengthDesk, reservationWindowLengthLunch, reservationWindowLengthMeeting and reservationWindowLengthVisitor in user object instead
+     * 
+     * @type {boolean}
+     * @memberof CompanyBasicWithRelations
+     */
+    parkingSpotsAsResourceEnabled: boolean;
+    /**
+     * Deprecated. Use reservationWindowLengthDesk, reservationWindowLengthLunch, reservationWindowLengthMeeting, reservationWindowLengthVisitor and reservationWindowLengthResource in user object instead
      * @type {number}
      * @memberof CompanyBasicWithRelations
      * @deprecated
@@ -1404,6 +1464,12 @@ export interface CompanyBasicWithRelations {
      * @memberof CompanyBasicWithRelations
      */
     reservationWindowLengthVisitor?: number;
+    /**
+     * The length of the reservation window in days for resource reservations. Can be overwritten for users with the property in the userGroup
+     * @type {number}
+     * @memberof CompanyBasicWithRelations
+     */
+    reservationWindowLengthResource?: number;
     /**
      * 
      * @type {boolean}
@@ -1464,6 +1530,12 @@ export interface CompanyBasicWithRelations {
      * @memberof CompanyBasicWithRelations
      */
     presentpaneEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyBasicWithRelations
+     */
+    multiSelectResourceEnabled?: boolean;
     /**
      * 
      * @type {boolean}
@@ -1599,7 +1671,13 @@ export interface CompanyBasicWithoutId {
      */
     mandatoryCheckIn?: boolean;
     /**
-     * Deprecated. Use reservationWindowLengthDesk, reservationWindowLengthLunch, reservationWindowLengthMeeting and reservationWindowLengthVisitor in user object instead
+     * 
+     * @type {boolean}
+     * @memberof CompanyBasicWithoutId
+     */
+    parkingSpotsAsResourceEnabled: boolean;
+    /**
+     * Deprecated. Use reservationWindowLengthDesk, reservationWindowLengthLunch, reservationWindowLengthMeeting, reservationWindowLengthVisitor and reservationWindowLengthResource in user object instead
      * @type {number}
      * @memberof CompanyBasicWithoutId
      * @deprecated
@@ -1629,6 +1707,12 @@ export interface CompanyBasicWithoutId {
      * @memberof CompanyBasicWithoutId
      */
     reservationWindowLengthVisitor?: number;
+    /**
+     * The length of the reservation window in days for resource reservations. Can be overwritten for users with the property in the userGroup
+     * @type {number}
+     * @memberof CompanyBasicWithoutId
+     */
+    reservationWindowLengthResource?: number;
     /**
      * 
      * @type {boolean}
@@ -1689,6 +1773,12 @@ export interface CompanyBasicWithoutId {
      * @memberof CompanyBasicWithoutId
      */
     presentpaneEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyBasicWithoutId
+     */
+    multiSelectResourceEnabled?: boolean;
     /**
      * 
      * @type {boolean}
@@ -1793,12 +1883,18 @@ export interface CompanyBasicWithoutIdAllOf {
      */
     name: string;
     /**
-     * Deprecated. Use reservationWindowLengthDesk, reservationWindowLengthLunch, reservationWindowLengthMeeting and reservationWindowLengthVisitor in user object instead
+     * Deprecated. Use reservationWindowLengthDesk, reservationWindowLengthLunch, reservationWindowLengthMeeting, reservationWindowLengthVisitor and reservationWindowLengthResource in user object instead
      * @type {number}
      * @memberof CompanyBasicWithoutIdAllOf
      * @deprecated
      */
     reservationWindowLength: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyBasicWithoutIdAllOf
+     */
+    parkingSpotsAsResourceEnabled: boolean;
     /**
      * 
      * @type {Language}
@@ -1837,6 +1933,12 @@ export interface CompanyProperties {
      */
     mandatoryCheckIn?: boolean;
     /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyProperties
+     */
+    parkingSpotsAsResourceEnabled?: boolean;
+    /**
      * This field is deprecated. Use the reservationWindowLength(desk/meeting/lunch/visitor) properties of the User instead.
      * @type {number}
      * @memberof CompanyProperties
@@ -1867,6 +1969,12 @@ export interface CompanyProperties {
      * @memberof CompanyProperties
      */
     reservationWindowLengthVisitor?: number;
+    /**
+     * The length of the reservation window in days for resource reservations. Can be overwritten for users with the property in the userGroup
+     * @type {number}
+     * @memberof CompanyProperties
+     */
+    reservationWindowLengthResource?: number;
     /**
      * 
      * @type {boolean}
@@ -1927,6 +2035,12 @@ export interface CompanyProperties {
      * @memberof CompanyProperties
      */
     presentpaneEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyProperties
+     */
+    multiSelectResourceEnabled?: boolean;
     /**
      * 
      * @type {boolean}
@@ -2557,6 +2671,12 @@ export interface CompanyWithCounts {
     mandatoryCheckIn?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    parkingSpotsAsResourceEnabled: boolean;
+    /**
+     * 
      * @type {number}
      * @memberof CompanyWithCounts
      */
@@ -2585,6 +2705,12 @@ export interface CompanyWithCounts {
      * @memberof CompanyWithCounts
      */
     reservationWindowLengthVisitor?: number;
+    /**
+     * The length of the reservation window in days for resource reservations. Can be overwritten for users with the property in the userGroup
+     * @type {number}
+     * @memberof CompanyWithCounts
+     */
+    reservationWindowLengthResource?: number;
     /**
      * 
      * @type {boolean}
@@ -2645,6 +2771,12 @@ export interface CompanyWithCounts {
      * @memberof CompanyWithCounts
      */
     presentpaneEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithCounts
+     */
+    multiSelectResourceEnabled?: boolean;
     /**
      * 
      * @type {boolean}
@@ -3021,6 +3153,12 @@ export interface CompanyWithRelations {
     mandatoryCheckIn?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    parkingSpotsAsResourceEnabled: boolean;
+    /**
+     * 
      * @type {number}
      * @memberof CompanyWithRelations
      */
@@ -3049,6 +3187,12 @@ export interface CompanyWithRelations {
      * @memberof CompanyWithRelations
      */
     reservationWindowLengthVisitor?: number;
+    /**
+     * The length of the reservation window in days for resource reservations. Can be overwritten for users with the property in the userGroup
+     * @type {number}
+     * @memberof CompanyWithRelations
+     */
+    reservationWindowLengthResource?: number;
     /**
      * 
      * @type {boolean}
@@ -3109,6 +3253,12 @@ export interface CompanyWithRelations {
      * @memberof CompanyWithRelations
      */
     presentpaneEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithRelations
+     */
+    multiSelectResourceEnabled?: boolean;
     /**
      * 
      * @type {boolean}
@@ -3432,6 +3582,12 @@ export interface CompanyWithoutId {
     mandatoryCheckIn?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof CompanyWithoutId
+     */
+    parkingSpotsAsResourceEnabled: boolean;
+    /**
+     * 
      * @type {number}
      * @memberof CompanyWithoutId
      */
@@ -3460,6 +3616,12 @@ export interface CompanyWithoutId {
      * @memberof CompanyWithoutId
      */
     reservationWindowLengthVisitor?: number;
+    /**
+     * The length of the reservation window in days for resource reservations. Can be overwritten for users with the property in the userGroup
+     * @type {number}
+     * @memberof CompanyWithoutId
+     */
+    reservationWindowLengthResource?: number;
     /**
      * 
      * @type {boolean}
@@ -3520,6 +3682,12 @@ export interface CompanyWithoutId {
      * @memberof CompanyWithoutId
      */
     presentpaneEnabled?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CompanyWithoutId
+     */
+    multiSelectResourceEnabled?: boolean;
     /**
      * 
      * @type {boolean}
@@ -3817,6 +3985,12 @@ export interface CompanyWithoutIdAllOf {
     contactPhone: string;
     /**
      * 
+     * @type {boolean}
+     * @memberof CompanyWithoutIdAllOf
+     */
+    parkingSpotsAsResourceEnabled: boolean;
+    /**
+     * 
      * @type {number}
      * @memberof CompanyWithoutIdAllOf
      */
@@ -3857,6 +4031,177 @@ export interface CompanyWithoutIdAllOf {
      * @memberof CompanyWithoutIdAllOf
      */
     language: Language;
+}
+/**
+ * 
+ * @export
+ * @interface CustomField
+ */
+export interface CustomField {
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomField
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomField
+     */
+    description?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomField
+     */
+    id: string;
+}
+/**
+ * 
+ * @export
+ * @interface CustomFieldProperties
+ */
+export interface CustomFieldProperties {
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldProperties
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldProperties
+     */
+    description?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface CustomFieldUpdate
+ */
+export interface CustomFieldUpdate {
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldUpdate
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldUpdate
+     */
+    description?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldUpdate
+     */
+    id?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface CustomFieldUpdateAllOf
+ */
+export interface CustomFieldUpdateAllOf {
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldUpdateAllOf
+     */
+    id?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface CustomFieldValue
+ */
+export interface CustomFieldValue {
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldValue
+     */
+    value: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldValue
+     */
+    id: string;
+    /**
+     * 
+     * @type {CustomField}
+     * @memberof CustomFieldValue
+     */
+    customField: CustomField;
+}
+/**
+ * 
+ * @export
+ * @interface CustomFieldValueAllOf
+ */
+export interface CustomFieldValueAllOf {
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldValueAllOf
+     */
+    id: string;
+    /**
+     * 
+     * @type {CustomField}
+     * @memberof CustomFieldValueAllOf
+     */
+    customField: CustomField;
+}
+/**
+ * 
+ * @export
+ * @interface CustomFieldValueProperties
+ */
+export interface CustomFieldValueProperties {
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldValueProperties
+     */
+    value: string;
+}
+/**
+ * 
+ * @export
+ * @interface CustomFieldValueUpdate
+ */
+export interface CustomFieldValueUpdate {
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldValueUpdate
+     */
+    value: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldValueUpdate
+     */
+    customFieldId: string;
+}
+/**
+ * 
+ * @export
+ * @interface CustomFieldValueUpdateAllOf
+ */
+export interface CustomFieldValueUpdateAllOf {
+    /**
+     * 
+     * @type {string}
+     * @memberof CustomFieldValueUpdateAllOf
+     */
+    customFieldId: string;
 }
 /**
  * 
@@ -5747,10 +6092,10 @@ export interface InlineResponse20033Result {
     total: number;
     /**
      * 
-     * @type {Array<Saltolock>}
+     * @type {Array<Resource & Operations & object>}
      * @memberof InlineResponse20033Result
      */
-    items: Array<Saltolock>;
+    items: Array<Resource & Operations & object>;
 }
 /**
  * 
@@ -5779,10 +6124,10 @@ export interface InlineResponse20034 {
 export interface InlineResponse20034Result {
     /**
      * 
-     * @type {Array<MapObject>}
+     * @type {Resource & Operations}
      * @memberof InlineResponse20034Result
      */
-    items: Array<MapObject>;
+    resource: Resource & Operations;
 }
 /**
  * 
@@ -5811,10 +6156,10 @@ export interface InlineResponse20035 {
 export interface InlineResponse20035Result {
     /**
      * 
-     * @type {MapObject}
+     * @type {Resource}
      * @memberof InlineResponse20035Result
      */
-    mapObject: MapObject;
+    resource?: Resource;
 }
 /**
  * 
@@ -5843,10 +6188,16 @@ export interface InlineResponse20036 {
 export interface InlineResponse20036Result {
     /**
      * 
-     * @type {MapObject}
+     * @type {number}
      * @memberof InlineResponse20036Result
      */
-    mapObject?: MapObject;
+    total: number;
+    /**
+     * 
+     * @type {Array<ResourceReservation & Operations & object>}
+     * @memberof InlineResponse20036Result
+     */
+    items: Array<ResourceReservation & Operations & object>;
 }
 /**
  * 
@@ -5875,10 +6226,10 @@ export interface InlineResponse20037 {
 export interface InlineResponse20037Result {
     /**
      * 
-     * @type {Array<SeatWithRelations>}
+     * @type {ResourceReservation & Operations}
      * @memberof InlineResponse20037Result
      */
-    items: Array<SeatWithRelations>;
+    resourceReservation: ResourceReservation & Operations;
 }
 /**
  * 
@@ -5907,10 +6258,10 @@ export interface InlineResponse20038 {
 export interface InlineResponse20038Result {
     /**
      * 
-     * @type {Array<UsedSeat>}
+     * @type {ResourceReservation}
      * @memberof InlineResponse20038Result
      */
-    items: Array<UsedSeat>;
+    resourceReservation?: ResourceReservation;
 }
 /**
  * 
@@ -5926,10 +6277,29 @@ export interface InlineResponse20039 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {Array<Array<MicrosoftRoom>>}
+     * @type {InlineResponse20039Result}
      * @memberof InlineResponse20039
      */
-    result: Array<Array<MicrosoftRoom>>;
+    result: InlineResponse20039Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20039Result
+ */
+export interface InlineResponse20039Result {
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20039Result
+     */
+    total: number;
+    /**
+     * 
+     * @type {Array<Saltolock>}
+     * @memberof InlineResponse20039Result
+     */
+    items: Array<Saltolock>;
 }
 /**
  * 
@@ -5990,10 +6360,10 @@ export interface InlineResponse20040 {
 export interface InlineResponse20040Result {
     /**
      * 
-     * @type {SeatWithRelations}
+     * @type {Array<MapObject>}
      * @memberof InlineResponse20040Result
      */
-    seat: SeatWithRelations;
+    items: Array<MapObject>;
 }
 /**
  * 
@@ -6022,10 +6392,10 @@ export interface InlineResponse20041 {
 export interface InlineResponse20041Result {
     /**
      * 
-     * @type {SeatWithRelations}
+     * @type {MapObject}
      * @memberof InlineResponse20041Result
      */
-    seat?: SeatWithRelations;
+    mapObject: MapObject;
 }
 /**
  * 
@@ -6054,16 +6424,10 @@ export interface InlineResponse20042 {
 export interface InlineResponse20042Result {
     /**
      * 
-     * @type {number}
+     * @type {MapObject}
      * @memberof InlineResponse20042Result
      */
-    total: number;
-    /**
-     * 
-     * @type {Array<SeatTag & Operations>}
-     * @memberof InlineResponse20042Result
-     */
-    items: Array<SeatTag & Operations>;
+    mapObject?: MapObject;
 }
 /**
  * 
@@ -6092,10 +6456,10 @@ export interface InlineResponse20043 {
 export interface InlineResponse20043Result {
     /**
      * 
-     * @type {SeatTag}
+     * @type {Array<SeatWithRelations>}
      * @memberof InlineResponse20043Result
      */
-    seatTag: SeatTag;
+    items: Array<SeatWithRelations>;
 }
 /**
  * 
@@ -6124,10 +6488,10 @@ export interface InlineResponse20044 {
 export interface InlineResponse20044Result {
     /**
      * 
-     * @type {SeatTag}
+     * @type {Array<UsedSeat>}
      * @memberof InlineResponse20044Result
      */
-    seatTag?: SeatTag;
+    items: Array<UsedSeat>;
 }
 /**
  * 
@@ -6143,29 +6507,10 @@ export interface InlineResponse20045 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {InlineResponse20045Result}
+     * @type {Array<Array<MicrosoftRoom>>}
      * @memberof InlineResponse20045
      */
-    result: InlineResponse20045Result;
-}
-/**
- * 
- * @export
- * @interface InlineResponse20045Result
- */
-export interface InlineResponse20045Result {
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20045Result
-     */
-    total: number;
-    /**
-     * 
-     * @type {Array<UserGroup & Operations>}
-     * @memberof InlineResponse20045Result
-     */
-    items: Array<UserGroup & Operations>;
+    result: Array<Array<MicrosoftRoom>>;
 }
 /**
  * 
@@ -6194,10 +6539,10 @@ export interface InlineResponse20046 {
 export interface InlineResponse20046Result {
     /**
      * 
-     * @type {UserGroup}
+     * @type {SeatWithRelations}
      * @memberof InlineResponse20046Result
      */
-    userGroup: UserGroup;
+    seat: SeatWithRelations;
 }
 /**
  * 
@@ -6226,10 +6571,10 @@ export interface InlineResponse20047 {
 export interface InlineResponse20047Result {
     /**
      * 
-     * @type {UserGroup}
+     * @type {SeatWithRelations}
      * @memberof InlineResponse20047Result
      */
-    userGroup?: UserGroup;
+    seat?: SeatWithRelations;
 }
 /**
  * 
@@ -6264,10 +6609,10 @@ export interface InlineResponse20048Result {
     total: number;
     /**
      * 
-     * @type {Array<Timeslot & Operations>}
+     * @type {Array<SeatTag & Operations>}
      * @memberof InlineResponse20048Result
      */
-    items: Array<Timeslot & Operations>;
+    items: Array<SeatTag & Operations>;
 }
 /**
  * 
@@ -6296,10 +6641,10 @@ export interface InlineResponse20049 {
 export interface InlineResponse20049Result {
     /**
      * 
-     * @type {Timeslot}
+     * @type {SeatTag}
      * @memberof InlineResponse20049Result
      */
-    timeslot: Timeslot;
+    seatTag: SeatTag;
 }
 /**
  * 
@@ -6360,10 +6705,10 @@ export interface InlineResponse20050 {
 export interface InlineResponse20050Result {
     /**
      * 
-     * @type {Timeslot}
+     * @type {SeatTag}
      * @memberof InlineResponse20050Result
      */
-    timeslot?: Timeslot;
+    seatTag?: SeatTag;
 }
 /**
  * 
@@ -6371,6 +6716,12 @@ export interface InlineResponse20050Result {
  * @interface InlineResponse20051
  */
 export interface InlineResponse20051 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20051
+     */
+    meta: ResponseMeta;
     /**
      * 
      * @type {InlineResponse20051Result}
@@ -6386,34 +6737,16 @@ export interface InlineResponse20051 {
 export interface InlineResponse20051Result {
     /**
      * 
-     * @type {string}
+     * @type {number}
      * @memberof InlineResponse20051Result
      */
-    id: string;
+    total: number;
     /**
      * 
-     * @type {string}
+     * @type {Array<UserGroup & Operations>}
      * @memberof InlineResponse20051Result
      */
-    reservation_id: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20051Result
-     */
-    check_in_time: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20051Result
-     */
-    check_out_time: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20051Result
-     */
-    type: string;
+    items: Array<UserGroup & Operations>;
 }
 /**
  * 
@@ -6442,10 +6775,10 @@ export interface InlineResponse20052 {
 export interface InlineResponse20052Result {
     /**
      * 
-     * @type {ReservationWithRelations}
+     * @type {UserGroup}
      * @memberof InlineResponse20052Result
      */
-    reservation?: ReservationWithRelations;
+    userGroup: UserGroup;
 }
 /**
  * 
@@ -6461,10 +6794,23 @@ export interface InlineResponse20053 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {object}
+     * @type {InlineResponse20053Result}
      * @memberof InlineResponse20053
      */
-    result: object;
+    result: InlineResponse20053Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20053Result
+ */
+export interface InlineResponse20053Result {
+    /**
+     * 
+     * @type {UserGroup}
+     * @memberof InlineResponse20053Result
+     */
+    userGroup?: UserGroup;
 }
 /**
  * 
@@ -6493,10 +6839,16 @@ export interface InlineResponse20054 {
 export interface InlineResponse20054Result {
     /**
      * 
-     * @type {boolean}
+     * @type {number}
      * @memberof InlineResponse20054Result
      */
-    allowed: boolean;
+    total: number;
+    /**
+     * 
+     * @type {Array<Timeslot & Operations>}
+     * @memberof InlineResponse20054Result
+     */
+    items: Array<Timeslot & Operations>;
 }
 /**
  * 
@@ -6525,41 +6877,10 @@ export interface InlineResponse20055 {
 export interface InlineResponse20055Result {
     /**
      * 
-     * @type {Array<ReservationWithRelations>}
+     * @type {Timeslot}
      * @memberof InlineResponse20055Result
      */
-    updatedReservations?: Array<ReservationWithRelations>;
-    /**
-     * 
-     * @type {Array<InlineResponse20055ResultFailedReservations>}
-     * @memberof InlineResponse20055Result
-     */
-    failedReservations?: Array<InlineResponse20055ResultFailedReservations>;
-}
-/**
- * 
- * @export
- * @interface InlineResponse20055ResultFailedReservations
- */
-export interface InlineResponse20055ResultFailedReservations {
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20055ResultFailedReservations
-     */
-    message: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20055ResultFailedReservations
-     */
-    code: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20055ResultFailedReservations
-     */
-    date: string;
+    timeslot: Timeslot;
 }
 /**
  * 
@@ -6588,16 +6909,10 @@ export interface InlineResponse20056 {
 export interface InlineResponse20056Result {
     /**
      * 
-     * @type {number}
+     * @type {Timeslot}
      * @memberof InlineResponse20056Result
      */
-    total: number;
-    /**
-     * 
-     * @type {Array<ReservationWithRelations>}
-     * @memberof InlineResponse20056Result
-     */
-    items: Array<ReservationWithRelations>;
+    timeslot?: Timeslot;
 }
 /**
  * 
@@ -6605,12 +6920,6 @@ export interface InlineResponse20056Result {
  * @interface InlineResponse20057
  */
 export interface InlineResponse20057 {
-    /**
-     * 
-     * @type {ResponseMeta}
-     * @memberof InlineResponse20057
-     */
-    meta: ResponseMeta;
     /**
      * 
      * @type {InlineResponse20057Result}
@@ -6626,122 +6935,34 @@ export interface InlineResponse20057 {
 export interface InlineResponse20057Result {
     /**
      * 
-     * @type {Array<InlineResponse20057ResultItems>}
+     * @type {string}
      * @memberof InlineResponse20057Result
      */
-    items: Array<InlineResponse20057ResultItems>;
-    /**
-     * Moved to /v3/reservations/statistics/today
-     * @type {number}
-     * @memberof InlineResponse20057Result
-     * @deprecated
-     */
-    seatCount: number;
+    id: string;
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof InlineResponse20057Result
      */
-    parkingCount: number;
-}
-/**
- * 
- * @export
- * @interface InlineResponse20057ResultItems
- */
-export interface InlineResponse20057ResultItems {
+    reservation_id: string;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse20057ResultItems
+     * @memberof InlineResponse20057Result
      */
-    date: string;
+    check_in_time: string | null;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse20057ResultItems
+     * @memberof InlineResponse20057Result
      */
-    minTimeslot?: string;
+    check_out_time: string | null;
     /**
      * 
      * @type {string}
-     * @memberof InlineResponse20057ResultItems
+     * @memberof InlineResponse20057Result
      */
-    maxTimeslot?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20057ResultItems
-     */
-    seatReservationsCount: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20057ResultItems
-     */
-    parkingSpotsClaimed: number;
-    /**
-     * 
-     * @type {Array<InlineResponse20057ResultSeatTagLeaderboard>}
-     * @memberof InlineResponse20057ResultItems
-     */
-    seatTagLeaderboard?: Array<InlineResponse20057ResultSeatTagLeaderboard>;
-    /**
-     * 
-     * @type {Array<InlineResponse20057ResultMostUsed>}
-     * @memberof InlineResponse20057ResultItems
-     */
-    mostUsed?: Array<InlineResponse20057ResultMostUsed>;
-}
-/**
- * 
- * @export
- * @interface InlineResponse20057ResultMostUsed
- */
-export interface InlineResponse20057ResultMostUsed {
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20057ResultMostUsed
-     */
-    percentage: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20057ResultMostUsed
-     */
-    name: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20057ResultMostUsed
-     */
-    reservations: number;
-}
-/**
- * 
- * @export
- * @interface InlineResponse20057ResultSeatTagLeaderboard
- */
-export interface InlineResponse20057ResultSeatTagLeaderboard {
-    /**
-     * 
-     * @type {string}
-     * @memberof InlineResponse20057ResultSeatTagLeaderboard
-     */
-    label: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20057ResultSeatTagLeaderboard
-     */
-    percentage: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof InlineResponse20057ResultSeatTagLeaderboard
-     */
-    active: boolean;
+    type: string;
 }
 /**
  * 
@@ -6770,10 +6991,10 @@ export interface InlineResponse20058 {
 export interface InlineResponse20058Result {
     /**
      * 
-     * @type {Array<object>}
+     * @type {ReservationWithRelations}
      * @memberof InlineResponse20058Result
      */
-    stats: Array<object>;
+    reservation?: ReservationWithRelations;
 }
 /**
  * 
@@ -6789,78 +7010,10 @@ export interface InlineResponse20059 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {InlineResponse20059Result}
+     * @type {object}
      * @memberof InlineResponse20059
      */
-    result: InlineResponse20059Result;
-}
-/**
- * 
- * @export
- * @interface InlineResponse20059Result
- */
-export interface InlineResponse20059Result {
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20059Result
-     */
-    officeReservationCount: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20059Result
-     */
-    homeReservationCount: number;
-    /**
-     * 
-     * @type {InlineResponse20059ResultSeatTypeReservationCount}
-     * @memberof InlineResponse20059Result
-     */
-    seatTypeReservationCount: InlineResponse20059ResultSeatTypeReservationCount;
-    /**
-     * 
-     * @type {InlineResponse20059ResultSeatTypeReservationCount}
-     * @memberof InlineResponse20059Result
-     */
-    seatTypeTotalCount: InlineResponse20059ResultSeatTypeReservationCount;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20059Result
-     */
-    parkingSpotReservationCount: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20059Result
-     */
-    parkingSpotTotalCount: number;
-}
-/**
- * 
- * @export
- * @interface InlineResponse20059ResultSeatTypeReservationCount
- */
-export interface InlineResponse20059ResultSeatTypeReservationCount {
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20059ResultSeatTypeReservationCount
-     */
-    desk: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20059ResultSeatTypeReservationCount
-     */
-    meeting: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20059ResultSeatTypeReservationCount
-     */
-    lunch: number;
+    result: object;
 }
 /**
  * 
@@ -6927,10 +7080,10 @@ export interface InlineResponse20060 {
 export interface InlineResponse20060Result {
     /**
      * 
-     * @type {string}
+     * @type {boolean}
      * @memberof InlineResponse20060Result
      */
-    authUrl: string;
+    allowed: boolean;
 }
 /**
  * 
@@ -6959,71 +7112,41 @@ export interface InlineResponse20061 {
 export interface InlineResponse20061Result {
     /**
      * 
-     * @type {number}
+     * @type {Array<ReservationWithRelations>}
      * @memberof InlineResponse20061Result
      */
-    currentMonthRevenue: number;
+    updatedReservations?: Array<ReservationWithRelations>;
     /**
      * 
-     * @type {number}
+     * @type {Array<InlineResponse20061ResultFailedReservations>}
      * @memberof InlineResponse20061Result
      */
-    billedCompanyCount: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20061Result
-     */
-    billedUserCount: number;
-    /**
-     * 
-     * @type {InlineResponse20061ResultBillingTypeCount}
-     * @memberof InlineResponse20061Result
-     */
-    billingTypeCount: InlineResponse20061ResultBillingTypeCount;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20061Result
-     */
-    reservationCount: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20061Result
-     */
-    todayReservationCount: number;
+    failedReservations?: Array<InlineResponse20061ResultFailedReservations>;
 }
 /**
  * 
  * @export
- * @interface InlineResponse20061ResultBillingTypeCount
+ * @interface InlineResponse20061ResultFailedReservations
  */
-export interface InlineResponse20061ResultBillingTypeCount {
+export interface InlineResponse20061ResultFailedReservations {
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20061ResultFailedReservations
+     */
+    message: string;
     /**
      * 
      * @type {number}
-     * @memberof InlineResponse20061ResultBillingTypeCount
+     * @memberof InlineResponse20061ResultFailedReservations
      */
-    enterprise: number;
+    code: number;
     /**
      * 
-     * @type {number}
-     * @memberof InlineResponse20061ResultBillingTypeCount
+     * @type {string}
+     * @memberof InlineResponse20061ResultFailedReservations
      */
-    free: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20061ResultBillingTypeCount
-     */
-    year: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof InlineResponse20061ResultBillingTypeCount
-     */
-    month: number;
+    date: string;
 }
 /**
  * 
@@ -7039,10 +7162,29 @@ export interface InlineResponse20062 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {string}
+     * @type {InlineResponse20062Result}
      * @memberof InlineResponse20062
      */
-    result: string;
+    result: InlineResponse20062Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20062Result
+ */
+export interface InlineResponse20062Result {
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20062Result
+     */
+    total: number;
+    /**
+     * 
+     * @type {Array<ReservationWithRelations>}
+     * @memberof InlineResponse20062Result
+     */
+    items: Array<ReservationWithRelations>;
 }
 /**
  * 
@@ -7058,10 +7200,135 @@ export interface InlineResponse20063 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {MeUser | MeAdmin}
+     * @type {InlineResponse20063Result}
      * @memberof InlineResponse20063
      */
-    result: MeUser | MeAdmin;
+    result: InlineResponse20063Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20063Result
+ */
+export interface InlineResponse20063Result {
+    /**
+     * 
+     * @type {Array<InlineResponse20063ResultItems>}
+     * @memberof InlineResponse20063Result
+     */
+    items: Array<InlineResponse20063ResultItems>;
+    /**
+     * Moved to /v3/reservations/statistics/today
+     * @type {number}
+     * @memberof InlineResponse20063Result
+     * @deprecated
+     */
+    seatCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20063Result
+     */
+    parkingCount: number;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20063ResultItems
+ */
+export interface InlineResponse20063ResultItems {
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20063ResultItems
+     */
+    date: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20063ResultItems
+     */
+    minTimeslot?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20063ResultItems
+     */
+    maxTimeslot?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20063ResultItems
+     */
+    seatReservationsCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20063ResultItems
+     */
+    parkingSpotsClaimed: number;
+    /**
+     * 
+     * @type {Array<InlineResponse20063ResultSeatTagLeaderboard>}
+     * @memberof InlineResponse20063ResultItems
+     */
+    seatTagLeaderboard?: Array<InlineResponse20063ResultSeatTagLeaderboard>;
+    /**
+     * 
+     * @type {Array<InlineResponse20063ResultMostUsed>}
+     * @memberof InlineResponse20063ResultItems
+     */
+    mostUsed?: Array<InlineResponse20063ResultMostUsed>;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20063ResultMostUsed
+ */
+export interface InlineResponse20063ResultMostUsed {
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20063ResultMostUsed
+     */
+    percentage: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20063ResultMostUsed
+     */
+    name: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20063ResultMostUsed
+     */
+    reservations: number;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20063ResultSeatTagLeaderboard
+ */
+export interface InlineResponse20063ResultSeatTagLeaderboard {
+    /**
+     * 
+     * @type {string}
+     * @memberof InlineResponse20063ResultSeatTagLeaderboard
+     */
+    label: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20063ResultSeatTagLeaderboard
+     */
+    percentage: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof InlineResponse20063ResultSeatTagLeaderboard
+     */
+    active: boolean;
 }
 /**
  * 
@@ -7077,10 +7344,23 @@ export interface InlineResponse20064 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {MeUser}
+     * @type {InlineResponse20064Result}
      * @memberof InlineResponse20064
      */
-    result: MeUser;
+    result: InlineResponse20064Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20064Result
+ */
+export interface InlineResponse20064Result {
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof InlineResponse20064Result
+     */
+    stats: Array<object>;
 }
 /**
  * 
@@ -7109,10 +7389,65 @@ export interface InlineResponse20065 {
 export interface InlineResponse20065Result {
     /**
      * 
-     * @type {CompanyTransportOption}
+     * @type {number}
      * @memberof InlineResponse20065Result
      */
-    companyTransportOption: CompanyTransportOption;
+    officeReservationCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20065Result
+     */
+    homeReservationCount: number;
+    /**
+     * 
+     * @type {InlineResponse20065ResultSeatTypeReservationCount}
+     * @memberof InlineResponse20065Result
+     */
+    seatTypeReservationCount: InlineResponse20065ResultSeatTypeReservationCount;
+    /**
+     * 
+     * @type {InlineResponse20065ResultSeatTypeReservationCount}
+     * @memberof InlineResponse20065Result
+     */
+    seatTypeTotalCount: InlineResponse20065ResultSeatTypeReservationCount;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20065Result
+     */
+    parkingSpotReservationCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20065Result
+     */
+    parkingSpotTotalCount: number;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20065ResultSeatTypeReservationCount
+ */
+export interface InlineResponse20065ResultSeatTypeReservationCount {
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20065ResultSeatTypeReservationCount
+     */
+    desk: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20065ResultSeatTypeReservationCount
+     */
+    meeting: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20065ResultSeatTypeReservationCount
+     */
+    lunch: number;
 }
 /**
  * 
@@ -7141,10 +7476,10 @@ export interface InlineResponse20066 {
 export interface InlineResponse20066Result {
     /**
      * 
-     * @type {Array<CompanyTransportOption>}
+     * @type {string}
      * @memberof InlineResponse20066Result
      */
-    items: Array<CompanyTransportOption>;
+    authUrl: string;
 }
 /**
  * 
@@ -7173,10 +7508,71 @@ export interface InlineResponse20067 {
 export interface InlineResponse20067Result {
     /**
      * 
-     * @type {Array<ExportFile>}
+     * @type {number}
      * @memberof InlineResponse20067Result
      */
-    items: Array<ExportFile>;
+    currentMonthRevenue: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20067Result
+     */
+    billedCompanyCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20067Result
+     */
+    billedUserCount: number;
+    /**
+     * 
+     * @type {InlineResponse20067ResultBillingTypeCount}
+     * @memberof InlineResponse20067Result
+     */
+    billingTypeCount: InlineResponse20067ResultBillingTypeCount;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20067Result
+     */
+    reservationCount: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20067Result
+     */
+    todayReservationCount: number;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20067ResultBillingTypeCount
+ */
+export interface InlineResponse20067ResultBillingTypeCount {
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20067ResultBillingTypeCount
+     */
+    enterprise: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20067ResultBillingTypeCount
+     */
+    free: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20067ResultBillingTypeCount
+     */
+    year: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse20067ResultBillingTypeCount
+     */
+    month: number;
 }
 /**
  * 
@@ -7192,10 +7588,29 @@ export interface InlineResponse20068 {
     meta: ResponseMeta;
     /**
      * 
-     * @type {Analytics}
+     * @type {string}
      * @memberof InlineResponse20068
      */
-    result: Analytics;
+    result: string;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20069
+ */
+export interface InlineResponse20069 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20069
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {MeUser | MeAdmin}
+     * @memberof InlineResponse20069
+     */
+    result: MeUser | MeAdmin;
 }
 /**
  * 
@@ -7228,6 +7643,140 @@ export interface InlineResponse2007 {
      * @memberof InlineResponse2007
      */
     result: InlineResponse2007Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20070
+ */
+export interface InlineResponse20070 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20070
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {MeUser}
+     * @memberof InlineResponse20070
+     */
+    result: MeUser;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20071
+ */
+export interface InlineResponse20071 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20071
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {InlineResponse20071Result}
+     * @memberof InlineResponse20071
+     */
+    result: InlineResponse20071Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20071Result
+ */
+export interface InlineResponse20071Result {
+    /**
+     * 
+     * @type {CompanyTransportOption}
+     * @memberof InlineResponse20071Result
+     */
+    companyTransportOption: CompanyTransportOption;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20072
+ */
+export interface InlineResponse20072 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20072
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {InlineResponse20072Result}
+     * @memberof InlineResponse20072
+     */
+    result: InlineResponse20072Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20072Result
+ */
+export interface InlineResponse20072Result {
+    /**
+     * 
+     * @type {Array<CompanyTransportOption>}
+     * @memberof InlineResponse20072Result
+     */
+    items: Array<CompanyTransportOption>;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20073
+ */
+export interface InlineResponse20073 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20073
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {InlineResponse20073Result}
+     * @memberof InlineResponse20073
+     */
+    result: InlineResponse20073Result;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20073Result
+ */
+export interface InlineResponse20073Result {
+    /**
+     * 
+     * @type {Array<ExportFile>}
+     * @memberof InlineResponse20073Result
+     */
+    items: Array<ExportFile>;
+}
+/**
+ * 
+ * @export
+ * @interface InlineResponse20074
+ */
+export interface InlineResponse20074 {
+    /**
+     * 
+     * @type {ResponseMeta}
+     * @memberof InlineResponse20074
+     */
+    meta: ResponseMeta;
+    /**
+     * 
+     * @type {Analytics}
+     * @memberof InlineResponse20074
+     */
+    result: Analytics;
 }
 /**
  * 
@@ -8631,6 +9180,30 @@ export interface MeAdminOperations {
      * @type {boolean}
      * @memberof MeAdminOperations
      */
+    canListResources?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof MeAdminOperations
+     */
+    canReadResource?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof MeAdminOperations
+     */
+    canCreateResource?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof MeAdminOperations
+     */
+    canUpdateResource?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof MeAdminOperations
+     */
     canListMaps?: boolean;
     /**
      * 
@@ -9121,6 +9694,12 @@ export interface MeUser {
      * @memberof MeUser
      */
     reservationWindowLengthVisitor: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof MeUser
+     */
+    reservationWindowLengthResource: number;
     /**
      * 
      * @type {Array<object>}
@@ -10252,7 +10831,8 @@ export enum ReservationStatus {
 export enum ReservationType {
     Normal = 'normal',
     Visitor = 'visitor',
-    Home = 'home'
+    Home = 'home',
+    Resource = 'resource'
 }
 
 /**
@@ -10916,6 +11496,1070 @@ export interface ReservationWithoutIdAllOf {
      * @memberof ReservationWithoutIdAllOf
      */
     created: string;
+}
+/**
+ * 
+ * @export
+ * @interface Resource
+ */
+export interface Resource {
+    /**
+     * 
+     * @type {string}
+     * @memberof Resource
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Resource
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Resource
+     */
+    description?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Resource
+     */
+    active?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof Resource
+     */
+    resourceType: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Resource
+     */
+    reservationConnectionEnabled: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof Resource
+     */
+    reservationId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Resource
+     */
+    locationId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Resource
+     */
+    userId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Resource
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Resource
+     */
+    dateFrom?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Resource
+     */
+    dateTo?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Resource
+     */
+    repeatedReservation?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof Resource
+     */
+    amountAvailable?: number | null;
+    /**
+     * 
+     * @type {Array<CustomFieldUpdate>}
+     * @memberof Resource
+     */
+    customFields: Array<CustomFieldUpdate>;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceProperties
+ */
+export interface ResourceProperties {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceProperties
+     */
+    name?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceProperties
+     */
+    description?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceProperties
+     */
+    active?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceProperties
+     */
+    resourceType?: ResourcePropertiesResourceTypeEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceProperties
+     */
+    reservationConnectionEnabled?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceProperties
+     */
+    reservationId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceProperties
+     */
+    locationId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceProperties
+     */
+    userId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceProperties
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceProperties
+     */
+    dateFrom?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceProperties
+     */
+    dateTo?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceProperties
+     */
+    repeatedReservation?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof ResourceProperties
+     */
+    amountAvailable?: number | null;
+    /**
+     * 
+     * @type {Array<CustomFieldUpdate>}
+     * @memberof ResourceProperties
+     */
+    customFields?: Array<CustomFieldUpdate>;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ResourcePropertiesResourceTypeEnum {
+    Parkingspot = 'parkingspot',
+    Equipment = 'equipment',
+    Food = 'food'
+}
+
+/**
+ * 
+ * @export
+ * @interface ResourceReservation
+ */
+export interface ResourceReservation {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservation
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservation
+     */
+    userId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservation
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservation
+     */
+    reservationId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservation
+     */
+    resourceId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservation
+     */
+    dateFrom: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservation
+     */
+    dateTo: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservation
+     */
+    visitorName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservation
+     */
+    visitorEmail?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservation
+     */
+    visitorPhone?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservation
+     */
+    reoccurReferenceId?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceReservation
+     */
+    repeatedReservation?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof ResourceReservation
+     */
+    amountAvailable?: number | null;
+    /**
+     * 
+     * @type {Array<CustomFieldValueUpdate>}
+     * @memberof ResourceReservation
+     */
+    customFieldValues?: Array<CustomFieldValueUpdate>;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceReservationProperties
+ */
+export interface ResourceReservationProperties {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationProperties
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationProperties
+     */
+    userId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationProperties
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationProperties
+     */
+    reservationId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationProperties
+     */
+    resourceId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationProperties
+     */
+    dateFrom?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationProperties
+     */
+    dateTo?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationProperties
+     */
+    visitorName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationProperties
+     */
+    visitorEmail?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationProperties
+     */
+    visitorPhone?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationProperties
+     */
+    reoccurReferenceId?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceReservationProperties
+     */
+    repeatedReservation?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof ResourceReservationProperties
+     */
+    amountAvailable?: number | null;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceReservationWithRelations
+ */
+export interface ResourceReservationWithRelations {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithRelations
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithRelations
+     */
+    userId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithRelations
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithRelations
+     */
+    reservationId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithRelations
+     */
+    resourceId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithRelations
+     */
+    dateFrom: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithRelations
+     */
+    dateTo: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithRelations
+     */
+    visitorName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithRelations
+     */
+    visitorEmail?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithRelations
+     */
+    visitorPhone?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithRelations
+     */
+    reoccurReferenceId?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceReservationWithRelations
+     */
+    repeatedReservation?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof ResourceReservationWithRelations
+     */
+    amountAvailable?: number | null;
+    /**
+     * 
+     * @type {Array<CustomFieldValueUpdate>}
+     * @memberof ResourceReservationWithRelations
+     */
+    customFieldValues?: Array<CustomFieldValueUpdate>;
+    /**
+     * 
+     * @type {DoorWithRelationsAllOfMap}
+     * @memberof ResourceReservationWithRelations
+     */
+    user: DoorWithRelationsAllOfMap;
+    /**
+     * 
+     * @type {DoorWithRelationsAllOfMap}
+     * @memberof ResourceReservationWithRelations
+     */
+    resource: DoorWithRelationsAllOfMap;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceReservationWithRelationsAllOf
+ */
+export interface ResourceReservationWithRelationsAllOf {
+    /**
+     * 
+     * @type {DoorWithRelationsAllOfMap}
+     * @memberof ResourceReservationWithRelationsAllOf
+     */
+    user: DoorWithRelationsAllOfMap;
+    /**
+     * 
+     * @type {DoorWithRelationsAllOfMap}
+     * @memberof ResourceReservationWithRelationsAllOf
+     */
+    resource: DoorWithRelationsAllOfMap;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceReservationWithoutId
+ */
+export interface ResourceReservationWithoutId {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutId
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutId
+     */
+    userId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutId
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutId
+     */
+    reservationId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutId
+     */
+    resourceId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutId
+     */
+    dateFrom: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutId
+     */
+    dateTo: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutId
+     */
+    visitorName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutId
+     */
+    visitorEmail?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutId
+     */
+    visitorPhone?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutId
+     */
+    reoccurReferenceId?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceReservationWithoutId
+     */
+    repeatedReservation?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof ResourceReservationWithoutId
+     */
+    amountAvailable?: number | null;
+    /**
+     * 
+     * @type {Array<CustomFieldValueUpdate>}
+     * @memberof ResourceReservationWithoutId
+     */
+    customFieldValues?: Array<CustomFieldValueUpdate>;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceReservationWithoutIdAllOf
+ */
+export interface ResourceReservationWithoutIdAllOf {
+    /**
+     * 
+     * @type {Array<CustomFieldValueUpdate>}
+     * @memberof ResourceReservationWithoutIdAllOf
+     */
+    customFieldValues?: Array<CustomFieldValueUpdate>;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceReservationWithoutIdAndCustomFieldValues
+ */
+export interface ResourceReservationWithoutIdAndCustomFieldValues {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    id?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    userId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    reservationId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    resourceId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    dateFrom: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    dateTo: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    visitorName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    visitorEmail?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    visitorPhone?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    reoccurReferenceId?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    repeatedReservation?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValues
+     */
+    amountAvailable?: number | null;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+ */
+export interface ResourceReservationWithoutIdAndCustomFieldValuesAllOf {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+     */
+    userId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+     */
+    reservationId?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+     */
+    resourceId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+     */
+    dateFrom: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+     */
+    dateTo: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+     */
+    visitorName?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+     */
+    visitorEmail?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+     */
+    visitorPhone?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+     */
+    reoccurReferenceId?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+     */
+    repeatedReservation?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof ResourceReservationWithoutIdAndCustomFieldValuesAllOf
+     */
+    amountAvailable?: number | null;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceWithRelations
+ */
+export interface ResourceWithRelations {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelations
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelations
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelations
+     */
+    description?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceWithRelations
+     */
+    active?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelations
+     */
+    resourceType: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceWithRelations
+     */
+    reservationConnectionEnabled: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelations
+     */
+    reservationId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelations
+     */
+    locationId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelations
+     */
+    userId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelations
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelations
+     */
+    dateFrom?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelations
+     */
+    dateTo?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceWithRelations
+     */
+    repeatedReservation?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof ResourceWithRelations
+     */
+    amountAvailable?: number | null;
+    /**
+     * 
+     * @type {Array<CustomFieldUpdate>}
+     * @memberof ResourceWithRelations
+     */
+    customFields: Array<CustomFieldUpdate>;
+    /**
+     * 
+     * @type {DoorWithRelationsAllOfMap}
+     * @memberof ResourceWithRelations
+     */
+    location: DoorWithRelationsAllOfMap;
+    /**
+     * 
+     * @type {DoorWithRelationsAllOfMap}
+     * @memberof ResourceWithRelations
+     */
+    user?: DoorWithRelationsAllOfMap;
+    /**
+     * 
+     * @type {ResourceWithRelationsAllOfReservation}
+     * @memberof ResourceWithRelations
+     */
+    reservation?: ResourceWithRelationsAllOfReservation;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceWithRelationsAllOf
+ */
+export interface ResourceWithRelationsAllOf {
+    /**
+     * 
+     * @type {DoorWithRelationsAllOfMap}
+     * @memberof ResourceWithRelationsAllOf
+     */
+    location: DoorWithRelationsAllOfMap;
+    /**
+     * 
+     * @type {DoorWithRelationsAllOfMap}
+     * @memberof ResourceWithRelationsAllOf
+     */
+    user?: DoorWithRelationsAllOfMap;
+    /**
+     * 
+     * @type {ResourceWithRelationsAllOfReservation}
+     * @memberof ResourceWithRelationsAllOf
+     */
+    reservation?: ResourceWithRelationsAllOfReservation;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceWithRelationsAllOfReservation
+ */
+export interface ResourceWithRelationsAllOfReservation {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelationsAllOfReservation
+     */
+    id: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelationsAllOfReservation
+     */
+    dateFrom: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithRelationsAllOfReservation
+     */
+    dateTo: string;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceWithoutId
+ */
+export interface ResourceWithoutId {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutId
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutId
+     */
+    description?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceWithoutId
+     */
+    active?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutId
+     */
+    resourceType: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceWithoutId
+     */
+    reservationConnectionEnabled: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutId
+     */
+    reservationId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutId
+     */
+    locationId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutId
+     */
+    userId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutId
+     */
+    createdByUserId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutId
+     */
+    dateFrom?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutId
+     */
+    dateTo?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceWithoutId
+     */
+    repeatedReservation?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof ResourceWithoutId
+     */
+    amountAvailable?: number | null;
+    /**
+     * 
+     * @type {Array<CustomFieldUpdate>}
+     * @memberof ResourceWithoutId
+     */
+    customFields: Array<CustomFieldUpdate>;
+}
+/**
+ * 
+ * @export
+ * @interface ResourceWithoutIdAllOf
+ */
+export interface ResourceWithoutIdAllOf {
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutIdAllOf
+     */
+    name: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutIdAllOf
+     */
+    description?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceWithoutIdAllOf
+     */
+    active?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ResourceWithoutIdAllOf
+     */
+    resourceType: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ResourceWithoutIdAllOf
+     */
+    reservationConnectionEnabled: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof ResourceWithoutIdAllOf
+     */
+    amountAvailable?: number | null;
+    /**
+     * 
+     * @type {Array<CustomFieldUpdate>}
+     * @memberof ResourceWithoutIdAllOf
+     */
+    customFields: Array<CustomFieldUpdate>;
 }
 /**
  * Information about this response (response time and status)
@@ -12386,6 +14030,12 @@ export interface UserGroup {
      */
     reservationWindowLengthVisitor?: number | null;
     /**
+     * The length of the reservation window in days for resource reservations.
+     * @type {number}
+     * @memberof UserGroup
+     */
+    reservationWindowLengthResource?: number | null;
+    /**
      * Is this group a department? (shown in some lists)
      * @type {boolean}
      * @memberof UserGroup
@@ -12396,7 +14046,7 @@ export interface UserGroup {
      * @type {number}
      * @memberof UserGroup
      */
-    releaseHours?: number;
+    releaseHours?: number | null;
     /**
      * 
      * @type {string}
@@ -12480,6 +14130,12 @@ export interface UserGroupProperties {
      */
     reservationWindowLengthVisitor?: number | null;
     /**
+     * The length of the reservation window in days for resource reservations.
+     * @type {number}
+     * @memberof UserGroupProperties
+     */
+    reservationWindowLengthResource?: number | null;
+    /**
      * Is this group a department? (shown in some lists)
      * @type {boolean}
      * @memberof UserGroupProperties
@@ -12490,7 +14146,7 @@ export interface UserGroupProperties {
      * @type {number}
      * @memberof UserGroupProperties
      */
-    releaseHours?: number;
+    releaseHours?: number | null;
 }
 /**
  * 
@@ -12542,6 +14198,12 @@ export interface UserGroupWithoutId {
      */
     reservationWindowLengthVisitor?: number | null;
     /**
+     * The length of the reservation window in days for resource reservations.
+     * @type {number}
+     * @memberof UserGroupWithoutId
+     */
+    reservationWindowLengthResource?: number | null;
+    /**
      * Is this group a department? (shown in some lists)
      * @type {boolean}
      * @memberof UserGroupWithoutId
@@ -12552,7 +14214,7 @@ export interface UserGroupWithoutId {
      * @type {number}
      * @memberof UserGroupWithoutId
      */
-    releaseHours?: number;
+    releaseHours?: number | null;
 }
 /**
  * 
@@ -13692,6 +15354,84 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @param {ResourceWithoutId} resourceWithoutId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addResource: async (resourceWithoutId: ResourceWithoutId, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'resourceWithoutId' is not null or undefined
+            assertParamExists('addResource', 'resourceWithoutId', resourceWithoutId)
+            const localVarPath = `/v4/resource`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resourceWithoutId, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {UNKNOWN_BASE_TYPE} uNKNOWNBASETYPE 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addResourceReservation: async (uNKNOWNBASETYPE: UNKNOWN_BASE_TYPE, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'uNKNOWNBASETYPE' is not null or undefined
+            assertParamExists('addResourceReservation', 'uNKNOWNBASETYPE', uNKNOWNBASETYPE)
+            const localVarPath = `/v4/resourceReservation`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(uNKNOWNBASETYPE, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {SeatWithoutId} seatWithoutId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -14643,6 +16383,86 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             // authentication bearerAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} resourceId Resource ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteResource: async (resourceId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('deleteResource', 'resourceId', resourceId)
+            const localVarPath = `/v4/resource`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (resourceId !== undefined) {
+                localVarQueryParameter['resourceId'] = resourceId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} resourceReservationId Resource Reservation ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteResourceReservation: async (resourceReservationId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'resourceReservationId' is not null or undefined
+            assertParamExists('deleteResourceReservation', 'resourceReservationId', resourceReservationId)
+            const localVarPath = `/v4/resourceReservation`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (resourceReservationId !== undefined) {
+                localVarQueryParameter['resourceReservationId'] = resourceReservationId;
+            }
 
 
     
@@ -16236,6 +18056,100 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
+         * @param {string} resourceId Resource ID
+         * @param {string} [dateFrom] Start date for getting amount available of resources
+         * @param {string} [dateTo] End date for getting amount available of resources
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResource: async (resourceId: string, dateFrom?: string, dateTo?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('getResource', 'resourceId', resourceId)
+            const localVarPath = `/v4/resource`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (resourceId !== undefined) {
+                localVarQueryParameter['resourceId'] = resourceId;
+            }
+
+            if (dateFrom !== undefined) {
+                localVarQueryParameter['dateFrom'] = (dateFrom as any instanceof Date) ?
+                    (dateFrom as any).toISOString() :
+                    dateFrom;
+            }
+
+            if (dateTo !== undefined) {
+                localVarQueryParameter['dateTo'] = (dateTo as any instanceof Date) ?
+                    (dateTo as any).toISOString() :
+                    dateTo;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} resourceReservationId Resource Reservation ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResourceReservation: async (resourceReservationId: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'resourceReservationId' is not null or undefined
+            assertParamExists('getResourceReservation', 'resourceReservationId', resourceReservationId)
+            const localVarPath = `/v4/resourceReservation`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (resourceReservationId !== undefined) {
+                localVarQueryParameter['resourceReservationId'] = resourceReservationId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {string} [seatId] Seat ID
          * @param {string} [barcode] Barcode
          * @param {*} [options] Override http request option.
@@ -17114,6 +19028,134 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (companyTransportId !== undefined) {
                 localVarQueryParameter['companyTransportId'] = companyTransportId;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} companyId Company ID
+         * @param {number} [take] Amount of items to take
+         * @param {number} [skip] Amount of items to skip
+         * @param {string} [dateFrom] Start date for getting amount available of resource
+         * @param {string} [dateTo] End date for getting amount available of resource
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listResourceReservations: async (companyId: string, take?: number, skip?: number, dateFrom?: string, dateTo?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'companyId' is not null or undefined
+            assertParamExists('listResourceReservations', 'companyId', companyId)
+            const localVarPath = `/v4/resourceReservations`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (companyId !== undefined) {
+                localVarQueryParameter['companyId'] = companyId;
+            }
+
+            if (take !== undefined) {
+                localVarQueryParameter['take'] = take;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (dateFrom !== undefined) {
+                localVarQueryParameter['dateFrom'] = (dateFrom as any instanceof Date) ?
+                    (dateFrom as any).toISOString() :
+                    dateFrom;
+            }
+
+            if (dateTo !== undefined) {
+                localVarQueryParameter['dateTo'] = (dateTo as any instanceof Date) ?
+                    (dateTo as any).toISOString() :
+                    dateTo;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} companyId Company ID
+         * @param {number} [take] Amount of items to take
+         * @param {number} [skip] Amount of items to skip
+         * @param {string} [dateFrom] Start date for getting amount available of resources
+         * @param {string} [dateTo] End date for getting amount available of resources
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listResources: async (companyId: string, take?: number, skip?: number, dateFrom?: string, dateTo?: string, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'companyId' is not null or undefined
+            assertParamExists('listResources', 'companyId', companyId)
+            const localVarPath = `/v4/resources`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (companyId !== undefined) {
+                localVarQueryParameter['companyId'] = companyId;
+            }
+
+            if (take !== undefined) {
+                localVarQueryParameter['take'] = take;
+            }
+
+            if (skip !== undefined) {
+                localVarQueryParameter['skip'] = skip;
+            }
+
+            if (dateFrom !== undefined) {
+                localVarQueryParameter['dateFrom'] = (dateFrom as any instanceof Date) ?
+                    (dateFrom as any).toISOString() :
+                    dateFrom;
+            }
+
+            if (dateTo !== undefined) {
+                localVarQueryParameter['dateTo'] = (dateTo as any instanceof Date) ?
+                    (dateTo as any).toISOString() :
+                    dateTo;
             }
 
 
@@ -19137,11 +21179,12 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
          * Update all future reservations with the same reoccurReferenceId
          * @param {string} reoccurReferenceId Reoccur reference ID
          * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
+         * @param {string} [referenceId] Reference ID
          * @param {string} [fromReservationId] Update this reservation and all future reservations from this date with the same reoccurReferenceId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateReoccurringReservation: async (reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options: any = {}): Promise<RequestArgs> => {
+        updateReoccurringReservation: async (reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, referenceId?: string, fromReservationId?: string, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'reoccurReferenceId' is not null or undefined
             assertParamExists('updateReoccurringReservation', 'reoccurReferenceId', reoccurReferenceId)
             // verify required parameter 'reservationUpdateReoccurring' is not null or undefined
@@ -19164,6 +21207,10 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 
             if (reoccurReferenceId !== undefined) {
                 localVarQueryParameter['reoccurReferenceId'] = reoccurReferenceId;
+            }
+
+            if (referenceId !== undefined) {
+                localVarQueryParameter['referenceId'] = referenceId;
             }
 
             if (fromReservationId !== undefined) {
@@ -19312,6 +21359,98 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(reservationUpdate, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} resourceId Resource ID
+         * @param {ResourceProperties} resourceProperties 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResource: async (resourceId: string, resourceProperties: ResourceProperties, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'resourceId' is not null or undefined
+            assertParamExists('updateResource', 'resourceId', resourceId)
+            // verify required parameter 'resourceProperties' is not null or undefined
+            assertParamExists('updateResource', 'resourceProperties', resourceProperties)
+            const localVarPath = `/v4/resource`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (resourceId !== undefined) {
+                localVarQueryParameter['resourceId'] = resourceId;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resourceProperties, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} resourceReservationId Resource Reservation ID
+         * @param {ResourceReservationProperties} resourceReservationProperties 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResourceReservation: async (resourceReservationId: string, resourceReservationProperties: ResourceReservationProperties, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'resourceReservationId' is not null or undefined
+            assertParamExists('updateResourceReservation', 'resourceReservationId', resourceReservationId)
+            // verify required parameter 'resourceReservationProperties' is not null or undefined
+            assertParamExists('updateResourceReservation', 'resourceReservationProperties', resourceReservationProperties)
+            const localVarPath = `/v4/resourceReservation`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (resourceReservationId !== undefined) {
+                localVarQueryParameter['resourceReservationId'] = resourceReservationId;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resourceReservationProperties, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -19850,7 +21989,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addCompanyTransportOption(companyTransportOptionWithoutId: CompanyTransportOptionWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20065>> {
+        async addCompanyTransportOption(companyTransportOptionWithoutId: CompanyTransportOptionWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20071>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addCompanyTransportOption(companyTransportOptionWithoutId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19911,7 +22050,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addMapObject(mapObjectWithoutId: MapObjectWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+        async addMapObject(mapObjectWithoutId: MapObjectWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addMapObject(mapObjectWithoutId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19932,7 +22071,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addProfileImage(file: any, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20064>> {
+        async addProfileImage(file: any, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20070>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addProfileImage(file, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19952,8 +22091,28 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addReservation(reservationAdd: ReservationAdd, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20053>> {
+        async addReservation(reservationAdd: ReservationAdd, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20059>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addReservation(reservationAdd, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {ResourceWithoutId} resourceWithoutId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addResource(resourceWithoutId: ResourceWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addResource(resourceWithoutId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {UNKNOWN_BASE_TYPE} uNKNOWNBASETYPE 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async addResourceReservation(uNKNOWNBASETYPE: UNKNOWN_BASE_TYPE, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addResourceReservation(uNKNOWNBASETYPE, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -19962,7 +22121,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addSeat(seatWithoutId: SeatWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+        async addSeat(seatWithoutId: SeatWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addSeat(seatWithoutId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19972,7 +22131,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addSeatTag(seatTagWithoutId: SeatTagWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
+        async addSeatTag(seatTagWithoutId: SeatTagWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20050>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addSeatTag(seatTagWithoutId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -19982,7 +22141,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addTimeslot(timeslotWithoutId: TimeslotWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20050>> {
+        async addTimeslot(timeslotWithoutId: TimeslotWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20056>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addTimeslot(timeslotWithoutId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20002,7 +22161,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addUserGroup(userGroupWithoutId: UserGroupWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
+        async addUserGroup(userGroupWithoutId: UserGroupWithoutId, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20053>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addUserGroup(userGroupWithoutId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20012,7 +22171,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async canCreateReservation(reservationCanCreate: ReservationCanCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20054>> {
+        async canCreateReservation(reservationCanCreate: ReservationCanCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20060>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.canCreateReservation(reservationCanCreate, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20023,7 +22182,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async canUpdateReservation(reservationId: string, reservationUpdate: ReservationUpdate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20054>> {
+        async canUpdateReservation(reservationId: string, reservationUpdate: ReservationUpdate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20060>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.canUpdateReservation(reservationId, reservationUpdate, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20203,6 +22362,26 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} resourceId Resource ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteResource(resourceId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteResource(resourceId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} resourceReservationId Resource Reservation ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteResourceReservation(resourceReservationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteResourceReservation(resourceReservationId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {string} seatId Seat ID
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -20320,7 +22499,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAnalytics(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20068>> {
+        async getAnalytics(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20074>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAnalytics(companyId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20330,7 +22509,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAnalyticsForLocation(locationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20068>> {
+        async getAnalyticsForLocation(locationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20074>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAnalyticsForLocation(locationId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20339,7 +22518,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getBookMyDeskStatistics(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20061>> {
+        async getBookMyDeskStatistics(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20067>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getBookMyDeskStatistics(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20413,7 +22592,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCompanyTransportOption(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20065>> {
+        async getCompanyTransportOption(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20071>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCompanyTransportOption(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20423,7 +22602,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCompanyTransportOptions(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20066>> {
+        async getCompanyTransportOptions(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20072>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCompanyTransportOptions(companyId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20457,7 +22636,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getExportFiles(companyId: string, sortField?: 'created', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20067>> {
+        async getExportFiles(companyId: string, sortField?: 'created', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20073>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getExportFiles(companyId, sortField, sortDirection, take, skip, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20467,7 +22646,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getIcal(icalUuid: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20062>> {
+        async getIcal(icalUuid: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20068>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIcal(icalUuid, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20532,7 +22711,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMapObject(mapObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20035>> {
+        async getMapObject(mapObjectId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMapObject(mapObjectId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20551,7 +22730,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMe_1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20063>> {
+        async getMe_1(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20069>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMe_1(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20600,12 +22779,34 @@ export const DefaultApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {string} resourceId Resource ID
+         * @param {string} [dateFrom] Start date for getting amount available of resources
+         * @param {string} [dateTo] End date for getting amount available of resources
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResource(resourceId: string, dateFrom?: string, dateTo?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getResource(resourceId, dateFrom, dateTo, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} resourceReservationId Resource Reservation ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getResourceReservation(resourceReservationId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getResourceReservation(resourceReservationId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {string} [seatId] Seat ID
          * @param {string} [barcode] Barcode
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSeat(seatId?: string, barcode?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
+        async getSeat(seatId?: string, barcode?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSeat(seatId, barcode, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20615,7 +22816,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSeatTag(tagId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
+        async getSeatTag(tagId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSeatTag(tagId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20625,7 +22826,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSeatsAvailableMSRooms(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
+        async getSeatsAvailableMSRooms(companyId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSeatsAvailableMSRooms(companyId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20635,7 +22836,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTimeslot(timeslotId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20049>> {
+        async getTimeslot(timeslotId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20055>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTimeslot(timeslotId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20655,7 +22856,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserGroup(groupId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20046>> {
+        async getUserGroup(groupId: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20052>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserGroup(groupId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20739,7 +22940,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listMapObjects(companyId: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20034>> {
+        async listMapObjects(companyId: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20040>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listMapObjects(companyId, mapId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20807,8 +23008,36 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, userGroupId?: string, companyTransportId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20056>> {
+        async listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, userGroupId?: string, companyTransportId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20062>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, userGroupId, companyTransportId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} companyId Company ID
+         * @param {number} [take] Amount of items to take
+         * @param {number} [skip] Amount of items to skip
+         * @param {string} [dateFrom] Start date for getting amount available of resource
+         * @param {string} [dateTo] End date for getting amount available of resource
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listResourceReservations(companyId: string, take?: number, skip?: number, dateFrom?: string, dateTo?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listResourceReservations(companyId, take, skip, dateFrom, dateTo, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} companyId Company ID
+         * @param {number} [take] Amount of items to take
+         * @param {number} [skip] Amount of items to skip
+         * @param {string} [dateFrom] Start date for getting amount available of resources
+         * @param {string} [dateTo] End date for getting amount available of resources
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listResources(companyId: string, take?: number, skip?: number, dateFrom?: string, dateTo?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listResources(companyId, take, skip, dateFrom, dateTo, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -20819,7 +23048,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSaltolocks(companyId: string, take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20033>> {
+        async listSaltolocks(companyId: string, take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20039>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSaltolocks(companyId, take, skip, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20833,7 +23062,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSeatTags(companyId: string, sortField?: 'label', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
+        async listSeatTags(companyId: string, sortField?: 'label', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSeatTags(companyId, sortField, sortDirection, take, skip, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20844,7 +23073,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSeats(companyId: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20037>> {
+        async listSeats(companyId: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20043>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSeats(companyId, mapId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20855,7 +23084,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listSeatsUsage(companyId: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20038>> {
+        async listSeatsUsage(companyId: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSeatsUsage(companyId, mapId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20869,7 +23098,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listTimeslots(companyId: string, sortField?: 'name' | 'from' | 'to', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20048>> {
+        async listTimeslots(companyId: string, sortField?: 'name' | 'from' | 'to', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20054>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTimeslots(companyId, sortField, sortDirection, take, skip, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -20883,7 +23112,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listUserGroups(companyId: string, sortField?: 'label', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20045>> {
+        async listUserGroups(companyId: string, sortField?: 'label', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20051>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listUserGroups(companyId, sortField, sortDirection, take, skip, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21074,7 +23303,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async redirToMSAdmin(type?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20060>> {
+        async redirToMSAdmin(type?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20066>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.redirToMSAdmin(type, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21117,7 +23346,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async reservationCheckIn(reservationId: string, inlineObject18?: InlineObject18, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20051>> {
+        async reservationCheckIn(reservationId: string, inlineObject18?: InlineObject18, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20057>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.reservationCheckIn(reservationId, inlineObject18, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21143,7 +23372,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20057>> {
+        async reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20063>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.reservationsStatistics(from, to, seatType, companyId, locationId, mapId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21154,7 +23383,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async reservationsStatisticsToday(companyId: string, locationId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20059>> {
+        async reservationsStatisticsToday(companyId: string, locationId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20065>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.reservationsStatisticsToday(companyId, locationId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21195,7 +23424,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async statisticsToday(companyId: string, locationId?: string, seatType?: 'desk' | 'lunch' | 'meeting', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20058>> {
+        async statisticsToday(companyId: string, locationId?: string, seatType?: 'desk' | 'lunch' | 'meeting', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20064>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.statisticsToday(companyId, locationId, seatType, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21239,7 +23468,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCompanyTransportOption(id: string, companyTransportOptionProperties: CompanyTransportOptionProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20065>> {
+        async updateCompanyTransportOption(id: string, companyTransportOptionProperties: CompanyTransportOptionProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20071>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateCompanyTransportOption(id, companyTransportOptionProperties, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21294,7 +23523,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMapObject(mapObjectId: string, mapObjectProperties: MapObjectProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20036>> {
+        async updateMapObject(mapObjectId: string, mapObjectProperties: MapObjectProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20042>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateMapObject(mapObjectId, mapObjectProperties, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21304,7 +23533,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMe(inlineObject21: InlineObject21, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20064>> {
+        async updateMe(inlineObject21: InlineObject21, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20070>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateMe(inlineObject21, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21322,12 +23551,13 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * Update all future reservations with the same reoccurReferenceId
          * @param {string} reoccurReferenceId Reoccur reference ID
          * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
+         * @param {string} [referenceId] Reference ID
          * @param {string} [fromReservationId] Update this reservation and all future reservations from this date with the same reoccurReferenceId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20055>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, fromReservationId, options);
+        async updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, referenceId?: string, fromReservationId?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20061>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, referenceId, fromReservationId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -21360,8 +23590,30 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateReservation_2(reservationId: string, reservationUpdate: ReservationUpdate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20052>> {
+        async updateReservation_2(reservationId: string, reservationUpdate: ReservationUpdate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20058>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateReservation_2(reservationId, reservationUpdate, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} resourceId Resource ID
+         * @param {ResourceProperties} resourceProperties 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateResource(resourceId: string, resourceProperties: ResourceProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateResource(resourceId, resourceProperties, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @param {string} resourceReservationId Resource Reservation ID
+         * @param {ResourceReservationProperties} resourceReservationProperties 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateResourceReservation(resourceReservationId: string, resourceReservationProperties: ResourceReservationProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateResourceReservation(resourceReservationId, resourceReservationProperties, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -21371,7 +23623,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSeat(seatId: string, seatUpdate: SeatUpdate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20041>> {
+        async updateSeat(seatId: string, seatUpdate: SeatUpdate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateSeat(seatId, seatUpdate, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21382,7 +23634,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSeatTag(tagId: string, seatTagProperties: SeatTagProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20044>> {
+        async updateSeatTag(tagId: string, seatTagProperties: SeatTagProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20050>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateSeatTag(tagId, seatTagProperties, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21393,7 +23645,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTimeslot(timeslotId: string, timeslotProperties: TimeslotProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20050>> {
+        async updateTimeslot(timeslotId: string, timeslotProperties: TimeslotProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20056>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateTimeslot(timeslotId, timeslotProperties, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21415,7 +23667,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUserGroup(groupId: string, userGroupProperties: UserGroupProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20047>> {
+        async updateUserGroup(groupId: string, userGroupProperties: UserGroupProperties, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20053>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateUserGroup(groupId, userGroupProperties, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21470,7 +23722,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async v3Statistics(from: string, to: string, companyId: string, locationId?: string, seatType?: 'desk' | 'lunch' | 'meeting', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20058>> {
+        async v3Statistics(from: string, to: string, companyId: string, locationId?: string, seatType?: 'desk' | 'lunch' | 'meeting', options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse20064>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.v3Statistics(from, to, companyId, locationId, seatType, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -21525,7 +23777,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addCompanyTransportOption(companyTransportOptionWithoutId: CompanyTransportOptionWithoutId, options?: any): AxiosPromise<InlineResponse20065> {
+        addCompanyTransportOption(companyTransportOptionWithoutId: CompanyTransportOptionWithoutId, options?: any): AxiosPromise<InlineResponse20071> {
             return localVarFp.addCompanyTransportOption(companyTransportOptionWithoutId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21580,7 +23832,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addMapObject(mapObjectWithoutId: MapObjectWithoutId, options?: any): AxiosPromise<InlineResponse20036> {
+        addMapObject(mapObjectWithoutId: MapObjectWithoutId, options?: any): AxiosPromise<InlineResponse20042> {
             return localVarFp.addMapObject(mapObjectWithoutId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21599,7 +23851,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addProfileImage(file: any, options?: any): AxiosPromise<InlineResponse20064> {
+        addProfileImage(file: any, options?: any): AxiosPromise<InlineResponse20070> {
             return localVarFp.addProfileImage(file, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21617,8 +23869,26 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addReservation(reservationAdd: ReservationAdd, options?: any): AxiosPromise<InlineResponse20053> {
+        addReservation(reservationAdd: ReservationAdd, options?: any): AxiosPromise<InlineResponse20059> {
             return localVarFp.addReservation(reservationAdd, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {ResourceWithoutId} resourceWithoutId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addResource(resourceWithoutId: ResourceWithoutId, options?: any): AxiosPromise<InlineResponse20035> {
+            return localVarFp.addResource(resourceWithoutId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {UNKNOWN_BASE_TYPE} uNKNOWNBASETYPE 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        addResourceReservation(uNKNOWNBASETYPE: UNKNOWN_BASE_TYPE, options?: any): AxiosPromise<InlineResponse20038> {
+            return localVarFp.addResourceReservation(uNKNOWNBASETYPE, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -21626,7 +23896,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addSeat(seatWithoutId: SeatWithoutId, options?: any): AxiosPromise<InlineResponse20041> {
+        addSeat(seatWithoutId: SeatWithoutId, options?: any): AxiosPromise<InlineResponse20047> {
             return localVarFp.addSeat(seatWithoutId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21635,7 +23905,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addSeatTag(seatTagWithoutId: SeatTagWithoutId, options?: any): AxiosPromise<InlineResponse20044> {
+        addSeatTag(seatTagWithoutId: SeatTagWithoutId, options?: any): AxiosPromise<InlineResponse20050> {
             return localVarFp.addSeatTag(seatTagWithoutId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21644,7 +23914,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addTimeslot(timeslotWithoutId: TimeslotWithoutId, options?: any): AxiosPromise<InlineResponse20050> {
+        addTimeslot(timeslotWithoutId: TimeslotWithoutId, options?: any): AxiosPromise<InlineResponse20056> {
             return localVarFp.addTimeslot(timeslotWithoutId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21662,7 +23932,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addUserGroup(userGroupWithoutId: UserGroupWithoutId, options?: any): AxiosPromise<InlineResponse20047> {
+        addUserGroup(userGroupWithoutId: UserGroupWithoutId, options?: any): AxiosPromise<InlineResponse20053> {
             return localVarFp.addUserGroup(userGroupWithoutId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21671,7 +23941,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        canCreateReservation(reservationCanCreate: ReservationCanCreate, options?: any): AxiosPromise<InlineResponse20054> {
+        canCreateReservation(reservationCanCreate: ReservationCanCreate, options?: any): AxiosPromise<InlineResponse20060> {
             return localVarFp.canCreateReservation(reservationCanCreate, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21681,7 +23951,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        canUpdateReservation(reservationId: string, reservationUpdate: ReservationUpdate, options?: any): AxiosPromise<InlineResponse20054> {
+        canUpdateReservation(reservationId: string, reservationUpdate: ReservationUpdate, options?: any): AxiosPromise<InlineResponse20060> {
             return localVarFp.canUpdateReservation(reservationId, reservationUpdate, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21843,6 +24113,24 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
+         * @param {string} resourceId Resource ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteResource(resourceId: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteResource(resourceId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} resourceReservationId Resource Reservation ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteResourceReservation(resourceReservationId: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteResourceReservation(resourceReservationId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {string} seatId Seat ID
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -21950,7 +24238,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAnalytics(companyId: string, options?: any): AxiosPromise<InlineResponse20068> {
+        getAnalytics(companyId: string, options?: any): AxiosPromise<InlineResponse20074> {
             return localVarFp.getAnalytics(companyId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21959,7 +24247,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAnalyticsForLocation(locationId: string, options?: any): AxiosPromise<InlineResponse20068> {
+        getAnalyticsForLocation(locationId: string, options?: any): AxiosPromise<InlineResponse20074> {
             return localVarFp.getAnalyticsForLocation(locationId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -21967,7 +24255,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBookMyDeskStatistics(options?: any): AxiosPromise<InlineResponse20061> {
+        getBookMyDeskStatistics(options?: any): AxiosPromise<InlineResponse20067> {
             return localVarFp.getBookMyDeskStatistics(options).then((request) => request(axios, basePath));
         },
         /**
@@ -22034,7 +24322,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCompanyTransportOption(id: string, options?: any): AxiosPromise<InlineResponse20065> {
+        getCompanyTransportOption(id: string, options?: any): AxiosPromise<InlineResponse20071> {
             return localVarFp.getCompanyTransportOption(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22043,7 +24331,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCompanyTransportOptions(companyId: string, options?: any): AxiosPromise<InlineResponse20066> {
+        getCompanyTransportOptions(companyId: string, options?: any): AxiosPromise<InlineResponse20072> {
             return localVarFp.getCompanyTransportOptions(companyId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22074,7 +24362,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getExportFiles(companyId: string, sortField?: 'created', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20067> {
+        getExportFiles(companyId: string, sortField?: 'created', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20073> {
             return localVarFp.getExportFiles(companyId, sortField, sortDirection, take, skip, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22083,7 +24371,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIcal(icalUuid: string, options?: any): AxiosPromise<InlineResponse20062> {
+        getIcal(icalUuid: string, options?: any): AxiosPromise<InlineResponse20068> {
             return localVarFp.getIcal(icalUuid, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22142,7 +24430,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMapObject(mapObjectId: string, options?: any): AxiosPromise<InlineResponse20035> {
+        getMapObject(mapObjectId: string, options?: any): AxiosPromise<InlineResponse20041> {
             return localVarFp.getMapObject(mapObjectId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22159,7 +24447,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMe_1(options?: any): AxiosPromise<InlineResponse20063> {
+        getMe_1(options?: any): AxiosPromise<InlineResponse20069> {
             return localVarFp.getMe_1(options).then((request) => request(axios, basePath));
         },
         /**
@@ -22203,12 +24491,32 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
         },
         /**
          * 
+         * @param {string} resourceId Resource ID
+         * @param {string} [dateFrom] Start date for getting amount available of resources
+         * @param {string} [dateTo] End date for getting amount available of resources
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResource(resourceId: string, dateFrom?: string, dateTo?: string, options?: any): AxiosPromise<InlineResponse20034> {
+            return localVarFp.getResource(resourceId, dateFrom, dateTo, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} resourceReservationId Resource Reservation ID
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getResourceReservation(resourceReservationId: string, options?: any): AxiosPromise<InlineResponse20037> {
+            return localVarFp.getResourceReservation(resourceReservationId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {string} [seatId] Seat ID
          * @param {string} [barcode] Barcode
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSeat(seatId?: string, barcode?: string, options?: any): AxiosPromise<InlineResponse20040> {
+        getSeat(seatId?: string, barcode?: string, options?: any): AxiosPromise<InlineResponse20046> {
             return localVarFp.getSeat(seatId, barcode, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22217,7 +24525,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSeatTag(tagId: string, options?: any): AxiosPromise<InlineResponse20043> {
+        getSeatTag(tagId: string, options?: any): AxiosPromise<InlineResponse20049> {
             return localVarFp.getSeatTag(tagId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22226,7 +24534,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSeatsAvailableMSRooms(companyId: string, options?: any): AxiosPromise<InlineResponse20039> {
+        getSeatsAvailableMSRooms(companyId: string, options?: any): AxiosPromise<InlineResponse20045> {
             return localVarFp.getSeatsAvailableMSRooms(companyId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22235,7 +24543,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTimeslot(timeslotId: string, options?: any): AxiosPromise<InlineResponse20049> {
+        getTimeslot(timeslotId: string, options?: any): AxiosPromise<InlineResponse20055> {
             return localVarFp.getTimeslot(timeslotId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22253,7 +24561,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserGroup(groupId: string, options?: any): AxiosPromise<InlineResponse20046> {
+        getUserGroup(groupId: string, options?: any): AxiosPromise<InlineResponse20052> {
             return localVarFp.getUserGroup(groupId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22330,7 +24638,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMapObjects(companyId: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20034> {
+        listMapObjects(companyId: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20040> {
             return localVarFp.listMapObjects(companyId, mapId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22394,8 +24702,34 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, userGroupId?: string, companyTransportId?: string, options?: any): AxiosPromise<InlineResponse20056> {
+        listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, userGroupId?: string, companyTransportId?: string, options?: any): AxiosPromise<InlineResponse20062> {
             return localVarFp.listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, userGroupId, companyTransportId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} companyId Company ID
+         * @param {number} [take] Amount of items to take
+         * @param {number} [skip] Amount of items to skip
+         * @param {string} [dateFrom] Start date for getting amount available of resource
+         * @param {string} [dateTo] End date for getting amount available of resource
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listResourceReservations(companyId: string, take?: number, skip?: number, dateFrom?: string, dateTo?: string, options?: any): AxiosPromise<InlineResponse20036> {
+            return localVarFp.listResourceReservations(companyId, take, skip, dateFrom, dateTo, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} companyId Company ID
+         * @param {number} [take] Amount of items to take
+         * @param {number} [skip] Amount of items to skip
+         * @param {string} [dateFrom] Start date for getting amount available of resources
+         * @param {string} [dateTo] End date for getting amount available of resources
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listResources(companyId: string, take?: number, skip?: number, dateFrom?: string, dateTo?: string, options?: any): AxiosPromise<InlineResponse20033> {
+            return localVarFp.listResources(companyId, take, skip, dateFrom, dateTo, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -22405,7 +24739,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSaltolocks(companyId: string, take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20033> {
+        listSaltolocks(companyId: string, take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20039> {
             return localVarFp.listSaltolocks(companyId, take, skip, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22418,7 +24752,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSeatTags(companyId: string, sortField?: 'label', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20042> {
+        listSeatTags(companyId: string, sortField?: 'label', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20048> {
             return localVarFp.listSeatTags(companyId, sortField, sortDirection, take, skip, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22428,7 +24762,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSeats(companyId: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20037> {
+        listSeats(companyId: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20043> {
             return localVarFp.listSeats(companyId, mapId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22438,7 +24772,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listSeatsUsage(companyId: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20038> {
+        listSeatsUsage(companyId: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20044> {
             return localVarFp.listSeatsUsage(companyId, mapId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22451,7 +24785,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listTimeslots(companyId: string, sortField?: 'name' | 'from' | 'to', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20048> {
+        listTimeslots(companyId: string, sortField?: 'name' | 'from' | 'to', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20054> {
             return localVarFp.listTimeslots(companyId, sortField, sortDirection, take, skip, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22464,7 +24798,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listUserGroups(companyId: string, sortField?: 'label', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20045> {
+        listUserGroups(companyId: string, sortField?: 'label', sortDirection?: 'asc' | 'desc', take?: number, skip?: number, options?: any): AxiosPromise<InlineResponse20051> {
             return localVarFp.listUserGroups(companyId, sortField, sortDirection, take, skip, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22639,7 +24973,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        redirToMSAdmin(type?: string, options?: any): AxiosPromise<InlineResponse20060> {
+        redirToMSAdmin(type?: string, options?: any): AxiosPromise<InlineResponse20066> {
             return localVarFp.redirToMSAdmin(type, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22678,7 +25012,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        reservationCheckIn(reservationId: string, inlineObject18?: InlineObject18, options?: any): AxiosPromise<InlineResponse20051> {
+        reservationCheckIn(reservationId: string, inlineObject18?: InlineObject18, options?: any): AxiosPromise<InlineResponse20057> {
             return localVarFp.reservationCheckIn(reservationId, inlineObject18, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22702,7 +25036,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20057> {
+        reservationsStatistics(from: string, to: string, seatType: SeatType, companyId: string, locationId?: string, mapId?: string, options?: any): AxiosPromise<InlineResponse20063> {
             return localVarFp.reservationsStatistics(from, to, seatType, companyId, locationId, mapId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22712,7 +25046,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        reservationsStatisticsToday(companyId: string, locationId?: string, options?: any): AxiosPromise<InlineResponse20059> {
+        reservationsStatisticsToday(companyId: string, locationId?: string, options?: any): AxiosPromise<InlineResponse20065> {
             return localVarFp.reservationsStatisticsToday(companyId, locationId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22749,7 +25083,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        statisticsToday(companyId: string, locationId?: string, seatType?: 'desk' | 'lunch' | 'meeting', options?: any): AxiosPromise<InlineResponse20058> {
+        statisticsToday(companyId: string, locationId?: string, seatType?: 'desk' | 'lunch' | 'meeting', options?: any): AxiosPromise<InlineResponse20064> {
             return localVarFp.statisticsToday(companyId, locationId, seatType, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22789,7 +25123,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCompanyTransportOption(id: string, companyTransportOptionProperties: CompanyTransportOptionProperties, options?: any): AxiosPromise<InlineResponse20065> {
+        updateCompanyTransportOption(id: string, companyTransportOptionProperties: CompanyTransportOptionProperties, options?: any): AxiosPromise<InlineResponse20071> {
             return localVarFp.updateCompanyTransportOption(id, companyTransportOptionProperties, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22839,7 +25173,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateMapObject(mapObjectId: string, mapObjectProperties: MapObjectProperties, options?: any): AxiosPromise<InlineResponse20036> {
+        updateMapObject(mapObjectId: string, mapObjectProperties: MapObjectProperties, options?: any): AxiosPromise<InlineResponse20042> {
             return localVarFp.updateMapObject(mapObjectId, mapObjectProperties, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22848,7 +25182,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateMe(inlineObject21: InlineObject21, options?: any): AxiosPromise<InlineResponse20064> {
+        updateMe(inlineObject21: InlineObject21, options?: any): AxiosPromise<InlineResponse20070> {
             return localVarFp.updateMe(inlineObject21, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22864,12 +25198,13 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * Update all future reservations with the same reoccurReferenceId
          * @param {string} reoccurReferenceId Reoccur reference ID
          * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
+         * @param {string} [referenceId] Reference ID
          * @param {string} [fromReservationId] Update this reservation and all future reservations from this date with the same reoccurReferenceId
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options?: any): AxiosPromise<InlineResponse20055> {
-            return localVarFp.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, fromReservationId, options).then((request) => request(axios, basePath));
+        updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, referenceId?: string, fromReservationId?: string, options?: any): AxiosPromise<InlineResponse20061> {
+            return localVarFp.updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, referenceId, fromReservationId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -22899,8 +25234,28 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateReservation_2(reservationId: string, reservationUpdate: ReservationUpdate, options?: any): AxiosPromise<InlineResponse20052> {
+        updateReservation_2(reservationId: string, reservationUpdate: ReservationUpdate, options?: any): AxiosPromise<InlineResponse20058> {
             return localVarFp.updateReservation_2(reservationId, reservationUpdate, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} resourceId Resource ID
+         * @param {ResourceProperties} resourceProperties 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResource(resourceId: string, resourceProperties: ResourceProperties, options?: any): AxiosPromise<object> {
+            return localVarFp.updateResource(resourceId, resourceProperties, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} resourceReservationId Resource Reservation ID
+         * @param {ResourceReservationProperties} resourceReservationProperties 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateResourceReservation(resourceReservationId: string, resourceReservationProperties: ResourceReservationProperties, options?: any): AxiosPromise<object> {
+            return localVarFp.updateResourceReservation(resourceReservationId, resourceReservationProperties, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -22909,7 +25264,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateSeat(seatId: string, seatUpdate: SeatUpdate, options?: any): AxiosPromise<InlineResponse20041> {
+        updateSeat(seatId: string, seatUpdate: SeatUpdate, options?: any): AxiosPromise<InlineResponse20047> {
             return localVarFp.updateSeat(seatId, seatUpdate, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22919,7 +25274,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateSeatTag(tagId: string, seatTagProperties: SeatTagProperties, options?: any): AxiosPromise<InlineResponse20044> {
+        updateSeatTag(tagId: string, seatTagProperties: SeatTagProperties, options?: any): AxiosPromise<InlineResponse20050> {
             return localVarFp.updateSeatTag(tagId, seatTagProperties, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22929,7 +25284,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateTimeslot(timeslotId: string, timeslotProperties: TimeslotProperties, options?: any): AxiosPromise<InlineResponse20050> {
+        updateTimeslot(timeslotId: string, timeslotProperties: TimeslotProperties, options?: any): AxiosPromise<InlineResponse20056> {
             return localVarFp.updateTimeslot(timeslotId, timeslotProperties, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22949,7 +25304,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserGroup(groupId: string, userGroupProperties: UserGroupProperties, options?: any): AxiosPromise<InlineResponse20047> {
+        updateUserGroup(groupId: string, userGroupProperties: UserGroupProperties, options?: any): AxiosPromise<InlineResponse20053> {
             return localVarFp.updateUserGroup(groupId, userGroupProperties, options).then((request) => request(axios, basePath));
         },
         /**
@@ -22999,7 +25354,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        v3Statistics(from: string, to: string, companyId: string, locationId?: string, seatType?: 'desk' | 'lunch' | 'meeting', options?: any): AxiosPromise<InlineResponse20058> {
+        v3Statistics(from: string, to: string, companyId: string, locationId?: string, seatType?: 'desk' | 'lunch' | 'meeting', options?: any): AxiosPromise<InlineResponse20064> {
             return localVarFp.v3Statistics(from, to, companyId, locationId, seatType, options).then((request) => request(axios, basePath));
         },
         /**
@@ -23173,6 +25528,28 @@ export class DefaultApi extends BaseAPI {
      */
     public addReservation(reservationAdd: ReservationAdd, options?: any) {
         return DefaultApiFp(this.configuration).addReservation(reservationAdd, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {ResourceWithoutId} resourceWithoutId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public addResource(resourceWithoutId: ResourceWithoutId, options?: any) {
+        return DefaultApiFp(this.configuration).addResource(resourceWithoutId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {UNKNOWN_BASE_TYPE} uNKNOWNBASETYPE 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public addResourceReservation(uNKNOWNBASETYPE: UNKNOWN_BASE_TYPE, options?: any) {
+        return DefaultApiFp(this.configuration).addResourceReservation(uNKNOWNBASETYPE, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23442,6 +25819,28 @@ export class DefaultApi extends BaseAPI {
      */
     public deleteReservationForApp(reservationId: string, options?: any) {
         return DefaultApiFp(this.configuration).deleteReservationForApp(reservationId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} resourceId Resource ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public deleteResource(resourceId: string, options?: any) {
+        return DefaultApiFp(this.configuration).deleteResource(resourceId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} resourceReservationId Resource Reservation ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public deleteResourceReservation(resourceReservationId: string, options?: any) {
+        return DefaultApiFp(this.configuration).deleteResourceReservation(resourceReservationId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23880,6 +26279,30 @@ export class DefaultApi extends BaseAPI {
 
     /**
      * 
+     * @param {string} resourceId Resource ID
+     * @param {string} [dateFrom] Start date for getting amount available of resources
+     * @param {string} [dateTo] End date for getting amount available of resources
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public getResource(resourceId: string, dateFrom?: string, dateTo?: string, options?: any) {
+        return DefaultApiFp(this.configuration).getResource(resourceId, dateFrom, dateTo, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} resourceReservationId Resource Reservation ID
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public getResourceReservation(resourceReservationId: string, options?: any) {
+        return DefaultApiFp(this.configuration).getResourceReservation(resourceReservationId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
      * @param {string} [seatId] Seat ID
      * @param {string} [barcode] Barcode
      * @param {*} [options] Override http request option.
@@ -24106,6 +26529,36 @@ export class DefaultApi extends BaseAPI {
      */
     public listReservations(companyId: string, sortField?: 'date' | 'from' | 'to' | 'cancelled' | 'includeParking' | 'visitorName' | 'visitorEmail' | 'visitorPhone' | 'user.firstName' | 'user.lastName' | 'user.email' | 'location.name' | 'map.name' | 'seat.name' | 'type', sortDirection?: 'asc' | 'desc', filter?: string, fromOperator?: 'equals' | 'not' | 'gt' | 'gte' | 'lt' | 'lte', allForCompany?: boolean, take?: number, skip?: number, from?: string, to?: string, userId?: string, status?: ReservationStatus, locationId?: string, mapId?: string, seatType?: SeatType, type?: ReservationType, includeAnonymous?: boolean, userGroupId?: string, companyTransportId?: string, options?: any) {
         return DefaultApiFp(this.configuration).listReservations(companyId, sortField, sortDirection, filter, fromOperator, allForCompany, take, skip, from, to, userId, status, locationId, mapId, seatType, type, includeAnonymous, userGroupId, companyTransportId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} companyId Company ID
+     * @param {number} [take] Amount of items to take
+     * @param {number} [skip] Amount of items to skip
+     * @param {string} [dateFrom] Start date for getting amount available of resource
+     * @param {string} [dateTo] End date for getting amount available of resource
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public listResourceReservations(companyId: string, take?: number, skip?: number, dateFrom?: string, dateTo?: string, options?: any) {
+        return DefaultApiFp(this.configuration).listResourceReservations(companyId, take, skip, dateFrom, dateTo, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} companyId Company ID
+     * @param {number} [take] Amount of items to take
+     * @param {number} [skip] Amount of items to skip
+     * @param {string} [dateFrom] Start date for getting amount available of resources
+     * @param {string} [dateTo] End date for getting amount available of resources
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public listResources(companyId: string, take?: number, skip?: number, dateFrom?: string, dateTo?: string, options?: any) {
+        return DefaultApiFp(this.configuration).listResources(companyId, take, skip, dateFrom, dateTo, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24663,13 +27116,14 @@ export class DefaultApi extends BaseAPI {
      * Update all future reservations with the same reoccurReferenceId
      * @param {string} reoccurReferenceId Reoccur reference ID
      * @param {ReservationUpdateReoccurring} reservationUpdateReoccurring 
+     * @param {string} [referenceId] Reference ID
      * @param {string} [fromReservationId] Update this reservation and all future reservations from this date with the same reoccurReferenceId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DefaultApi
      */
-    public updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, fromReservationId?: string, options?: any) {
-        return DefaultApiFp(this.configuration).updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, fromReservationId, options).then((request) => request(this.axios, this.basePath));
+    public updateReoccurringReservation(reoccurReferenceId: string, reservationUpdateReoccurring: ReservationUpdateReoccurring, referenceId?: string, fromReservationId?: string, options?: any) {
+        return DefaultApiFp(this.configuration).updateReoccurringReservation(reoccurReferenceId, reservationUpdateReoccurring, referenceId, fromReservationId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24707,6 +27161,30 @@ export class DefaultApi extends BaseAPI {
      */
     public updateReservation_2(reservationId: string, reservationUpdate: ReservationUpdate, options?: any) {
         return DefaultApiFp(this.configuration).updateReservation_2(reservationId, reservationUpdate, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} resourceId Resource ID
+     * @param {ResourceProperties} resourceProperties 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public updateResource(resourceId: string, resourceProperties: ResourceProperties, options?: any) {
+        return DefaultApiFp(this.configuration).updateResource(resourceId, resourceProperties, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} resourceReservationId Resource Reservation ID
+     * @param {ResourceReservationProperties} resourceReservationProperties 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DefaultApi
+     */
+    public updateResourceReservation(resourceReservationId: string, resourceReservationProperties: ResourceReservationProperties, options?: any) {
+        return DefaultApiFp(this.configuration).updateResourceReservation(resourceReservationId, resourceReservationProperties, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
